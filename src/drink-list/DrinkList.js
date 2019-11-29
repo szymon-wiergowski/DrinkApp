@@ -4,17 +4,17 @@ function Drink ( id, name, alko, ingredients, img_url, power, description, recip
     this.name=name;
     this.alko=alko;
     this.ingredients=ingredients
-    this.img_url= img.url;
+    this.img_url= img_url;
     this.power=power;
     this.description=description;
     this.recipe = recipe;
     this.origin= origin;
     }
     
-    const drink1 = new Drink(1,"Mojito",true, [1,2,8,4,3], x1.img, "8%", "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.", "Kuba");
-    const drink2 = new Drink(2,"Margarita",true,[9,10,5,2], x2.img, "8%", " Najpierw przygotuj szkło: przetrzyj rant kieliszka cząstką limonki, a następnie delikatnie umocz zewnętrzną część brzegu kieliszka w soli. Stworzy to fantastyczny kontrast do słodko-kwaśnej margarity. Następnie wstrząśnij składniki w szejkerze i odcedź bez lodu do schłodzonego kieliszka.", "Hiszpania");
-    const drink3 = new Drink(3,"Frog",false, [7,6,11,12, 1], x3.img, "0%", "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera", "Peru");
-    const drink4 = new Drink(4,"Pinacolada",false, [6,13,3], x4.img, "0%","Składniki odmierzamy i mieszamy w shakerze. Wysoką szklankę napełniamy do połowy kruszonym lodem, a następnie przelewamy napój. Możemy udekorować go parasolką i słomką — drink bezalkoholowy gotowy!", "Portoryko");
+    const drink1 = new Drink(1,"Mojito",true, [1,2,8,4,3], "x1.img", "8%", "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.", "Kuba");
+    const drink2 = new Drink(2,"Margarita",true,[9,10,5,2], "x2.img", "8%", " Najpierw przygotuj szkło: przetrzyj rant kieliszka cząstką limonki, a następnie delikatnie umocz zewnętrzną część brzegu kieliszka w soli. Stworzy to fantastyczny kontrast do słodko-kwaśnej margarity. Następnie wstrząśnij składniki w szejkerze i odcedź bez lodu do schłodzonego kieliszka.", "Hiszpania");
+    const drink3 = new Drink(3,"Frog",false, [7,6,11,12, 1], "x3.img", "0%", "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera", "Peru");
+    const drink4 = new Drink(4,"Pinacolada",false, [6,13,3], "x4.img", "0%","Składniki odmierzamy i mieszamy w shakerze. Wysoką szklankę napełniamy do połowy kruszonym lodem, a następnie przelewamy napój. Możemy udekorować go parasolką i słomką — drink bezalkoholowy gotowy!", "Portoryko");
     
     
     
