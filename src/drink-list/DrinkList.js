@@ -26,18 +26,18 @@ function Drink ( id, name, alko, ingredients, img_url, power, description, recip
     }
     
     
-    const lime= new Ingredient[1, "sok z limonki"];
-    const sugar = new Ingredient[2,"cukier"];
-    const ice = new Ingredient[3,"lód"];
-    const  rum= new Ingredient[4,"rum"];
-    const lemon= new Ingredient[5, "sok z cytryny"];
-    const pineapple = new Ingredient[6,"sok ananasowy"];
-    const grapefruit = new Ingredient[7,"sok grejpfrutowy"];
+    const lime= new Ingredient(1, "sok z limonki");
+    const sugar = new Ingredient(2,"cukier");
+    const ice = new Ingredient(3,"lód");
+    const  rum= new Ingredient(4,"rum");
+    const lemon= new Ingredient(5, "sok z cytryny");
+    const pineapple = new Ingredient(6,"sok ananasowy");
+    const grapefruit = new Ingredient(7,"sok grejpfrutowy");
     
     
     
     
-    // lista sklepów
+//lista sklepów
     function Shop(id, name, localization, openHours){
     this.id=id;
     this.name= name;
