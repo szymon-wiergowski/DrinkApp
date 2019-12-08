@@ -1,0 +1,39 @@
+{
+    "drinks": [
+        {
+            "id": 1,
+            "name": "mohito",
+            "alko": true,
+            "ingredients": [
+                1,
+                2,
+                8,
+                4,
+                3
+            ],
+            "img_url": "x1.img",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.",
+            "origin": "Kuba"
+        },
+        {
+            "id": 2,
+            "name": "whisky z cola",
+            "alko": true,
+            "ingredients": [
+                1,
+                2,
+                8,
+                4,
+                3
+            ],
+            "img_url": "x1.img",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.",
+            "origin": "Kuba"
+        }
+
+    ]
+}
