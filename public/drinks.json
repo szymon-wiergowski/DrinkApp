@@ -2,7 +2,7 @@
     "drinks": [
         {
             "id": 1,
-            "name": "mohito",
+            "name": "Mohito",
             "alko": true,
             "ingredients": [
                 1,
@@ -19,21 +19,53 @@
         },
         {
             "id": 2,
-            "name": "whisky z cola",
+            "name": "Margharita",
             "alko": true,
             "ingredients": [
-                1,
-                2,
-                8,
-                4,
-                3
+                9,
+                10,
+                5,
+                2
             ],
-            "img_url": "x1.img",
+            "img_url": "x2.img",
             "power": "8%",
             "description": "orzeźwiający",
-            "recipe": "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.",
-            "origin": "Kuba"
-        }
+            "recipe": "Najpierw przygotuj szkło: przetrzyj rant kieliszka cząstką limonki, a następnie delikatnie umocz zewnętrzną część brzegu kieliszka w soli. Stworzy to fantastyczny kontrast do słodko-kwaśnej margarity. Następnie wstrząśnij składniki w szejkerze i odcedź bez lodu do schłodzonego kieliszka.",
+            "origin": "Hiszpania"
+        },
+        {
+            "id": 3,
+            "name": "Frog",
+            "alko": false,
+            "ingredients": [
+                7,
+                6,
+                11,
+                12,
+                1
+            ],
+            "img_url": "x3.img",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera", 
+            "origin": "Peru"
+        },
 
+
+        {
+            "id": 4,
+            "name": "Pinacolada",
+            "alko": false,
+            "ingredients": [
+                13,
+                6,
+                3
+            ],
+            "img_url": "x4.img",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Składniki odmierzamy i mieszamy w shakerze. Wysoką szklankę napełniamy do połowy kruszonym lodem, a następnie przelewamy napój. Możemy udekorować go parasolką i słomką — drink bezalkoholowy gotowy!",
+            "origin": "Portoryko"
+        }
     ]
 }
