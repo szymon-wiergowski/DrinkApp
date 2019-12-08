@@ -1,0 +1,56 @@
+{
+    "ingrediens": [
+        {
+            "id": 1,
+            "name": "sok z limonki"
+        },
+        {
+            "id": 2,
+            "name": "cukier"
+        },
+        {
+            "id": 3,
+            "name": "lód"
+        },
+        {
+            "id": 4,
+            "name": "rum"
+        },
+        {
+            "id": 5,
+            "name": "sok z cytryny"
+        },
+        {
+            "id": 6,
+            "name": "sok ananasowy"
+        },
+        {
+            "id": 7,
+            "name": "sok grejpfrutowy"
+        },
+        {
+            "id": 8,
+            "name": "listki mięty"
+        },
+        {
+            "id": 9,
+            "name": "tequila"
+        },
+        {
+            "id": 10,
+            "name": "cointreau"
+        },
+        {
+            "id": 11,
+            "name": "bezalkoholowe blue curacao"
+        },
+        {
+            "id": 12,
+            "name": "wiórki kokosowe"
+        },
+        {
+            "id": 13,
+            "name": "syrop kokosowy"
+        }
+    ]
+}
