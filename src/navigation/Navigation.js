@@ -72,9 +72,9 @@ export function Navbar() {
                 >
                     <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
-                    <Tab icon={<FontDownloadRoundedIcon />} label="alkomat"></Tab>
-                    <Tab icon={<AddRoundedIcon />} label="dodaj drinka"></Tab>
-                    <Tab icon={<ExploreRoundedIcon />} label="mapa"></Tab>
+                    <Tab icon={<FontDownloadRoundedIcon />} label="alkomat" component={Link} to="/alco"></Tab>
+                    <Tab icon={<AddRoundedIcon />} label="dodaj drinka" component={Link} to="/addDrink"></Tab>
+                    <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                     <SwipeableDrawer
                         anchor="right"

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
+import { FormPropsTextFields } from './forms/FormDrink'
 
 
 function App() {
@@ -13,6 +14,18 @@ function App() {
         <Route
           path="/shops"
           component={Shops}
+        />
+        <Route
+          path="/addDrink"
+          component={FormPropsTextFields}
+        />
+        <Route
+          path="/map"
+          
+        />
+        <Route
+          path="/alco"
+          
         />
         <Route
           path="/"
