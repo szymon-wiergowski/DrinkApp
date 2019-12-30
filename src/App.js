@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
-import { FormPropsTextFields } from './forms/FormDrink'
+import FormPropsTextFields from './forms/FormDrink'
 
 
 function App() {

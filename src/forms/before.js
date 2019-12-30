@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function FormPropsTextFields() {
+export function FormPropsTextFields() {
   const classes = useStyles();
   const [strengthen, setPowercy] = React.useState('Bez alkoholu');
 
