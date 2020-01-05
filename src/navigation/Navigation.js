@@ -69,7 +69,7 @@ export function Navbar() {
                     indicatorColor='secondary'
                     textColor='secondary'
                 >
-                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/drinks"></Tab>
+                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
                     <Tab icon={<FontDownloadRoundedIcon />} label="alkomat"></Tab>
                     <Tab icon={<AddRoundedIcon />} label="dodaj drinka"></Tab>
