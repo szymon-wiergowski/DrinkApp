@@ -19,6 +19,7 @@ function App() {
           <Route
             path="/"
             component={Drinks}
+            exact
           />
         </PageWrapper>
         <Redirect to="/" />
