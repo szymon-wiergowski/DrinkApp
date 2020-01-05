@@ -17,11 +17,11 @@ function App() {
             component={Shops}
           />
           <Route
-            path="/drinks"
+            path="/"
             component={Drinks}
           />
         </PageWrapper>
-        <Redirect to="/drinks" />
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );
