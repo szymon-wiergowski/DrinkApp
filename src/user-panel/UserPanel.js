@@ -1,87 +1,69 @@
 import React from 'react';
-import AddIcon from '@material-ui/icons/Add';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import NavigationIcon from '@material-ui/icons/Navigation';
-import IconButton from '@material-ui/core/IconButton';
-import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
-import DeleteIcon from '@material-ui/icons/Delete';
 import CloseIcon from '@material-ui/icons/Close';
+import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import UserFavList from './UserFavList'
 
 class UserPanel extends React.Component {
+    state = {
+        drinks: [],
+        users: []
+    }
+
+
+    componentDidMount() {
+        fetch("./drinks.json").then(r => r.json()).then(data => {
+            this.setState({
+                drinks: data.drinks
+            })
+        })
+        fetch("./users.json").then(r => r.json()).then(data => {
+            console.log('data.ingredients:', data);
+            this.setState({
+                users: data.users
+            })
+        })
+    }
 
     render() {
         return (
             <div>
-                <Fab color="secondary" aria-label="close">
+                <Fab
+                    size="small"
+                    style={{
+                        position: 'absolute',
+                        top: "5px",
+                        right: "5px"
+                    }}
+                    color="secondary" aria-label="close">
                     <CloseIcon />
                 </Fab>
-                <List >
-                    <ListItem>
-                        <ListItemIcon>
-                            <LocalBarOutlinedIcon color="secondary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Single-line item" />
-                        <ListItemSecondaryAction>
-                            <IconButton aria-label="add" color="secondary">
-                                <AddIcon fontSize="small" />
-                            </IconButton>
-                            <IconButton aria-label="delete" color="secondary">
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <LocalBarOutlinedIcon color="secondary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Single-line item" />
-                        <ListItemSecondaryAction>
-                            <IconButton aria-label="add" color="secondary">
-                                <AddIcon fontSize="small" />
-                            </IconButton>
-                            <IconButton aria-label="delete" color="secondary">
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <LocalBarOutlinedIcon color="secondary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Single-line item" />
-                        <ListItemSecondaryAction>
-                            <IconButton aria-label="add" color="secondary">
-                                <AddIcon fontSize="small" />
-                            </IconButton>
-                            <IconButton aria-label="delete" color="secondary">
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <LocalBarOutlinedIcon color="secondary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Single-line item" />
-                        <ListItemSecondaryAction>
-                            <IconButton aria-label="add" color="secondary">
-                                <AddIcon fontSize="small" />
-                            </IconButton>
-                            <IconButton aria-label="delete" color="secondary">
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                </List>
+                <Card style={{ margin: "16px" }}>
+                    <CardHeader
+                        avatar={
+                            <Avatar aria-label="recipe">JK</Avatar>
+                        }
+                        title="Jan Kowalski" />
+                    <CardContent>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Wiek: 25 lat.
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Waga: 85 kg.
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Wzrost: 180 cm.
+                        </Typography>
+                    </CardContent>
+                    <Divider />
+                    <List >
+                        <UserFavList />
+                    </List>
+                </Card>
             </div>
         )
     }

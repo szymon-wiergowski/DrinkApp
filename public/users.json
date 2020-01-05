@@ -1,10 +1,14 @@
 {
-    "users": [
-        {
+    "users": [{
             "id": 1,
             "name": "Jan Kowalski",
             "age": 20,
-            "width": 85,
+            "weight": 85,
+            "favorites": [
+                1,
+                2,
+                4
+            ],
             "height": 175,
             "gender": "male"
         },
@@ -12,7 +16,12 @@
             "id": 2,
             "name": "Joanna Nowak",
             "age": 22,
-            "width": 65,
+            "weight": 65,
+            "favorites": [
+                2,
+                3,
+                4
+            ],
             "height": 165,
             "gender": "famale"
         },
@@ -20,7 +29,11 @@
             "id": 3,
             "name": "Marcin Wisniewski",
             "age": 24,
-            "width": 90,
+            "weight": 90,
+            "favorites": [
+                3,
+                1
+            ],
             "height": 180,
             "gender": "male"
         },
@@ -28,7 +41,13 @@
             "id": 4,
             "name": "Anna Kamińska",
             "age": 26,
-            "width": 70,
+            "weight": 70,
+            "favorites": [
+                1,
+                2,
+                4,
+                3
+            ],
             "height": 175,
             "gender": "famale"
         }
