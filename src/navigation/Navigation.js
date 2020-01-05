@@ -10,7 +10,6 @@ import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import FontDownloadRoundedIcon from '@material-ui/icons/FontDownloadRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
-import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
 import UserPanel from '../user-panel/UserPanel';
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
         width: 500,
     },
     fullList: {
-        width: 'auto',
+        width: '800px',
     },
 });
 
@@ -68,14 +67,13 @@ export function Navbar() {
                     value={value}
                     onChange={handleChange}
                     variant="fullWidth"
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor='secondary'
+                    textColor='secondary'
                 >
-                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
+                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/drinks"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
                     <Tab icon={<FontDownloadRoundedIcon />} label="alkomat"></Tab>
                     <Tab icon={<AddRoundedIcon />} label="dodaj drinka"></Tab>
-                    <Tab icon={<ExploreRoundedIcon />} label="mapa"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                     <SwipeableDrawer
                         anchor="right"

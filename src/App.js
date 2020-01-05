@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
+import { PageWrapper } from './wrapper/PageWrapper';
 
 
 function App() {
@@ -10,15 +11,17 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route
-          path="/shops"
-          component={Shops}
-        />
-        <Route
-          path="/"
-          component={Drinks}
-        />
-        <Redirect to="/"/>
+        <PageWrapper>
+          <Route
+            path="/shops"
+            component={Shops}
+          />
+          <Route
+            path="/drinks"
+            component={Drinks}
+          />
+        </PageWrapper>
+        <Redirect to="/drinks" />
       </Switch>
     </BrowserRouter>
   );
@@ -52,7 +55,7 @@ class Drinks extends React.Component {
   render() {
     return (
       <div>
-        Drinks List
+        Lista Drinków:
         <div>
 
           {
