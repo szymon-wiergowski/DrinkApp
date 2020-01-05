@@ -13,6 +13,7 @@ import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
+import UserPanel from '../user-panel/UserPanel';
 
 
 const useStyles = makeStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
         maxWidth: 'auto',
     },
     list: {
-        width: 250,
+        width: 500,
     },
     fullList: {
         width: 'auto',
@@ -55,7 +56,7 @@ export function Navbar() {
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                Panel Użytkownika
+                <UserPanel />
             </List>
         </div>
     );
