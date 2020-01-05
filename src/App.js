@@ -4,8 +4,8 @@ import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
 import FormPropsTextFields from './forms/FormDrink'
-import AlertDialogSlide from './forms/AddDrink'
-import FloatingActionButtons from './forms/AddButton'
+import AlertDialogSlide from './forms/components/AddDrinkSlide'
+import FloatingActionButtons from './forms/components/AddDrinkButton'
 
 
 
