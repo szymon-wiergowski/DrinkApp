@@ -47,6 +47,7 @@ export default function FormPropsTextFields() {
           id="outlined-required"
           label="Nazwa"
           variant="outlined"
+          color="secondary"
           
           InputProps={{
             startAdornment: (
@@ -64,6 +65,7 @@ export default function FormPropsTextFields() {
           fullWidth
           placeholder="Składniki potrzebne do przygotowania drinka"
           variant="outlined"
+          color="secondary"
         />
         <TextField
           required
@@ -74,6 +76,7 @@ export default function FormPropsTextFields() {
           fullWidth
           placeholder="Sposób przygotowania drinka"
           variant="outlined"
+          color="secondary"
         />
         <TextField
           required
@@ -84,6 +87,7 @@ export default function FormPropsTextFields() {
           onChange={handleChange}
           helperText="Wybierz moc drinka"
           variant="outlined"
+          color="secondary"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -4,6 +4,9 @@ import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
 import FormPropsTextFields from './forms/FormDrink'
+import AlertDialogSlide from './forms/AddDrink'
+import FloatingActionButtons from './forms/AddButton'
+
 
 
 function App() {
@@ -17,21 +20,21 @@ function App() {
         />
         <Route
           path="/addDrink"
-          component={FormPropsTextFields}
+          component={AlertDialogSlide}
         />
         <Route
           path="/map"
-          
+
         />
         <Route
           path="/alco"
-          
+
         />
         <Route
           path="/"
           component={Drinks}
         />
-        <Redirect to="/"/>
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );
@@ -72,7 +75,7 @@ class Drinks extends React.Component {
             this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.recipe} />)
           }
         </div>
-
+        <FloatingActionButtons />
       </div>
     )
   }
