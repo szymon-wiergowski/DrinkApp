@@ -1,9 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
 import { PageWrapper } from './wrapper/PageWrapper';
+import { DrinkSearchField } from './drink-filter-components/DrinkSearchField';
+import { IngredientsSearchMulitpleSelect } from './drink-filter-components/IngredientsSearchMulitpleSelect';
+import { AlkoSearchRadio } from './drink-filter-components/AlkoSearchRadio';
 
 
 function App() {
@@ -57,6 +61,19 @@ class Drinks extends React.Component {
     return (
       <div>
         Lista Drinków:
+        <div>
+          <Grid container spacing={5} justify="center" alignItems="center">
+            <Grid item>
+              <DrinkSearchField />
+            </Grid>
+            <Grid item>
+              <IngredientsSearchMulitpleSelect />
+            </Grid>
+            <Grid item>
+              <AlkoSearchRadio />
+            </Grid>
+          </Grid>
+        </div>
         <div>
 
           {
