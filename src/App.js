@@ -4,6 +4,8 @@ import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
 import { PageWrapper } from './wrapper/PageWrapper';
+import Images from './Drink/Images';
+
 
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
         </PageWrapper>
         <Redirect to="/" />
       </Switch>
+      <Images/>
     </BrowserRouter>
+  
   );
 }
 
