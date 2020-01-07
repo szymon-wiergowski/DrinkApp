@@ -18,7 +18,7 @@ export function FloatingActionButtons() {
     const classes = useStyles();
 
     return (
-        <div className='fixed__bottom__right'>
+        <div className={{ position: 'fixed', bottom: '0px', right: '0px' }}>
             <div className={classes.root}>
                 <Fab href="/addDrink" variant="extended" color="secondary" aria-label="add">
                     <AddIcon />

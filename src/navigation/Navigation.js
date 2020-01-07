@@ -12,6 +12,7 @@ import FontDownloadRoundedIcon from '@material-ui/icons/FontDownloadRounded';
 import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
+import UserPanel from '../user-panel/UserPanel';
 
 
 const useStyles = makeStyles({
@@ -20,10 +21,10 @@ const useStyles = makeStyles({
         maxWidth: 'auto',
     },
     list: {
-        width: 250,
+        width: 500,
     },
     fullList: {
-        width: 'auto',
+        width: '800px',
     },
 });
 
@@ -54,7 +55,7 @@ export function Navbar() {
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                Panel Użytkownika
+                <UserPanel />
             </List>
         </div>
     );
@@ -66,8 +67,8 @@ export function Navbar() {
                     value={value}
                     onChange={handleChange}
                     variant="fullWidth"
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor='secondary'
+                    textColor='secondary'
                 >
                     <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
