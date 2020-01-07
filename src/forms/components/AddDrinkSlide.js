@@ -39,9 +39,9 @@ export default class AlertDialogSlide extends React.Component {
                         <FormPropsTextFields />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="secondary">
-                            Submit
-                    </Button>
+                        <Button onClick={this.handleClose} color="secondary" href="/">
+                            ZAPISZ
+                        </Button>
                     </DialogActions>
                 </Dialog>
             </div>

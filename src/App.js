@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
-import FormPropsTextFields from './forms/FormDrink'
 import AlertDialogSlide from './forms/components/AddDrinkSlide'
-import FloatingActionButtons from './forms/components/AddDrinkButton'
+import { FloatingActionButtons } from './forms/components/AddDrinkButton'
+import './App.css'
 
 
 

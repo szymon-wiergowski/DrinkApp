@@ -14,16 +14,17 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function FloatingActionButtons() {
+export function FloatingActionButtons() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Fab href="/addDrink" variant="extended" color="secondary" aria-label="add">
-                <AddIcon />
-                Dodaj drinka
-            </Fab>
+        <div className='fixed__bottom__right'>
+            <div className={classes.root}>
+                <Fab href="/addDrink" variant="extended" color="secondary" aria-label="add">
+                    <AddIcon />
+                    Dodaj drinka
+                </Fab>
+            </div>
         </div>
     );
 }
-export default FloatingActionButtons;
