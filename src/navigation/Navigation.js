@@ -70,10 +70,10 @@ export function Navbar() {
                     indicatorColor='secondary'
                     textColor='secondary'
                 >
-                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
+                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/drinki"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
                     <Tab icon={<FontDownloadRoundedIcon />} label="alkomat" component={Link} to="/alco"></Tab>
-                    <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
+                    <Tab icon={<ExploreRoundedIcon />} label="mapa ze sklepami" component={Link} to="/map"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                     <SwipeableDrawer
                         anchor="right"

@@ -28,18 +28,20 @@ export default class AlertDialogSlide extends React.Component {
     render() {
         return (
             <div>
-                <Dialog open={this.state.open}
+                <Dialog 
+                    open={this.state.open}
                     TransitionComponent={Transition}
                     keepMounted
                     aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
                 >
                     <DialogTitle id="alert-dialog-slide-title">{"Dodaj drinka"}</DialogTitle>
                     <DialogContent>
                         <FormPropsTextFields />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="secondary" href="/">
+                        <Button 
+                        onClick={this.handleClose} 
+                        color="secondary" href="/drinki">
                             ZAPISZ
                         </Button>
                     </DialogActions>

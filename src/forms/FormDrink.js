@@ -6,6 +6,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 import BatteryUnknownIcon from '@material-ui/icons/BatteryUnknown';
 
+
 const strength = [
   {
     value: 'Mocny',
@@ -40,15 +41,15 @@ export default function FormPropsTextFields() {
   };
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div style={{ paddingTop: '6rem', paddingLeft: '1rem' }}>
+    <div>
+      <form className={classes.root} noValidate autoComplete="off">
         <TextField
           required
           id="outlined-required"
           label="Nazwa"
           variant="outlined"
           color="secondary"
-          
+
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -102,7 +103,7 @@ export default function FormPropsTextFields() {
             </MenuItem>
           ))}
         </TextField>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }

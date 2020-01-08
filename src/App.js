@@ -11,6 +11,7 @@ import { PageWrapper } from './wrapper/PageWrapper';
 import { DrinkSearchField } from './drink-filter-components/DrinkSearchField';
 import { IngredientsSearchMulitpleSelect } from './drink-filter-components/IngredientsSearchMulitpleSelect';
 import { AlkoSearchRadio } from './drink-filter-components/AlkoSearchRadio';
+import MapContainer from './map/Map';
 
 
 function App() {
@@ -29,14 +30,14 @@ function App() {
           />
           <Route
             path="/map"
-
+            component={MapContainer}
           />
           <Route
             path="/alco"
 
           />
           <Route
-            path="/"
+            path="/drinki"
             component={Drinks}
           />
         </PageWrapper>
@@ -74,7 +75,6 @@ class Drinks extends React.Component {
   render() {
     return (
       <div>
-        Lista Drinków:
         <div>
           <Grid container spacing={5} justify="center" alignItems="center">
             <Grid item>
