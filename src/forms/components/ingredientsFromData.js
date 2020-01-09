@@ -1,4 +1,4 @@
-export function getIngredients() {
+export default function getIngredients() {
   return fetch("./data/ingredients.json")
     .then(response => response.json())
     .then(data => {

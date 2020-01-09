@@ -1,15 +1,15 @@
-/* eslint-disable no-use-before-define */
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+
 
 export default function FixedTags() {
   return (
     <Autocomplete
       multiple
       id="fixed-tags-demo"
-      options={top100Films}
+      options = {top100Films}
       getOptionLabel={option => option.title}
       defaultValue={[top100Films[6], top100Films[13]]}
       renderTags={(value, getTagProps) =>

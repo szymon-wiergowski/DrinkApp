@@ -46,6 +46,16 @@ export default class IngredientsList extends React.Component {
           <div>Error: {this.state.error}</div>
           );
       }
-      
+
+      const ingredientsElement = this.state.ingredients
+      .map(
+          ingredient => {
+              const {id, ...props} = ingredient;
+              return ()
+          }
+      )
+
+
+
   }
 }

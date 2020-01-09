@@ -41,7 +41,7 @@ export default class AlertDialogSlide extends React.Component {
                     <DialogActions>
                         <Button 
                         onClick={this.handleClose} 
-                        color="secondary" href="/drinki">
+                        color="secondary" href="/">
                             ZAPISZ
                         </Button>
                     </DialogActions>

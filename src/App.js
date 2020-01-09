@@ -13,7 +13,6 @@ import { IngredientsSearchMulitpleSelect } from './drink-filter-components/Ingre
 import { AlkoSearchRadio } from './drink-filter-components/AlkoSearchRadio';
 import MapContainer from './map/Map';
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -37,8 +36,9 @@ function App() {
 
           />
           <Route
-            path="/drinki"
+            path="/"
             component={Drinks}
+            exact
           />
         </PageWrapper>
         <Redirect to="/" />
@@ -57,12 +57,12 @@ class Drinks extends React.Component {
 
 
   componentDidMount() {
-    fetch("./drinks.json").then(r => r.json()).then(data => {
+    fetch("./data/drinks.json").then(r => r.json()).then(data => {
       this.setState({
         drinks: data.drinks
       })
     })
-    fetch("./ingredients.json").then(r => r.json()).then(data => {
+    fetch("./data/ingredients.json").then(r => r.json()).then(data => {
       console.log('data.ingredients:', data);
       this.setState({
         ingredients: data.ingredients

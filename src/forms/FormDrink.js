@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
 import AutocompleteForm from "./components/AutocompleteForm";
+import getIngredients from './components/ingredientsFromData'
 
 const strength = [
   {
@@ -92,6 +93,7 @@ export default function FormPropsTextFields() {
             </MenuItem>
           ))}
         </TextField>
+        {/* <getIngredients /> */}
       </form>
     </div>
   );
