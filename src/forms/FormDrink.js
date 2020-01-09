@@ -6,7 +6,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
 import AutocompleteForm from "./components/AutocompleteForm";
-import getIngredients from './components/ingredientsFromData'
 
 const strength = [
   {
@@ -27,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 200
+      width: 500,
     }
   }
 }));
@@ -45,6 +44,8 @@ export default function FormPropsTextFields() {
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           required
+          autoFocus='bool'
+          fullWidth
           id="outlined-required"
           label="Nazwa"
           variant="outlined"
@@ -60,17 +61,18 @@ export default function FormPropsTextFields() {
         <AutocompleteForm />
         <TextField
           required
+          fullWidth
           id="outlined-multiline-static"
           label="Opis"
           multiline
           rows="5"
-          fullWidth
           placeholder="Sposób przygotowania drinka"
           variant="outlined"
           color="secondary"
         />
         <TextField
           required
+          fullWidth
           id="outlined-select-power"
           select
           label="Moc"
@@ -93,7 +95,6 @@ export default function FormPropsTextFields() {
             </MenuItem>
           ))}
         </TextField>
-        {/* <getIngredients /> */}
       </form>
     </div>
   );
