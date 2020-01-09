@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import GoogleMaps from './component/GoogleMapsPlacesAutocomplate';
 
 export class MapContainer extends Component {
     constructor(props) {
@@ -32,6 +33,7 @@ export class MapContainer extends Component {
                     position: 'relative',
                     height: "calc(85vh - 10px)"
                 }}>
+                {/* <GoogleMaps /> */}
                 <Map
                     google={this.props.google}
                     zoom={14}

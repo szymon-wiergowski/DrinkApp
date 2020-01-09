@@ -1,40 +1,39 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
-import BatteryUnknownIcon from '@material-ui/icons/BatteryUnknown';
-
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
+import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
+import AutocompleteForm from "./components/AutocompleteForm";
 
 const strength = [
   {
-    value: 'Mocny',
-    label: 'Mocny (pow. 15%)',
+    value: "Mocny",
+    label: "Mocny (pow. 15%)"
   },
   {
-    value: 'Słaby',
-    label: 'Słaby (od 0,5% do 15%)',
+    value: "Słaby",
+    label: "Słaby (od 0,5% do 15%)"
   },
   {
-    value: 'Bezalkoholowy',
-    label: 'Bezalkoholowy',
-  },
+    value: "Bezalkoholowy",
+    label: "Bezalkoholowy"
+  }
 ];
 
 const useStyles = makeStyles(theme => ({
   root: {
-    '& .MuiTextField-root': {
+    "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 200,
-    },
-  },
+      width: 200
+    }
+  }
 }));
-
 
 export default function FormPropsTextFields() {
   const classes = useStyles();
-  const [strengthen, setPowercy] = React.useState('Bez alkoholu');
+  const [strengthen, setPowercy] = React.useState("Bez alkoholu");
 
   const handleChange = event => {
     setPowercy(event.target.value);
@@ -49,25 +48,15 @@ export default function FormPropsTextFields() {
           label="Nazwa"
           variant="outlined"
           color="secondary"
-
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <LocalBarTwoToneIcon />
               </InputAdornment>
-            ),
+            )
           }}
         />
-        <TextField
-          id="outlined-multiline-static"
-          label="Składniki"
-          multiline
-          rows="5"
-          fullWidth
-          placeholder="Składniki potrzebne do przygotowania drinka"
-          variant="outlined"
-          color="secondary"
-        />
+        <AutocompleteForm />
         <TextField
           required
           id="outlined-multiline-static"
@@ -81,7 +70,7 @@ export default function FormPropsTextFields() {
         />
         <TextField
           required
-          id="outlined-select-currency"
+          id="outlined-select-power"
           select
           label="Moc"
           value={strengthen}
@@ -94,7 +83,7 @@ export default function FormPropsTextFields() {
               <InputAdornment position="start">
                 <BatteryUnknownIcon />
               </InputAdornment>
-            ),
+            )
           }}
         >
           {strength.map(option => (
