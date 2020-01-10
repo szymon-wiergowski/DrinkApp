@@ -75,7 +75,8 @@ export function Navbar() {
                     <Tab icon={<FontDownloadRoundedIcon />} label="alkomat" component={Link} to="/alco"></Tab>
                     <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
-                    <SwipeableDrawer
+                </Tabs>
+                <SwipeableDrawer
                         anchor="right"
                         open={state.right}
                         onClose={toggleDrawer('right', false)}
@@ -83,7 +84,6 @@ export function Navbar() {
                     >
                         {sideList('right')}
                     </SwipeableDrawer>
-                </Tabs>
             </Paper>
         </AppBar>
     );

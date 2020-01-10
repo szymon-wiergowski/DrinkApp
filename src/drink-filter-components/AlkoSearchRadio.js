@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 export function AlkoSearchRadio() {
     const classes = useStyles();
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState();
 
     const handleChange = event => {
         setValue(event.target.value);
