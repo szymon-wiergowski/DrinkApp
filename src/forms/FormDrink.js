@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
-import AutocompleteForm from "./components/AutocompleteForm";
+import AutocompleteForm from "./components/IngredientsList";
 
 const strength = [
   {
@@ -44,7 +44,6 @@ export default function FormPropsTextFields() {
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           required
-          autoFocus='bool'
           fullWidth
           id="outlined-required"
           label="Nazwa"

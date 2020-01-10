@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import GoogleMaps from './component/GoogleMapsPlacesAutocomplate';
+// import SearchBox from './component/GoogleMapsPlacesAutocomplate';
 
 export class MapContainer extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             stores: [{ lat: 54.409746, lng: 18.576603 },
             { latitude: 54.406666, longitude: 18.569598 },
@@ -33,7 +32,7 @@ export class MapContainer extends Component {
                     position: 'relative',
                     height: "calc(85vh - 10px)"
                 }}>
-                {/* <GoogleMaps /> */}
+                {/* <SearchBox /> */}
                 <Map
                     google={this.props.google}
                     zoom={14}
