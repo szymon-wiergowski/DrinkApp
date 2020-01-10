@@ -20,6 +20,9 @@ class Drink extends React.Component {
                 <Typography variant="body2" color="textSecondary" component="p">
                     {this.props.recipe}
                  </Typography>
+                 <Typography variant="body2" color="textSecondary" component="p"><p><b>Składniki:</b></p>
+                    {this.props.ingredients}
+                 </Typography>
                  <Typography variant="body2" color="textSecondary" component="p"><p><b>Zawartość alkoholu:</b></p>
                     {this.props.power}
                  </Typography>
