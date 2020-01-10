@@ -64,7 +64,7 @@ class Drinks extends React.Component {
         <div>
 
           {
-            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.recipe} />)
+            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.power} />)
           }
         </div>
 
