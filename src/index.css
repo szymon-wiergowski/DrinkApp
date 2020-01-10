@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-img{
+/*img{
   display:flex;
   flex-wrap: wrap;
   padding: 3px;
@@ -21,7 +21,7 @@ img{
   position: absolute;
   top:0;
   padding: 12 px;
-  margin-top: 100px;}
+  margin-top: 100px;}*/
 
  .name{
    color:#f50057;
