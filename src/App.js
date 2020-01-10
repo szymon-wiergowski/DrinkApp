@@ -44,6 +44,7 @@ function App() {
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
+  
   );
 }
 
