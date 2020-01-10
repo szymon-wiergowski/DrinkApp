@@ -26,14 +26,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 500,
+      width: 500
     }
   }
 }));
 
 export default function FormPropsTextFields() {
   const classes = useStyles();
-  const [strengthen, setPowercy] = React.useState("Bez alkoholu");
+  const [strengthen, setPowercy] = React.useState("");
 
   const handleChange = event => {
     setPowercy(event.target.value);
