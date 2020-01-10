@@ -63,7 +63,6 @@ class Drinks extends React.Component {
       })
     })
     fetch("./data/ingredients.json").then(r => r.json()).then(data => {
-      console.log('data.ingredients:', data);
       this.setState({
         ingredients: data.ingredients
 
