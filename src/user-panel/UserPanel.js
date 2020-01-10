@@ -16,13 +16,12 @@ class UserPanel extends React.Component {
 
 
     componentDidMount() {
-        fetch("./drinks.json").then(r => r.json()).then(data => {
+        fetch("./data/drinks.json").then(r => r.json()).then(data => {
             this.setState({
                 drinks: data.drinks
             })
         })
-        fetch("./users.json").then(r => r.json()).then(data => {
-            console.log('data.ingredients:', data);
+        fetch("./data/users.json").then(r => r.json()).then(data => {
             this.setState({
                 users: data.users
             })
@@ -30,6 +29,9 @@ class UserPanel extends React.Component {
     }
 
     render() {
+        const userFavorites = this.state.drinks.map(drink => (
+            <UserFavList key={drink.id} name={drink.name} recipe={drink.recipe} />
+        ))
         return (
             <div>
                 <Fab
@@ -61,7 +63,7 @@ class UserPanel extends React.Component {
                     </CardContent>
                     <Divider />
                     <List >
-                        <UserFavList />
+                        {userFavorites}
                     </List>
                 </Card>
             </div>
