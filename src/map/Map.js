@@ -5,7 +5,7 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: { lat: 54., lng: 18 },
+      userLocation: { lat: 54.403330, lng: 18.570192 },
       loading: true,
     //   stores: [
     //     { latitude: 54.409746, longitude: 18.576603 },
