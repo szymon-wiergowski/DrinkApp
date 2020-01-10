@@ -91,9 +91,9 @@ class Drinks extends React.Component {
         <div>
 
           {
-            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} /*recipe={drink.recipe}*/ ingredients={drink.ingredients} power={drink.power} />)
-          }
-        </div>
+            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} /*recipe={drink.recipe}*/ ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name}
+            />)     
+            }</div>
         <FloatingActionButtons />
       </div>
     )

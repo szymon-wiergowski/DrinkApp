@@ -17,7 +17,7 @@ class Drink extends React.Component {
             <CardHeader title={this.props.name} />
             <CardContent>
                  <Typography variant="body2" color="textSecondary" component="p"><p><b>Składniki:</b></p>
-                    {this.props.ingredients}
+                    {this.props.ingredients_name}
                  </Typography>
                  <Typography variant="body2" color="textSecondary" component="p"><p><b>Zawartość alkoholu:</b></p>
                     {this.props.power}
