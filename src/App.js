@@ -4,11 +4,14 @@ import Grid from '@material-ui/core/Grid';
 import Drink from './Drink/Drink';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
+import AlertDialogSlide from './forms/components/AddDrinkSlide'
+import { FloatingActionButtons } from './forms/components/AddDrinkButton'
+import './App.css'
 import { PageWrapper } from './wrapper/PageWrapper';
 import { DrinkSearchField } from './drink-filter-components/DrinkSearchField';
 import { IngredientsSearchMulitpleSelect } from './drink-filter-components/IngredientsSearchMulitpleSelect';
 import { AlkoSearchRadio } from './drink-filter-components/AlkoSearchRadio';
-
+import MapContainer from './map/Map';
 
 function App() {
   return (
@@ -19,6 +22,18 @@ function App() {
           <Route
             path="/shops"
             component={Shops}
+          />
+          <Route
+            path="/addDrink"
+            component={AlertDialogSlide}
+          />
+          <Route
+            path="/map"
+            component={MapContainer}
+          />
+          <Route
+            path="/alco"
+
           />
           <Route
             path="/"
@@ -42,12 +57,12 @@ class Drinks extends React.Component {
 
 
   componentDidMount() {
-    fetch("./drinks.json").then(r => r.json()).then(data => {
+    fetch("./data/drinks.json").then(r => r.json()).then(data => {
       this.setState({
         drinks: data.drinks
       })
     })
-    fetch("./ingredients.json").then(r => r.json()).then(data => {
+    fetch("./data/ingredients.json").then(r => r.json()).then(data => {
       console.log('data.ingredients:', data);
       this.setState({
         ingredients: data.ingredients
@@ -60,7 +75,6 @@ class Drinks extends React.Component {
   render() {
     return (
       <div>
-        Lista Drinków:
         <div>
           <Grid container spacing={5} justify="center" alignItems="center">
             <Grid item>
@@ -80,7 +94,7 @@ class Drinks extends React.Component {
             this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.recipe} />)
           }
         </div>
-
+        <FloatingActionButtons />
       </div>
     )
   }
