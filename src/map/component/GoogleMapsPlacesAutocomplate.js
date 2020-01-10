@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 
 export default class SearchBox extends React.Component {
   static propTypes = {
