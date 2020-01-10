@@ -14,7 +14,9 @@ class Drink extends React.Component {
     }
 
     render() {
-        return <Card style={{maxWidth: "345px", margin: "16px auto"}}>
+        return <Card style={{maxWidth: "700px", margin: "16px auto", padding: "50px"}}>
+         <Typography variant="body2" color="textSecondary" component="p" class="img"><img src="drink.png" width='200px' height='200px' alt="picture" class="Mohito"></img>
+                 </Typography>
             <CardHeader title={this.props.name} class="name" />
             <CardContent>
                  <Typography variant="body2" color="textSecondary" component="p"><p><b>Składniki:</b></p>

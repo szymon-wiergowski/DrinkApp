@@ -12,20 +12,27 @@ code {
     monospace;
 }
 
-/*img{
-  display:flex;
-  flex-wrap: wrap;
-  padding: 3px;
-}
-.images{
-  position: absolute;
-  top:0;
-  padding: 12 px;
-  margin-top: 100px;}*/
 
  .name{
    color:#f50057;
    margin-left:10px;
    margin-top:10px;
 
+ }
+
+ .mohito{
+   margin-top:300px;
+   position: absolute;
+  top:0;
+  padding: 12 px;
+ }
+
+ .img{
+  display: flex;
+  position: absolute;  
+  padding:40px; 
+ }
+
+ .MuiCardContent-root:last-child{
+   margin-left:300px;
  }

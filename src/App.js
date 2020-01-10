@@ -12,6 +12,8 @@ import { DrinkSearchField } from './drink-filter-components/DrinkSearchField';
 import { IngredientsSearchMulitpleSelect } from './drink-filter-components/IngredientsSearchMulitpleSelect';
 import { AlkoSearchRadio } from './drink-filter-components/AlkoSearchRadio';
 import MapContainer from './map/Map';
+//import Images from './Drink/Images';
+
 
 function App() {
   return (
@@ -91,7 +93,7 @@ class Drinks extends React.Component {
         <div>
 
           {
-            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} /*recipe={drink.recipe}*/ ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name}
+            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} /*recipe={drink.recipe}*/ ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name} img_url={drink.img_url}
             />)     
             }</div>
         <FloatingActionButtons />
