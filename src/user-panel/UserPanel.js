@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import UserFavList from './UserFavList'
+import { getDrinks, getUsers } from '../DataFetch/DataFetch'
 
 class UserPanel extends React.Component {
     state = {
@@ -16,16 +17,18 @@ class UserPanel extends React.Component {
 
 
     componentDidMount() {
-        fetch("./data/drinks.json").then(r => r.json()).then(data => {
-            this.setState({
-                drinks: data.drinks
+        getDrinks()
+            .then(data => {
+                this.setState({
+                    drinks: data.drinks
+                })
             })
-        })
-        fetch("./data/users.json").then(r => r.json()).then(data => {
-            this.setState({
-                users: data.users
+        getUsers()
+            .then(data => {
+                this.setState({
+                    users: data.users
+                })
             })
-        })
     }
 
     render() {
