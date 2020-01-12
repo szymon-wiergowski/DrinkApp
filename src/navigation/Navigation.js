@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         width: 500,
     },
     fullList: {
-        width: '800px',
+        width: 'auto',
     },
 });
 
