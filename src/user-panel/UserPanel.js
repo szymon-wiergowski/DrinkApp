@@ -53,8 +53,6 @@ class UserPanel extends React.Component {
         this.setState({
             favoriteDrinks: favDrinks
         })
-        console.log(this.state.favoriteDrinks)
-        console.log(id)
     }
 
     render() {
@@ -64,8 +62,6 @@ class UserPanel extends React.Component {
             return <CircularProgress color="secondary" />
         }
 
-        // const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.find(drink => drink.id === favDrink))
-        // const favoritDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
         return (
             <>
                 <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
