@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
 import IngrediensList from "./components/IngrediensList";
+import { DeviceScreenLockPortrait } from "material-ui/svg-icons";
 
 const strength = [
   {
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 500
+      width: 200
     }
   }
 }));
@@ -40,7 +41,7 @@ export default function FormPropsTextFields() {
   };
 
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection:'column', flexWrap: "nowrap", alignItems: 'stretch' }}>
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           required
