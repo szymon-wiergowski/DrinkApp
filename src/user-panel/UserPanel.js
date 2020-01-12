@@ -46,13 +46,15 @@ class UserPanel extends React.Component {
             })
     }
 
-    handleDelete = id => {
+    handleDelete = (id) => {
         const index = this.state.favoriteDrinks.findIndex(drink => drink.id === id)
         const favDrinks = [...this.state.favoriteDrinks]
         favDrinks.splice(index, 1)
         this.setState({
             favoriteDrinks: favDrinks
         })
+        console.log(this.state.favoriteDrinks)
+        console.log(id)
     }
 
     render() {
