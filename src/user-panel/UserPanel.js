@@ -38,6 +38,7 @@ class UserPanel extends React.Component {
         // const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.find(drink => drink.id === favDrink))
         const favoritDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
 
+
         return (
             <>
                 <UserPanelCard onToggle={this.props.onToggle} user={user} favorites={favoritDrinks} />
