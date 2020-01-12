@@ -1,10 +1,15 @@
 import React from "react";
-import IngredientsFromData from "./IngredientsFromData";
+import Checkbox from "@material-ui/core/Checkbox";
 import TextField from "@material-ui/core/TextField";
-import Chip from "@material-ui/core/Chip";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import IngredientsFromData from "./IngredientsFromData";
 
-export default class AutocompleteForm extends React.Component {
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+export default class IngrediensList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,21 +31,19 @@ export default class AutocompleteForm extends React.Component {
         error: ""
       },
       () => {
-        setTimeout(() => {
-          IngredientsFromData()
-            .then(data => {
-              this.setState({
-                ingredients: data,
-                isLoading: false
-              });
-            })
-            .catch(error => {
-              this.setState({
-                hasError: true,
-                error: error.toString()
-              });
+        IngredientsFromData()
+          .then(data => {
+            this.setState({
+              ingredients: data,
+              isLoading: false
             });
-        }, 1);
+          })
+          .catch(error => {
+            this.setState({
+              hasError: true,
+              error: error.toString()
+            });
+          });
       }
     );
   }
@@ -57,25 +60,28 @@ export default class AutocompleteForm extends React.Component {
     return (
       <Autocomplete
         multiple
-        id="fixed-tags-demo"
+        id="checkboxes-tags-demo"
         options={ingredientsElements}
+        disableCloseOnSelect
         getOptionLabel={option => option.name}
-        renderTags={(value, getTagProps) =>
-          value.map((option, index) => (
-            <Chip
-              label={option.name}
-              {...getTagProps({ index })}
-              disabled={index === 0}
+        renderOption={(option, { selected }) => (
+          <React.Fragment>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={selected}
             />
-          ))
-        }
+            {option.name}
+          </React.Fragment>
+        )}
         style={{ width: 500 }}
         renderInput={params => (
           <TextField
             {...params}
             required
-            label="Składniki"
             variant="outlined"
+            label="Składniki"
             color="secondary"
             fullWidth
           />
