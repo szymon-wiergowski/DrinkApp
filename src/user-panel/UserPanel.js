@@ -1,20 +1,16 @@
 import React from 'react';
-
-import Fab from '@material-ui/core/Fab';
-import CloseIcon from '@material-ui/icons/Close';
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import UserFavList from './UserFavList'
-import { getDrinks, getUsers } from '../DataFetch/DataFetch'
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { getDrinks, getUsers } from '../DataFetch/DataFetch';
+import UserPanelCard from './components/UserPanelCard';
+import LoginPanel from './components/LoginPanel';
 
 class UserPanel extends React.Component {
     state = {
         drinks: [],
-        users: []
+        users: [],
+        isLogged: true,
+        loggedUserId: 1
     }
-
 
     componentDidMount() {
         getDrinks()
@@ -32,46 +28,20 @@ class UserPanel extends React.Component {
     }
 
     render() {
-        const userFavorites = this.state.drinks.map(drink => (
-            <UserFavList key={drink.id} name={drink.name} recipe={drink.recipe} />
-        ))
+        if (this.state.isLogged === false) {
+            return <LoginPanel />
+        } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
+            return <CircularProgress color="secondary" />
+        }
+
+        const user = this.state.users[this.state.users.findIndex(user => user.id === this.state.loggedUserId)]
+        const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.filter(drink => drink.id === favDrink)[0])
+
         return (
-            <div>
-                <Fab
-                    size="small"
-                    style={{
-                        position: 'absolute',
-                        top: "5px",
-                        right: "5px"
-                    }}
-                    color="secondary" aria-label="close">
-                    <CloseIcon />
-                </Fab>
-                <Card style={{ margin: "16px" }}>
-                    <CardHeader
-                        avatar={
-                            <Avatar aria-label="recipe">JK</Avatar>
-                        }
-                        title="Jan Kowalski" />
-                    <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Wiek: 25 lat.
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Waga: 85 kg.
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Wzrost: 180 cm.
-                        </Typography>
-                    </CardContent>
-                    <Divider />
-                    <List >
-                        {userFavorites}
-                    </List>
-                </Card>
-            </div>
+            <>
+                <UserPanelCard user={user} favorites={favoritDrinks} />
+            </>
         )
     }
-
 }
 export default UserPanel;

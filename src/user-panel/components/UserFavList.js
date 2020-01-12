@@ -9,18 +9,24 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const UserFavList = (props) => {
-    return (
-        <ListItem>
+
+    const favoritesList = props.favorites.map(drink => (
+        <ListItem key={drink.id}>
             <ListItemIcon>
                 <LocalBarOutlinedIcon color="secondary" />
             </ListItemIcon>
-            <ListItemText primary={props.name} secondary={props.recipe} />
+            <ListItemText primary={drink.name} secondary={drink.recipe} />
             <ListItemSecondaryAction>
                 <IconButton aria-label="delete" color="secondary">
                     <DeleteIcon />
                 </IconButton>
             </ListItemSecondaryAction>
         </ListItem>
+    ))
+    return (
+        <>
+            {favoritesList}
+        </>
     )
 }
 
