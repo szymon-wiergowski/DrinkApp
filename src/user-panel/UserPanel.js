@@ -34,8 +34,9 @@ class UserPanel extends React.Component {
             return <CircularProgress color="secondary" />
         }
 
-        const user = this.state.users[this.state.users.findIndex(user => user.id === this.state.loggedUserId)]
-        const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.filter(drink => drink.id === favDrink)[0])
+        const user = this.state.users.find(user => user.id === this.state.loggedUserId);
+        // const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.find(drink => drink.id === favDrink))
+        const favoritDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
 
         return (
             <>
