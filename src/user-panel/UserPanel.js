@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Fab from '@material-ui/core/Fab';
 import CloseIcon from '@material-ui/icons/Close';
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
@@ -32,9 +32,22 @@ class UserPanel extends React.Component {
     }
 
     render() {
-        const userFavorites = this.state.drinks.map(drink => (
-            <UserFavList key={drink.id} name={drink.name} recipe={drink.recipe} />
-        ))
+        if (this.state.users.length === 0 || this.state.drinks.length === 0) {
+            return <CircularProgress color="secondary" />
+        }
+        const drinks = [...this.state.drinks]
+        const users = [...this.state.users]
+        const user = users.filter(user => user.id === 2)
+        console.log(user[0])
+        for (let i = 0; i++; i < user[0].favorites.length) {
+            console.log('a')
+        }
+
+        // const userFavorites = favDrink.find.favorites.map(drink => (
+        //     <UserFavList key={drink.id} name={drink.name} recipe={drink.recipe} />
+        // ))
+
+
         return (
             <div>
                 <Fab
@@ -52,21 +65,21 @@ class UserPanel extends React.Component {
                         avatar={
                             <Avatar aria-label="recipe">JK</Avatar>
                         }
-                        title="Jan Kowalski" />
+                        title={user[0].name} />
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            Wiek: 25 lat.
+                            Wiek: {user[0].age} lat.
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            Waga: 85 kg.
+                            Waga: {user[0].weight} kg.
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            Wzrost: 180 cm.
+                            Wzrost: {user[0].height} cm.
                         </Typography>
                     </CardContent>
                     <Divider />
                     <List >
-                        {userFavorites}
+                        {/* {userFavorites} */}
                     </List>
                 </Card>
             </div>
