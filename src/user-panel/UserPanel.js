@@ -39,7 +39,7 @@ class UserPanel extends React.Component {
 
         return (
             <>
-                <UserPanelCard user={user} favorites={favoritDrinks} />
+                <UserPanelCard onToggle={this.props.onToggle} user={user} favorites={favoritDrinks} />
             </>
         )
     }
