@@ -77,7 +77,7 @@ export function Navbar() {
                 <SwipeableDrawer
                     anchor="right"
                     open={state.right}
-
+                    onClose={toggleDrawer('right', false)}
                     onOpen={toggleDrawer('right', true)}
                 >
                     {sideList('right')}

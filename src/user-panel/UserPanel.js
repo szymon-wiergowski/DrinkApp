@@ -9,22 +9,50 @@ class UserPanel extends React.Component {
         drinks: [],
         users: [],
         isLogged: true,
-        loggedUserId: 1
+        loggedUserId: 1,
+        favoriteDrinks: [],
+        isLoading: false,
     }
 
     componentDidMount() {
         getDrinks()
             .then(data => {
                 this.setState({
-                    drinks: data.drinks
+                    isLoading: true,
+                })
+                return data;
+            })
+            .then(data => {
+                this.setState({
+                    drinks: data.drinks,
+                    isLoading: false,
                 })
             })
         getUsers()
             .then(data => {
+                const user = data.users.find(user => user.id === this.state.loggedUserId);
                 this.setState({
-                    users: data.users
+                    users: data.users,
+                    user: user,
                 })
             })
+            .then(() => {
+                if (this.state.isLoading === false) {
+                    const favoriteDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
+                    this.setState({
+                        favoriteDrinks: favoriteDrinks,
+                    })
+                }
+            })
+    }
+
+    handleDelete = id => {
+        const index = this.state.favoriteDrinks.findIndex(drink => drink.id === id)
+        const favDrinks = [...this.state.favoriteDrinks]
+        favDrinks.splice(index, 1)
+        this.setState({
+            favoriteDrinks: favDrinks
+        })
     }
 
     render() {
@@ -34,14 +62,11 @@ class UserPanel extends React.Component {
             return <CircularProgress color="secondary" />
         }
 
-        const user = this.state.users.find(user => user.id === this.state.loggedUserId);
         // const favoritDrinks = user.favorites.map(favDrink => this.state.drinks.find(drink => drink.id === favDrink))
-        const favoritDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
-
-
+        // const favoritDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
         return (
             <>
-                <UserPanelCard onToggle={this.props.onToggle} user={user} favorites={favoritDrinks} />
+                <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
             </>
         )
     }

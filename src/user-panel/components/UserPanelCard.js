@@ -41,7 +41,7 @@ const UserPanelCard = (props) => {
                 </CardContent>
                 <Divider />
                 <List >
-                    <UserFavList favorites={props.favorites} />
+                    <UserFavList delete={props.delete} favorites={props.favorites} />
                 </List>
             </Card>
         </>
