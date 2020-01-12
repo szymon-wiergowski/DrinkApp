@@ -16,6 +16,7 @@ const UserPanelCard = (props) => {
     return (
         <>
             <Fab
+                onClick={() => props.onToggle('right', false)()}
                 size="small"
                 style={{
                     position: 'absolute',

@@ -40,9 +40,9 @@ export function Navbar() {
     };
 
     const toggleDrawer = (side, open) => event => {
-        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
+        // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        //     return;
+        // }
 
         setState({ ...state, [side]: open });
     };
@@ -51,11 +51,9 @@ export function Navbar() {
         <div
             className={classes.list}
             role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                <UserPanel />
+                <UserPanel onToggle={toggleDrawer} />
             </List>
         </div>
     );
@@ -77,13 +75,13 @@ export function Navbar() {
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                 </Tabs>
                 <SwipeableDrawer
-                        anchor="right"
-                        open={state.right}
-                        onClose={toggleDrawer('right', false)}
-                        onOpen={toggleDrawer('right', true)}
-                    >
-                        {sideList('right')}
-                    </SwipeableDrawer>
+                    anchor="right"
+                    open={state.right}
+
+                    onOpen={toggleDrawer('right', true)}
+                >
+                    {sideList('right')}
+                </SwipeableDrawer>
             </Paper>
         </AppBar>
     );
