@@ -106,7 +106,7 @@ export function IngredientsSearchMulitpleSelect() {
           color="secondary"
         >
           {ingredients.map(ingredient => (
-            <MenuItem key={ingredient.key} value={ingredient.name}>
+            <MenuItem key={ingredient.id} value={ingredient.name}>
               <Checkbox checked={ingredientName.indexOf(ingredient.name) > -1} />
               <ListItemText primary={ingredient.name} />
             </MenuItem>
