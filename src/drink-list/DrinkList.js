@@ -16,6 +16,8 @@ export class DrinkList extends React.Component {
       hasError: false,
       error: '',
       search: '',
+      sortBy: 'name',
+      sortOrder: 'asc',
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
@@ -24,16 +26,28 @@ export class DrinkList extends React.Component {
     this.fetchDatas()
   };
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const searchChanged = prevState.search !== this.state.search;
+    if (searchChanged && !this.state.isLoading) {
+      this.fetchDatas();
+    }
+  }
+
   fetchDatas() {
     Promise.all([
-      getDrinks(),
+      getDrinks({
+        sortBy: this.state.sortBy,
+        sortOrder: this.state.sortOrder,
+        search: this.state.search,
+      }),
       getIngredients(),
     ]).then(data => {
       this.setState({
-        drinks: data[0].drinks,
+        drinks: data[0],
         ingredients: data[1].ingredients,
         isLoading: false,
       });
+      console.log('drinki', this.state.drinks)
     })
       .catch(error => {
         this.setState({

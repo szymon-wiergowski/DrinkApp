@@ -1,3 +1,5 @@
+import propTypes from 'prop-types';
+
 function getDrinks({
     sortBy = 'name',
     sortOrder = 'asc',
@@ -6,12 +8,12 @@ function getDrinks({
     return fetch("./data/drinks.json")
         .then(response => response.json())
         .then(data => {
-            const filtredDrinks = data
+            const filtredDrinks = data.drinks
                 .filter(
                     drink => {
-                        const drinkNameLowerCase = drink.name.toLowerCase();
+                        const drinkName = drink.name.toLowerCase();
                         return (
-                            drinkNameLowerCase.includes(search)
+                            drinkName.includes(search)
                         );
                     },
                 );
@@ -29,9 +31,11 @@ function getDrinks({
             if (sortOrder === 'desc') {
                 sortedDrinks.reverse();
             }
-            
-            return Promise.resolve(drinks);
+
+            return Promise.resolve(sortedDrinks);
         });
+
+        getDrinks.propTypes = {}
 }
 
 function getIngredients() {

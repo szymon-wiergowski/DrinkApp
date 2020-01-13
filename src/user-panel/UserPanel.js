@@ -9,14 +9,18 @@ class UserPanel extends React.Component {
         drinks: [],
         users: [],
         isLogged: true,
-        loggedUserId: 1
+        loggedUserId: 4,
     }
 
     componentDidMount() {
-        getDrinks()
+        getDrinks({
+            sortBy: '',
+            sortOrder: '',
+            search: '',
+        })
             .then(data => {
                 this.setState({
-                    drinks: data.drinks
+                    drinks: data
                 })
             })
         getUsers()
