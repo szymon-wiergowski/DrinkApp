@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+ .name{
+   color:#f50057;
+   margin-left:10px;
+   margin-top:10px;
+
+ }
+
+ .mohito{
+   margin-top:300px;
+   position: absolute;
+  top:0;
+  padding: 12 px;
+ }
+
+ .img{
+  display: flex;
+  position: absolute;  
+  padding:40px; 
+ }
+
+ .MuiCardContent-root:last-child{
+   margin-left:300px;
+ }
