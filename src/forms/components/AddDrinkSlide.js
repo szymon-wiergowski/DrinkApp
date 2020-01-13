@@ -35,13 +35,13 @@ export default class AlertDialogSlide extends React.Component {
           keepMounted
           aria-labelledby="alert-dialog-slide-title"
         >
-          <DialogTitle id="alert-dialog-slide-title">
-            {"Dodaj drinka"}
+          <DialogTitle aria-labelledby="simple-dialog-title">
+            {"DODAJ DRINKA"}
           </DialogTitle>
           <DialogContent>
             <FormPropsTextFields />
           </DialogContent>
-          <DialogActions>
+          <DialogActions style={{justifyContent: 'space-around'}}>
             <Button onClick={this.handleClose} color="secondary" href="/">
               ANULUJ
             </Button>
