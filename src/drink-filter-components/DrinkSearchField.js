@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import LocalBarRoundedIcon from '@material-ui/icons/LocalBarRounded';
 
-export function DrinkSearchField() {
+export function DrinkSearchField(props) {
 
   return (
     <div>
@@ -12,7 +12,7 @@ export function DrinkSearchField() {
           <LocalBarRoundedIcon />
         </Grid>
         <Grid item>
-          <TextField id="input-with-icon-grid" color="secondary" label={<em>Drink:</em>} />
+          <TextField value={props.value} onChange={props.onChangeText} id="input-with-icon-grid" color="secondary" label={<em>Drink:</em>} />
         </Grid>
       </Grid>
     </div>

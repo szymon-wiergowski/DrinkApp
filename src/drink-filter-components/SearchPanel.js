@@ -4,12 +4,15 @@ import { IngredientsSearchMulitpleSelect } from '../drink-filter-components/Ingr
 import { AlkoSearchRadio } from '../drink-filter-components/AlkoSearchRadio';
 import Grid from '@material-ui/core/Grid';
 
-export default function SearchPanel() {
+export default function SearchPanel(props) {
     return (
         <div>
             <Grid container spacing={5} justify="center" alignItems="center">
                 <Grid item>
-                    <DrinkSearchField />
+                    <DrinkSearchField
+                    value={props.value}
+                    onChangeText={props.onChangeText}
+                    />
                 </Grid>
                 <Grid item>
                     <IngredientsSearchMulitpleSelect />

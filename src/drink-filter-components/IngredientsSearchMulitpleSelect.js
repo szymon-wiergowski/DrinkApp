@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ITEM_HEIGHT = 50;
+const ITEM_HEIGHT = 200;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
