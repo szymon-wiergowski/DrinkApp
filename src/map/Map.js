@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: { lat: 54.403330, lng: 18.570192 },
-      loading: true,
-    //   stores: [
-    //     { latitude: 54.409746, longitude: 18.576603 },
-    //     { latitude: 54.406666, longitude: 18.569598 },
-    //     { latitude: 54.41041, longitude: 18.565582 },
-    //     { latitude: 54.40876, longitude: 18.567254 },
-    //     { latitude: 54.395471, longitude: 18.579619 }
-    //   ]
+      userLocation: { lat: 54.40333, lng: 18.570192 },
+      loading: true
+      //   stores: [
+      //     { latitude: 54.409746, longitude: 18.576603 },
+      //     { latitude: 54.406666, longitude: 18.569598 },
+      //     { latitude: 54.41041, longitude: 18.565582 },
+      //     { latitude: 54.40876, longitude: 18.567254 },
+      //     { latitude: 54.395471, longitude: 18.579619 }
+      //   ]
     };
   }
 
@@ -33,21 +33,21 @@ export class MapContainer extends Component {
     );
   }
 
-//   displayMarkers = () => {
-//     return this.state.stores.map((store, index) => {
-//       return (
-//         <Marker
-//           key={index}
-//           id={index}
-//           position={{
-//             lat: store.latitude,
-//             lng: store.longitude
-//           }}
-//           onClick={() => console.log("You clicked me!")}
-//         />
-//       );
-//     });
-//   };
+  //   displayMarkers = () => {
+  //     return this.state.stores.map((store, index) => {
+  //       return (
+  //         <Marker
+  //           key={index}
+  //           id={index}
+  //           position={{
+  //             lat: store.latitude,
+  //             lng: store.longitude
+  //           }}
+  //           onClick={() => console.log("You clicked me!")}
+  //         />
+  //       );
+  //     });
+  //   };
 
   render() {
     const { loading, userLocation } = this.state;
@@ -61,13 +61,11 @@ export class MapContainer extends Component {
       <div
         style={{
           position: "relative",
-          height: "calc(85vh - 10px)"
+          height: "calc(100vh - 73px)",
+          width: "100%"
         }}
       >
-        <Map 
-        google={google} 
-        initialCenter={userLocation} 
-        zoom={14}>
+        <Map google={google} initialCenter={userLocation} zoom={14}>
           {/* {this.displayMarkers()} */}
         </Map>
       </div>
