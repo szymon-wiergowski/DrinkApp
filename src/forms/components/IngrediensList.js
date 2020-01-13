@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import IngredientsFromData from "./IngredientsFromData";
+import { getIngredients } from '../../DataFetch/DataFetch';
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
@@ -32,7 +32,7 @@ export default class IngrediensList extends React.Component {
         error: ""
       },
       () => {
-        IngredientsFromData()
+        getIngredients()
           .then(data => {
             this.setState({
               ingredients: data,
