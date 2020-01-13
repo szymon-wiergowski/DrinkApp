@@ -1,8 +1,35 @@
-function getDrinks() {
+function getDrinks({
+    sortBy = 'name',
+    sortOrder = 'asc',
+    search = '',
+}) {
     return fetch("./data/drinks.json")
         .then(response => response.json())
         .then(data => {
-            const drinks = data;
+            const filtredDrinks = data
+                .filter(
+                    drink => {
+                        const drinkNameLowerCase = drink.name.toLowerCase();
+                        return (
+                            drinkNameLowerCase.includes(search)
+                        );
+                    },
+                );
+            const sortedDrinks =
+                filtredDrinks.sort((a, b) => {
+                    const sA = a[sortBy];
+                    const sB = b[sortBy];
+                    if (typeof sA === 'string') {
+                        return sA.localeCompare(sB);
+                    } else {
+                        return sA - sB;
+                    }
+                });
+
+            if (sortOrder === 'desc') {
+                sortedDrinks.reverse();
+            }
+            
             return Promise.resolve(drinks);
         });
 }
