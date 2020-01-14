@@ -18,18 +18,18 @@ const useStyles = makeStyles(theme => ({
 export function AlkoSearch(props) {
   const classes = useStyles();
 
-  const [age, setAge] = React.useState('');
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+  // const [age, setAge] = React.useState('');
+  // const handleChange = event => {
+  //   setAge(event.target.value);
+  // };
 
   return (
     <div>
       <FormControl className={classes.formControl} color='secondary'>
         <InputLabel><em>Rodzaj</em></InputLabel>
         <Select
-          value={age}
-          onChange={handleChange}
+          value={props.valueAlko}
+          onChange={props.onChangeAlko}
         >
           <MenuItem value='all'>Wszystkie</MenuItem>
           <MenuItem value={true}>Alkoholowe</MenuItem>
