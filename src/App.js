@@ -7,7 +7,6 @@ import './App.css'
 import { PageWrapper } from './wrapper/PageWrapper';
 import MapContainer from './map/Map';
 import {DrinkList} from './drink-list/DrinkList'
-//import Images from './Drink/Images';
 
 
 function App() {
@@ -16,6 +15,7 @@ function App() {
       <Navbar />
       <Switch>
         <PageWrapper>
+
           <Route
             path="/shops"
             component={Shops}
