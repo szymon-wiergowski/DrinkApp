@@ -13,25 +13,26 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export function AlkoSearchRadio() {
+export function AlkoSearchRadio(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState();
+    // const [value, setValue] = React.useState();
 
-    const handleChange = event => {
-        setValue(event.target.value);
-    };
+    // const handleChange = event => {
+    //     setValue(event.target.props.valueAlko);
+    //     console.log(props.valueAlko)
+    // };
 
     return (
         <div>
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend" color="secondary"><em>Alkohol:</em></FormLabel>
-                <RadioGroup aria-label="alko" name="alko" value={value} onChange={handleChange}>
+                <RadioGroup aria-label="alko" name="alko" value={props.valueAlko} onChange={props.onChangeAlko}>
                     <Grid container spacing={3} justify="center" alignItems="flex-end">
                         <Grid item>
-                            <FormControlLabel value="tak" control={<Radio />} label="Tak" />
+                            <FormControlLabel value={true} control={<Radio />} label="Tak" />
                         </Grid>
                         <Grid item>
-                            <FormControlLabel value="nie" control={<Radio />} label="Nie" />
+                            <FormControlLabel value={false} control={<Radio />} label="Nie" />
                         </Grid>
                     </Grid>
                 </RadioGroup>

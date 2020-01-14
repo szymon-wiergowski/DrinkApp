@@ -10,15 +10,20 @@ export default function SearchPanel(props) {
             <Grid container spacing={5} justify="center" alignItems="center">
                 <Grid item>
                     <DrinkSearchField
-                    value={props.value}
-                    onChangeText={props.onChangeText}
+                        valueSearchField={props.valueSearchField}
+                        onChangeText={props.onChangeText}
                     />
                 </Grid>
                 <Grid item>
-                    <IngredientsSearchMulitpleSelect />
+                    <IngredientsSearchMulitpleSelect
+                        ingredients={props.ingredients}
+                    />
                 </Grid>
                 <Grid item>
-                    <AlkoSearchRadio />
+                    <AlkoSearchRadio
+                        valueAlko={props.valueAlko}
+                        onChangeAlko={props.onChangeAlko}
+                    />
                 </Grid>
             </Grid>
         </div>
