@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import { getIngredients } from '../../DataFetch/DataFetch';
+import { getIngredients } from "../../DataFetch/DataFetch";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
@@ -17,7 +17,8 @@ export default class IngrediensList extends React.Component {
       ingredients: [],
       isLoading: false,
       hasError: false,
-      error: ""
+      error: "",
+      sortBy: "name"
     };
   }
   componentDidMount() {
@@ -34,8 +35,21 @@ export default class IngrediensList extends React.Component {
       () => {
         getIngredients()
           .then(data => {
+            const sortedIngredients = data.ingredients.sort((a, b) => {
+              const iA = a[this.state.sortBy];
+              const iB = b[this.state.sortBy];
+              if (typeof iA === "string") {
+                return iA.localeCompare(iB);
+              } else {
+                return iA - iB;
+              }
+            });
+
+            if (this.state.sortOrder === "desc") {
+              sortedIngredients.reverse();
+            }
             this.setState({
-              ingredients: data,
+              ingredients: sortedIngredients,
               isLoading: false
             });
           })
@@ -58,40 +72,38 @@ export default class IngrediensList extends React.Component {
 
     const ingredientsElements = Object.keys(this.state.ingredients).map(
       i => this.state.ingredients[i]
-    )[0];
+    );
 
-
-      return (
-        <Autocomplete
-          multiple
-          id="checkboxes-tags-demo"
-          options={ingredientsElements}
-          disableCloseOnSelect
-          getOptionLabel={option => option.name}
-          renderOption={(option, { selected }) => (
-            <React.Fragment>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-              />
-              {option.name}
-            </React.Fragment>
-          )}
-          style={{ width: 250 }}
-          renderInput={params => (
-            <TextField
-              {...params}
-              required
-              variant="outlined"
-              label="Składniki"
-              color="secondary"
-              fullWidth
+    return (
+      <Autocomplete
+        multiple
+        id="checkboxes-tags-demo"
+        options={ingredientsElements}
+        disableCloseOnSelect
+        getOptionLabel={option => option.name}
+        renderOption={(option, { selected }) => (
+          <React.Fragment>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={selected}
             />
-          )}
-        />
-      );
-    }
+            {option.name}
+          </React.Fragment>
+        )}
+        style={{ width: 250 }}
+        renderInput={params => (
+          <TextField
+            {...params}
+            required
+            variant="outlined"
+            label="Składniki"
+            color="secondary"
+            fullWidth
+          />
+        )}
+      />
+    );
   }
-
+}
