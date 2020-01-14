@@ -1,7 +1,7 @@
 import React from 'react';
 import { DrinkSearchField } from '../drink-filter-components/DrinkSearchField';
 import { IngredientsSearchMulitpleSelect } from '../drink-filter-components/IngredientsSearchMulitpleSelect';
-import { AlkoSearchRadio } from '../drink-filter-components/AlkoSearchRadio';
+import { AlkoSearch } from '../drink-filter-components/AlkoSearch';
 import Grid from '@material-ui/core/Grid';
 
 export default function SearchPanel(props) {
@@ -20,7 +20,7 @@ export default function SearchPanel(props) {
                     />
                 </Grid>
                 <Grid item>
-                    <AlkoSearchRadio
+                    <AlkoSearch
                         valueAlko={props.valueAlko}
                         onChangeAlko={props.onChangeAlko}
                     />

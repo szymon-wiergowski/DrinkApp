@@ -10,7 +10,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    minWidth: 120,
+    minWidth: 300,
     maxWidth: 300
   },
 }));
@@ -54,7 +54,7 @@ export function IngredientsSearchMulitpleSelect(props) {
           ingredients={props.ingredients}
         >
           {ingredients.map(ingredient => (
-            <MenuItem key={ingredients.id} value={ingredient.id}>
+            <MenuItem key={ingredients.id} value={ingredient.name}>
               <Checkbox checked={ingredientName.indexOf(ingredient.name) > -1} />
               <ListItemText primary={ingredient.name} />
             </MenuItem>
