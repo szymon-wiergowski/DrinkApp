@@ -20,19 +20,12 @@ code {
 
  }
 
- .mohito{
-   margin-top:300px;
-   position: absolute;
-  top:0;
-  padding: 12 px;
- }
+.modal_fade{
+  border: 2px solid red;
+  height:50px;
+}
 
- .img{
-  display: flex;
-  position: absolute;  
-  padding:40px; 
- }
-
- .MuiCardContent-root:last-child{
-   margin-left:300px;
- }
+.MuiFab-secondary {
+ 
+  height: 50px;
+}

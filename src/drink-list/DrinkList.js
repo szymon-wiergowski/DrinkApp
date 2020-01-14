@@ -4,6 +4,7 @@ import Drink from '../drink/Drink';
 import SearchPanel from '../drink-filter-components/SearchPanel';
 
 
+
 export class DrinkList extends React.Component {
 
   state = {
@@ -35,7 +36,7 @@ export class DrinkList extends React.Component {
         <div>
 
           {
-            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} /*recipe={drink.recipe}*/ ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name} img_url={drink.img_url}
+            this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.recipe} ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name} img_url={drink.img_url}
             />)
           }</div>
         <FloatingActionButtons />
