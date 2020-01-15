@@ -17,6 +17,8 @@ export default function SearchPanel(props) {
                 <Grid item>
                     <IngredientsSearchMulitpleSelect
                         ingredients={props.ingredients}
+                        valueSearchIngredients={props.valueSearchIngredients}
+                        onChangeIngredients={props.onChangeIngredients}
                     />
                 </Grid>
                 <Grid item>

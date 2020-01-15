@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         maxWidth: 'auto',
     },
     list: {
-        width: 500,
+        width: '500',
     },
     fullList: {
         width: 'auto',

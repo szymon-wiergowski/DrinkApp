@@ -10,18 +10,20 @@ export class DrinkList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alko: 'all',
       drinks: [],
       ingredients: [],
       isLoading: true,
       hasError: false,
       error: '',
       search: '',
+      searchIngredients: [],
+      alko: 'all',
       sortBy: 'name',
       sortOrder: 'asc',
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleAlkoChange = this.handleAlkoChange.bind(this);
+    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +48,7 @@ export class DrinkList extends React.Component {
       getDrinks(),
       getIngredients(),
     ]).then(data => {
-      const filteredDrinks = data[0]
+      const filteredDrinks = data[0].drinks
         .filter(
           drink => {
             if (this.state.alko === 'all') {
@@ -112,7 +114,13 @@ export class DrinkList extends React.Component {
     this.setState({
       alko: e.target.value,
     });
-    console.log('aaa', this.setState.alko);
+  }
+
+  handleIngredientsChange(e) {
+    this.setState({
+      searchIngredients: e.target.value,
+    })
+    console.log('zaznaczony składnik', this.state.searchIngredients)
   }
 
   render() {
@@ -131,8 +139,10 @@ export class DrinkList extends React.Component {
             valueSearchField={this.state.search}
             onChangeText={this.handleSearchChange}
             ingredients={this.state.ingredients}
+            valueSearchIngredients={this.state.searchIngredients}
+            onChangeIngredients={this.handleIngredientsChange}
             valueAlko={this.state.alko}
-            onChangeAlko={this.state.handleAlkoChange}
+            onChangeAlko={this.handleAlkoChange}
           />
         </div>
         <div>

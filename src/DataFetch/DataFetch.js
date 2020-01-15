@@ -2,7 +2,7 @@ function getDrinks() {
     return fetch("./data/drinks.json")
         .then(response => response.json())
         .then(data => {
-            const drinks = data.drinks
+            const drinks = data
             return Promise.resolve(drinks);
         });
 }

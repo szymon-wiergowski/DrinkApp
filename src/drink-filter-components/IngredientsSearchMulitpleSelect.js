@@ -28,11 +28,11 @@ const MenuProps = {
 
 export function IngredientsSearchMulitpleSelect(props) {
   const classes = useStyles();
-  const [ingredientName, setingredientName] = React.useState([]);
+  // const [ingredientName, setingredientName] = React.useState([]);
 
-  const handleChange = event => {
-    setingredientName(event.target.value);
-  };
+  // const handleChange = event => {
+  //   setingredientName(event.target.value);
+  // };
 
   const ingredients = props.ingredients;
 
@@ -45,8 +45,8 @@ export function IngredientsSearchMulitpleSelect(props) {
         <Select
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
-          multiple value={ingredientName}
-          onChange={handleChange}
+          multiple value={props.valueSearchIngredients}
+          onChange={props.onChangeIngredients}
           input={<Input />}
           renderValue={selected => selected.join(", ")}
           MenuProps={MenuProps}
@@ -55,7 +55,7 @@ export function IngredientsSearchMulitpleSelect(props) {
         >
           {ingredients.map(ingredient => (
             <MenuItem key={ingredients.id} value={ingredient.name}>
-              <Checkbox checked={ingredientName.indexOf(ingredient.name) > -1} />
+              <Checkbox checked={props.valueSearchIngredients.indexOf(ingredient.name) > -1} />
               <ListItemText primary={ingredient.name} />
             </MenuItem>
           ))}
