@@ -35,8 +35,6 @@ class LoginPanel extends React.Component {
     }
 
     handelChange = (e) => {
-        console.log(e.target.type)
-        console.log(e.target.value)
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -65,7 +63,7 @@ class LoginPanel extends React.Component {
                         <CloseIcon />
                     </Fab>
                     <SwitchButtons regBtn={this.state.registerButtonToggle} loginBtn={this.state.loginButtonToggle} displayCardChange={this.handelChangePanel.bind(this)} />
-                    <Login loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} />
+                    <Login loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} loggedUserId={this.props.loggedUserId} />
                 </>
             )
         } else {
