@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
 });
 
-export function Navbar() {
+export function Navbar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [state, setState] = React.useState({
@@ -53,7 +53,7 @@ export function Navbar() {
             role="presentation"
         >
             <List>
-                <UserPanel onToggle={toggleDrawer} />
+                <UserPanel loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
             </List>
         </div>
     );
@@ -70,7 +70,7 @@ export function Navbar() {
                 >
                     <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
-                    <Tab icon={<FontDownloadRoundedIcon />} label="alkomat" component={Link} to="/alco"></Tab>
+                    <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
                     <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                 </Tabs>
