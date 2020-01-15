@@ -39,7 +39,7 @@ const UserPanelCard = (props) => {
                     <Typography variant="body2" color="textSecondary" component="p">
                         Wzrost: {props.user.height} cm.
                 </Typography>
-                    <Button onClick={() => props.loginUser(2)} variant="contained" color="secondary">Wyloguj się.</Button>
+                    <Button onClick={() => props.loginUser(0)} variant="contained" color="secondary">Wyloguj się.</Button>
                 </CardContent>
                 <Divider />
                 <List >

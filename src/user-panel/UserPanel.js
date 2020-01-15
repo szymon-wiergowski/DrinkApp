@@ -59,13 +59,13 @@ class UserPanel extends React.Component {
 
     render() {
         if (this.state.loggedUserId === 0) {
-            return <LoginPanel loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
+            return <LoginPanel loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
         } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
             return <CircularProgress color="secondary" />
         } else {
             return (
                 <>
-                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
+                    <UserPanelCard loginUser={this.props.loginUser} delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
                 </>
             )
         }

@@ -8,24 +8,46 @@ import './App.css'
 import { PageWrapper } from './wrapper/PageWrapper';
 import MapContainer from './map/Map';
 import { DrinkList } from './drink-list/DrinkList'
+import { getUsers } from './DataFetch/DataFetch';
 
 class App extends React.Component {
   state = {
-    user: [],
+    users: [],
     loggedUserId: 0,
+    username: "",
+    password: "",
+    name: "",
   }
 
-  handleLoginUser = (id) => {
+  componentDidMount() {
+    getUsers()
+      .then(data => {
+        this.setState({
+          users: data,
+        })
+      })
+  }
+
+  handelChange = (e) => {
+    console.log(e.target.type)
+    console.log(e.target.value)
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      loggedUserId: id,
+      [name]: value
     })
+  }
+
+  handleLoginUser = (e) => {
+    e.preventDefault()
+    alert('login')
   }
 
   render() {
 
     return (
       <BrowserRouter>
-        <Navbar loggedUserId={this.state.loggedUserId} loginUser={this.handleLoginUser} />
+        <Navbar loginValue={this.state.value} loginOnChange={this.handelChange.bind(this)} loggedUserId={this.state.loggedUserId} loginUser={this.handleLoginUser.bind(this)} />
         <Switch>
           <PageWrapper>
             <Route
