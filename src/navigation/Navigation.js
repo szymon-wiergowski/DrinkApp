@@ -53,7 +53,7 @@ export function Navbar(props) {
             role="presentation"
         >
             <List>
-                <UserPanel loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
+                <UserPanel logout={props.logout} loginValue={props.loginValue} loginOnChange={props.loginOnChange} loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
             </List>
         </div>
     );

@@ -8,8 +8,6 @@ class UserPanel extends React.Component {
     state = {
         drinks: [],
         users: [],
-        loggedUserId: 0,
-        favoriteDrinks: [],
         isLoading: false,
     }
 
@@ -32,19 +30,9 @@ class UserPanel extends React.Component {
             })
         getUsers()
             .then(data => {
-                const user = data.users.find(user => user.id === this.state.loggedUserId);
                 this.setState({
                     users: data.users,
-                    user: user,
                 })
-            })
-            .then(() => {
-                if (this.state.isLoading === false && this.state.loggedUserId !== 0) {
-                    const favoriteDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
-                    this.setState({
-                        favoriteDrinks: favoriteDrinks,
-                    })
-                }
             })
     }
 
@@ -58,14 +46,17 @@ class UserPanel extends React.Component {
     }
 
     render() {
-        if (this.state.loggedUserId === 0) {
-            return <LoginPanel loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
+        if (this.props.loggedUserId === 0) {
+            return <LoginPanel loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
         } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
             return <CircularProgress color="secondary" />
-        } else {
+        } else if (this.state.isLoading === false) {
+            const user = this.state.users.find(user => user.id === this.props.loggedUserId);
+            const favoriteDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
+
             return (
                 <>
-                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
+                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={user} favorites={favoriteDrinks} />
                 </>
             )
         }

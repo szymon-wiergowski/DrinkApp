@@ -1,6 +1,7 @@
 {
     "users": [{
             "id": 1,
+            "username": "Kowalski",
             "name": "Jan Kowalski",
             "login": "Kowalski",
             "password": "1234",
@@ -16,6 +17,7 @@
         },
         {
             "id": 2,
+            "username": "Nowak",
             "name": "Joanna Nowak",
             "login": "Nowak",
             "password": "1234",
@@ -31,7 +33,8 @@
         },
         {
             "id": 3,
-            "name": "Marcin Wisniewski",
+            "username": "Wiśniewski",
+            "name": "Marcin Wiśniewski",
             "login": "Wisniewski",
             "password": "1234",
             "age": 24,
@@ -45,8 +48,8 @@
         },
         {
             "id": 4,
+            "username": "Kamińska",
             "name": "Anna Kamińska",
-            "login": "Kamińska",
             "password": "1234",
             "age": 26,
             "weight": 70,

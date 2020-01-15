@@ -14,6 +14,7 @@ import UserFavList from './UserFavList'
 import Button from '@material-ui/core/Button';
 
 const UserPanelCard = (props) => {
+
     return (
         <>
             <Fab
@@ -39,7 +40,7 @@ const UserPanelCard = (props) => {
                     <Typography variant="body2" color="textSecondary" component="p">
                         Wzrost: {props.user.height} cm.
                 </Typography>
-                    <Button onClick={() => props.loginUser(2)} variant="contained" color="secondary">Wyloguj się.</Button>
+                    <Button onClick={() => props.logout} variant="contained" color="secondary">Wyloguj się.</Button>
                 </CardContent>
                 <Divider />
                 <List >

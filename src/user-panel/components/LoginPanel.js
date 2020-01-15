@@ -3,13 +3,92 @@ import React from 'react';
 import Fab from '@material-ui/core/Fab';
 import CloseIcon from '@material-ui/icons/Close';
 import {
-    Card,
+    Card
 } from '@material-ui/core';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Typography from '@material-ui/core/Typography';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import InputAdornment from '@material-ui/core/InputAdornment';
+
+class LoginPanel extends React.Component {
+    state = {
+        displayCard: false,
+        loginButtonToggle: "contained",
+        registerButtonToggle: "",
+        username: "",
+        name: "",
+        surname: "",
+        firstname: "",
+    }
+
+    handelChangePanel = (card, loginBtn, regBtn) => {
+        this.setState({
+            displayCard: card,
+            loginButtonToggle: loginBtn,
+            registerButtonToggle: regBtn,
+        })
+    }
+
+    handelChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handelSubmit = (e) => {
+        e.preventDefault()
+        alert('Moduł rejestracji w budowie.')
+    }
+
+    render() {
+        if (this.state.displayCard === false) {
+            return (
+                <>
+                    <Fab
+                        onClick={() => this.props.onToggle('right', false)()}
+                        size="small"
+                        style={{
+                            position: 'absolute',
+                            top: "5px",
+                            right: "5px"
+                        }}
+                        color="secondary" aria-label="close">
+                        <CloseIcon />
+                    </Fab>
+                    <SwitchButtons regBtn={this.state.registerButtonToggle} loginBtn={this.state.loginButtonToggle} displayCardChange={this.handelChangePanel.bind(this)} />
+                    <Login loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} loggedUserId={this.props.loggedUserId} />
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <Fab
+                        onClick={() => this.props.onToggle('right', false)()}
+                        size="small"
+                        style={{
+                            position: 'absolute',
+                            top: "5px",
+                            right: "5px"
+                        }}
+                        color="secondary" aria-label="close">
+                        <CloseIcon />
+                    </Fab>
+                    <SwitchButtons regBtn={this.state.registerButtonToggle} loginBtn={this.state.loginButtonToggle} displayCardChange={this.handelChangePanel.bind(this)} />
+                    <Register handelSubmit={this.handelSubmit.bind(this)} value={this.state.value} onChange={this.handelChange.bind(this)} />
+                </>
+            )
+        }
+    }
+}
+
+export default LoginPanel;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -48,82 +127,106 @@ const Login = (props) => {
     const classes = useStyles();
     return (
         <Card style={{ margin: "16px" }}>
-            <form className={classes.root} noValidate autoComplete="on">
+            <form onSubmit={props.loginUser} className={classes.root} noValidate autoComplete="on">
                 <Typography>Nie jesteś zalogowany.</Typography>
                 <TextField
                     required
-
                     label="Użytkownik"
-                    defaultValue="Nazwisko"
+                    value={props.loginValue}
+                    onChange={props.loginOnChange}
+                    name="username"
+                    defaultValue=""
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-                    id="outlined-password-input"
+                    value={props.loginValue}
+                    onChange={props.loginOnChange}
                     label="Hasło"
+                    name="password"
                     type="password"
                     autoComplete="current-password"
                     variant="outlined"
                     color="secondary"
                 />
-                <Button onClick={() => this.props.loginUser(2)} variant="contained" color="secondary">Zaloguj się!</Button>
+                <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
             </form>
         </Card>
     )
 }
 
-const Register = () => {
+const Register = (props) => {
     const classes = useStyles();
     return (
         <Card style={{ margin: "16px" }}>
-            <form className={classes.root} noValidate autoComplete="on">
+            <form onSubmit={props.handelSubmit} className={classes.root} noValidate autoComplete="on">
                 <Typography>Nie masz jeszcze konta? Załóż je:</Typography>
                 <TextField
                     required
-
-                    label="Użytkownik"
-                    defaultValue="Twój Login"
+                    value={props.value}
+                    onChange={props.onChange}
+                    type="text"
+                    name="username"
+                    label="Nazwa użytkownika"
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-
+                    value={props.value}
+                    onChange={props.onChange}
+                    type="text"
+                    name="firstname"
                     label="Imię"
-                    defaultValue="Imię.."
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-
+                    type="text"
+                    name="surname"
                     label="Nazwisko"
-                    defaultValue="Nazwisko"
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-
+                    type="email"
+                    name="email"
+                    label="Email"
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    type="number"
+                    name="weight"
                     label="Waga"
-                    defaultValue="Waga w kg"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">Kg</InputAdornment>,
+                    }}
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-
+                    type="number"
+                    name="height"
                     label="Wzrost"
-                    defaultValue="Wzrost w cm"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="start">cm</InputAdornment>,
+                    }}
                     variant="outlined"
                     color="secondary"
                 />
                 <TextField
                     required
-
+                    type="number"
                     label="Wiek"
-                    defaultValue="Ile masz lat?"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="start">lat</InputAdornment>,
+                    }}
                     variant="outlined"
                     color="secondary"
                 />
@@ -145,66 +248,24 @@ const Register = () => {
                     variant="outlined"
                     color="secondary"
                 />
-                <Button onClick={() => this.props.loginUser(2)} variant="contained" color="secondary">Zarejestrój się</Button>
+                <FormControlLabel
+                    control={
+                        <Checkbox value="checkedA" />
+                    }
+                    label="Zapoznałem się z regulaminem:*"
+                />
+                <Link
+                    color="secondary"
+                    component="button"
+                    variant="body2"
+                    onClick={() => {
+                        console.info("I'm a button.");
+                    }}
+                >
+                    Przejdź do regulaminu.
+                </Link>
+                <Button type="submit" variant="contained" color="secondary">Zarejestruj się</Button>
             </form>
         </Card>
     )
 }
-
-class LoginPanel extends React.Component {
-    state = {
-        displayCard: false,
-        loginButtonToggle: "contained",
-        registerButtonToggle: "",
-    }
-
-    hendelChangePanel = (card, loginBtn, regBtn) => {
-        this.setState({
-            displayCard: card,
-            loginButtonToggle: loginBtn,
-            registerButtonToggle: regBtn,
-        })
-    }
-
-    render() {
-        if (this.state.displayCard === false) {
-            return (
-                <>
-                    <Fab
-                        onClick={() => this.props.onToggle('right', false)()}
-                        size="small"
-                        style={{
-                            position: 'absolute',
-                            top: "5px",
-                            right: "5px"
-                        }}
-                        color="secondary" aria-label="close">
-                        <CloseIcon />
-                    </Fab>
-                    <SwitchButtons regBtn={this.state.registerButtonToggle} loginBtn={this.state.loginButtonToggle} displayCardChange={this.hendelChangePanel.bind(this)} />
-                    <Login />
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <Fab
-                        onClick={() => this.props.onToggle('right', false)()}
-                        size="small"
-                        style={{
-                            position: 'absolute',
-                            top: "5px",
-                            right: "5px"
-                        }}
-                        color="secondary" aria-label="close">
-                        <CloseIcon />
-                    </Fab>
-                    <SwitchButtons regBtn={this.state.registerButtonToggle} loginBtn={this.state.loginButtonToggle} displayCardChange={this.hendelChangePanel.bind(this)} />
-                    <Register />
-                </>
-            )
-        }
-    }
-}
-
-export default LoginPanel;
