@@ -2,6 +2,7 @@ import React from 'react';
 import { FloatingActionButtons } from '../forms/components/AddDrinkButton'
 import Drink from '../drink/Drink';
 import SearchPanel from '../drink-filter-components/SearchPanel';
+import Popup from '../drink/Popup';
 
 
 
@@ -33,14 +34,12 @@ export class DrinkList extends React.Component {
     return (
       <div>
         <SearchPanel />
-        <div>
+         <FloatingActionButtons />
 
-          {
+         {
             this.state.drinks.map(drink => <Drink key={drink.id} name={drink.name} recipe={drink.recipe} ingredients={drink.ingredients} power={drink.power} ingredients_name={drink.ingredients_name} img_url={drink.img_url}
-            />)
-          }</div>
-        <FloatingActionButtons />
-      </div>
-    )
+            />)}            
+
+</div>   )
   }
 }

@@ -4,61 +4,43 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-
-
-
-export default class extends Component{
+class Popup extends React.Component{
     state={
         open:false,
     }
-
     handleToggle=()=>
     this.setState({
         open: !this.state.open
     })
     render(){
-        const {open} = this.state
-        return<Fragment>
-        <Button variant="outlined" color="primary" onClick={this.handleToggle}>Więcej
+      const {open} = this.state
+            return <Fragment>
+           <Button variant="outlined" color="primary" onClick={this.handleToggle}>Więcej
       </Button> <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
       <DialogTitle id="customized-dialog-title">
-          Nazwa {this.props.name}
+           Nazwa: {this.props.name}
         </DialogTitle>
                 <DialogContent>
                 <DialogTitle id="customized-dialog-title">
-                Składniki
+                Składniki: 
                 </DialogTitle>
-
                   <DialogContentText>
-                  To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. 
+                  {this.props.ingredients_name}
                   </DialogContentText>
                   <DialogTitle id="customized-dialog-title">
-                Sposób przygotowania
+                Sposób przygotowania:
                 </DialogTitle>
-
                   <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. 
+                  {this.props.description} {this.props.recipe} 
                   </DialogContentText>
-
                   <DialogTitle id="customized-dialog-title">
-                 Zawartość alkoholu           </DialogTitle>
-
+                 Zawartość alkoholu:      </DialogTitle>
                   <DialogContentText>
-                  To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally. 
+                  {this.props.power}   
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button color="primary">
+                <Button color="primary">
                     Skopiuj
                   </Button>
                   <Button color="primary">
@@ -66,8 +48,8 @@ export default class extends Component{
                   </Button>
                 </DialogActions>
               </Dialog>
-        </Fragment>
-        
-        
+     </Fragment>
     }
 }
+
+export default Popup;
