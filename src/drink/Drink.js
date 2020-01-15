@@ -57,8 +57,8 @@ class Drink extends React.Component {
 <Fab color="secondary" aria-label="edit">
   <EditIcon />
 </Fab>
-
-     <Popup></Popup> </CardActions>
+<Popup></Popup>
+     </CardActions>
       </Card>
     }
 
