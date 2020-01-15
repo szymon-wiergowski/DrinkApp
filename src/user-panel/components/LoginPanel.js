@@ -23,6 +23,7 @@ class LoginPanel extends React.Component {
         username: "",
         name: "",
         surname: "",
+        firstname: "",
     }
 
     handelChangePanel = (card, loginBtn, regBtn) => {
@@ -142,11 +143,10 @@ const Login = (props) => {
                 />
                 <TextField
                     required
-                    id="outlined-password-input"
                     value={props.loginValue}
                     onChange={props.loginOnChange}
                     label="Hasło"
-                    password="password"
+                    name="password"
                     type="password"
                     autoComplete="current-password"
                     variant="outlined"
@@ -169,7 +169,6 @@ const Register = (props) => {
                     value={props.value}
                     onChange={props.onChange}
                     type="text"
-                    id="username"
                     name="username"
                     label="Nazwa użytkownika"
                     variant="outlined"
@@ -177,9 +176,10 @@ const Register = (props) => {
                 />
                 <TextField
                     required
+                    value={props.value}
+                    onChange={props.onChange}
                     type="text"
-                    id="name"
-                    name="name"
+                    name="firstname"
                     label="Imię"
                     variant="outlined"
                     color="secondary"
@@ -187,7 +187,6 @@ const Register = (props) => {
                 <TextField
                     required
                     type="text"
-                    id="surname"
                     name="surname"
                     label="Nazwisko"
                     variant="outlined"
@@ -196,7 +195,6 @@ const Register = (props) => {
                 <TextField
                     required
                     type="email"
-                    id="email"
                     name="email"
                     label="Email"
                     variant="outlined"
@@ -205,7 +203,6 @@ const Register = (props) => {
                 <TextField
                     required
                     type="number"
-                    id="weight"
                     name="weight"
                     label="Waga"
                     InputProps={{
@@ -217,7 +214,6 @@ const Register = (props) => {
                 <TextField
                     required
                     type="number"
-                    id="height"
                     name="height"
                     label="Wzrost"
                     InputProps={{

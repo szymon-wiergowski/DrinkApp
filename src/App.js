@@ -29,8 +29,6 @@ class App extends React.Component {
   }
 
   handelChange = (e) => {
-    console.log(e.target.type)
-    console.log(e.target.value)
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -44,9 +42,12 @@ class App extends React.Component {
   }
 
   render() {
-
+    console.log(this.state.username)
+    console.log(this.state.password)
     return (
+
       <BrowserRouter>
+
         <Navbar loginValue={this.state.value} loginOnChange={this.handelChange.bind(this)} loggedUserId={this.state.loggedUserId} loginUser={this.handleLoginUser.bind(this)} />
         <Switch>
           <PageWrapper>
