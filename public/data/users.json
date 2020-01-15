@@ -2,6 +2,8 @@
     "users": [{
             "id": 1,
             "name": "Jan Kowalski",
+            "login": "Kowalski",
+            "password": "1234",
             "age": 20,
             "weight": 85,
             "favorites": [
@@ -15,6 +17,8 @@
         {
             "id": 2,
             "name": "Joanna Nowak",
+            "login": "Nowak",
+            "password": "1234",
             "age": 22,
             "weight": 65,
             "favorites": [
@@ -28,6 +32,8 @@
         {
             "id": 3,
             "name": "Marcin Wisniewski",
+            "login": "Wisniewski",
+            "password": "1234",
             "age": 24,
             "weight": 90,
             "favorites": [
@@ -40,6 +46,8 @@
         {
             "id": 4,
             "name": "Anna Kamińska",
+            "login": "Kamińska",
+            "password": "1234",
             "age": 26,
             "weight": 70,
             "favorites": [

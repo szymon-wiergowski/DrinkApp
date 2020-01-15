@@ -8,13 +8,15 @@ class UserPanel extends React.Component {
     state = {
         drinks: [],
         users: [],
-        isLogged: true,
-        loggedUserId: 1,
+        loggedUserId: 0,
         favoriteDrinks: [],
         isLoading: false,
     }
 
     componentDidMount() {
+        this.setState({
+            loggedUserId: this.props.loggedUserId,
+        })
         getDrinks()
             .then(data => {
                 this.setState({
@@ -37,7 +39,7 @@ class UserPanel extends React.Component {
                 })
             })
             .then(() => {
-                if (this.state.isLoading === false) {
+                if (this.state.isLoading === false && this.state.loggedUserId !== 0) {
                     const favoriteDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
                     this.setState({
                         favoriteDrinks: favoriteDrinks,
@@ -56,17 +58,17 @@ class UserPanel extends React.Component {
     }
 
     render() {
-        if (this.state.isLogged === false) {
-            return <LoginPanel />
+        if (this.state.loggedUserId === 0) {
+            return <LoginPanel loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
         } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
             return <CircularProgress color="secondary" />
+        } else {
+            return (
+                <>
+                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
+                </>
+            )
         }
-
-        return (
-            <>
-                <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
-            </>
-        )
     }
 }
 export default UserPanel;

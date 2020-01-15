@@ -1,6 +1,5 @@
 {
-    "drinks": [
-        {
+    "drinks": [{
             "id": 1,
             "name": "Mohito",
             "alko": true,
@@ -16,7 +15,7 @@
             "description": "orzeźwiający",
             "recipe": "Do szkła wrzucić kilka listków mięty oraz cukier i utrzeć je muddlerem. Następnie dodać lód i wlać pozostałe składniki i dokładnie zamieszać. Udekorować listkami mięty.",
             "origin": "Kuba",
-            "ingredients_name":"sok z limonki, cukier, listki mięty, rum, lód"
+            "ingredients_name": "sok z limonki, cukier, listki mięty, rum, lód"
         },
         {
             "id": 2,
@@ -33,7 +32,7 @@
             "description": "orzeźwiający",
             "recipe": "Najpierw przygotuj szkło: przetrzyj rant kieliszka cząstką limonki, a następnie delikatnie umocz zewnętrzną część brzegu kieliszka w soli. Stworzy to fantastyczny kontrast do słodko-kwaśnej margarity. Następnie wstrząśnij składniki w szejkerze i odcedź bez lodu do schłodzonego kieliszka.",
             "origin": "Hiszpania",
-            "ingredients_name":"tequila, cointreau, sok z cytryny, cukier"
+            "ingredients_name": "tequila, cointreau, sok z cytryny, cukier"
         },
         {
             "id": 3,
@@ -49,9 +48,9 @@
             "img_url": "Mojito.jpg",
             "power": "0%",
             "description": "orzeźwiający",
-            "recipe": "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera", 
+            "recipe": "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera",
             "origin": "Peru",
-            "ingredients_name":"sok grejpfrutowy, sok z limonki, bezalkoholowe blue curacao, wiórki kokosowe"
+            "ingredients_name": "sok grejpfrutowy, sok z limonki, bezalkoholowe blue curacao, wiórki kokosowe"
         },
 
 
@@ -64,12 +63,12 @@
                 6,
                 3
             ],
-            "img_url":"https://images.absolutdrinks.com/drink-images/Raw/Absolut/15315759-fe0a-428f-b463-bca3331f0d3d.jpg?imwidth=750",
+            "img_url": "https://images.absolutdrinks.com/drink-images/Raw/Absolut/15315759-fe0a-428f-b463-bca3331f0d3d.jpg?imwidth=750",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Składniki odmierzamy i mieszamy w shakerze. Wysoką szklankę napełniamy do połowy kruszonym lodem, a następnie przelewamy napój. Możemy udekorować go parasolką i słomką — drink bezalkoholowy gotowy!",
             "origin": "Portoryko",
-            "ingredients_name":"syrop kokosowy, sok ananasowy, lód"
+            "ingredients_name": "syrop kokosowy, sok ananasowy, lód"
         }
     ]
 }
