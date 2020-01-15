@@ -69,6 +69,77 @@
             "recipe": "Składniki odmierzamy i mieszamy w shakerze. Wysoką szklankę napełniamy do połowy kruszonym lodem, a następnie przelewamy napój. Możemy udekorować go parasolką i słomką — drink bezalkoholowy gotowy!",
             "origin": "Portoryko",
             "ingredients_name": "syrop kokosowy, sok ananasowy, lód"
+        },
+  
+        {
+            "id": 5,
+            "name": "Apple Martini",
+            "alko": true,
+            "ingredients": [
+                3,
+                14,
+                15,
+                16
+            ],
+            "img_url": "./img/AppleMartini.jpg",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić kostki lodu do shakera, wlać składniki i energicznie wstrząsać około 10 sekund. Przecedzić do szkła.",
+            "origin": "USA",
+            "ingredients_name":"likier jabłkowy, sok jabłkowy, wódka,lód"
+        },
+        {
+            "id": 6,
+            "name": "Sex on the Beach",
+            "alko": true,
+            "ingredients": [    
+                3,
+                15,
+                16,
+                17,
+                18
+            ],
+            "img_url": "./img/Sexonthebeach.jpg",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
+            "origin": "USA",
+            "ingredients_name":"likier brzoskwiniowy,sok żurawinowy,sok pomarańczowy, wódka lód"
+        },
+        {
+            "id": 7,
+            "name": "Blue Curacao",
+            "alko": false,
+            "ingredients": [
+              5,
+              19,
+              11,
+              3
+
+            ],
+            "img_url": "./img/Bluecuracao.jpg",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Do shakera wlewamy tonic, sok z cytryny oraz Blue Curacao. Wszystko mieszamy i przelewamy do kieliszków do martini. Dekorujemy plasterkami cytryny i kumkwatem.",
+            "origin": "Wenezuela",
+            "ingredients_name":"tonik, sok z cytryny, bezalkoholowy blue curacao, lód"
+        },
+        {
+            "id": 8,
+            "name": "Tropical",
+            "alko": false,
+            "ingredients": [
+               6,
+               7,
+               2,
+               3,
+               19
+            ],
+            "img_url": "./img/Tropical.jpg",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Wymieszaj wszystkie składniki w shakerze. Podawaj w szklankach long drink. Udekoruj tropikalne drinki bezalkoholowe kawałkiem cytryny.",
+            "origin": "Hawaje",
+            "ingredients_name":"sok ananasowy, sok grejfrutowy, jogurt naturalny, cukier, lód"
         }
-    ]
-}
+    ]}
