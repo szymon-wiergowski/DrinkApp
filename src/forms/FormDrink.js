@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
-import AutocompleteForm from "./components/IngredientsList";
+import IngrediensList from "./components/IngrediensList";
 
 const strength = [
   {
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 500
+      width: 350
     }
   }
 }));
@@ -40,8 +40,8 @@ export default function FormPropsTextFields() {
   };
 
   return (
-    <div>
-      <form className={classes.root} noValidate autoComplete="off">
+    <div style={{display: 'flex', flexDirection: 'column'}}>
+      <form className={classes.root} noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
         <TextField
           required
           fullWidth
@@ -57,7 +57,7 @@ export default function FormPropsTextFields() {
             )
           }}
         />
-        <AutocompleteForm />
+        <IngrediensList />
         <TextField
           required
           fullWidth
