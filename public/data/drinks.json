@@ -177,5 +177,41 @@
             "recipe": "Wlać składniki do shakera, dodać lód i energicznie mieszać około 10 sekund. Przecedzić do szkła.",
             "origin": "Hiszpania",
             "ingredients_name":"wódka, syrop cytrynowy, lód, blue curacao"
+        },
+        {"id": 11,
+            "name": "Granatowy Mohito",
+            "alko": false,
+            "ingredients": [
+              3,
+              22,
+              23,
+              24,
+              25
+               
+            ],
+            "img_url": "./img/Granatowymojito.jpg",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Wlać składniki do shakera, dodać lód i energicznie mieszać około 10 sekund. Przecedzić do szkła.",
+            "origin": "Kuba",
+            "ingredients_name":"limonka, mięta, sok z granatu, lemoniada, lód"
+        },
+        {"id": 11,
+            "name": "Paloma Fizz",
+            "alko": false,
+            "ingredients": [
+             7,
+             2,
+             3,
+             19
+               
+            ],
+            "img_url": "./img/Palomafizz.jpg",
+            "power": "0%",
+            "description": "orzeźwiający",
+            "recipe": "Wlej sok grejfrutowy do szklanki, dodaj tonik i łyżkę cukru, energicznie mieszaj składniki około 10 sekund. Przecedź do szkła, na koniec dodaj kostki lodu.",
+            "origin": "Meksyk",
+            "ingredients_name":"sok grejfrutowy, cukier, tonik, lód"
         }
+    
     ]}
