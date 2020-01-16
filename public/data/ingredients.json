@@ -51,6 +51,62 @@
         {
             "id": 13,
             "name": "syrop kokosowy"
+        },
+        {
+            "id": 14,
+            "name": "sok jabłkowy"
+        },
+        {
+            "id": 15,
+            "name": "likier jabłkowy"
+        },
+        {
+            "id": 16,
+            "name": "wódka"
+        },
+        {
+            "id": 15,
+            "name": "likier brzoskwiniowy"
+        },
+        {
+            "id": 17,
+            "name": "sok pomarańczowy"
+        },
+        {
+            "id": 18,
+            "name": "sok żurawinowy"
+        },
+        {
+            "id": 19,
+            "name": "tonik"
+        },
+        {
+            "id": 19,
+            "name": "jogurt naturalny"
+        },
+        {
+            "id": 20,
+            "name": "syrop granadine"
+        },
+        {
+            "id": 21,
+            "name": "blue curacao"
+        },
+        {
+            "id": 22,
+            "name": "mięta"
+        },
+        {
+            "id": 23,
+            "name": "sok z granatu"
+        },
+        {
+            "id": 24,
+            "name": "lemoniada"
+        },
+        {
+            "id": 25,
+            "name": "limonka"
         }
     ]
 }

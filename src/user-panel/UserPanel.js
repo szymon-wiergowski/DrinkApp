@@ -8,13 +8,13 @@ class UserPanel extends React.Component {
     state = {
         drinks: [],
         users: [],
-        isLogged: true,
-        loggedUserId: 1,
-        favoriteDrinks: [],
         isLoading: false,
     }
 
     componentDidMount() {
+        this.setState({
+            loggedUserId: this.props.loggedUserId,
+        })
         getDrinks()
             .then(data => {
                 this.setState({
@@ -27,22 +27,12 @@ class UserPanel extends React.Component {
                     drinks: data.drinks,
                     isLoading: false,
                 })
-            })
+            });
         getUsers()
             .then(data => {
-                const user = data.users.find(user => user.id === this.state.loggedUserId);
                 this.setState({
                     users: data.users,
-                    user: user,
                 })
-            })
-            .then(() => {
-                if (this.state.isLoading === false) {
-                    const favoriteDrinks = this.state.drinks.filter(drink => this.state.user.favorites.includes(drink.id))
-                    this.setState({
-                        favoriteDrinks: favoriteDrinks,
-                    })
-                }
             })
     }
 
@@ -56,17 +46,20 @@ class UserPanel extends React.Component {
     }
 
     render() {
-        if (this.state.isLogged === false) {
-            return <LoginPanel />
+        if (this.props.loggedUserId === 0) {
+            return <LoginPanel loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
         } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
             return <CircularProgress color="secondary" />
-        }
+        } else if (this.state.isLoading === false) {
+            const user = this.state.users.find(user => user.id === this.props.loggedUserId);
+            const favoriteDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
 
-        return (
-            <>
-                <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={this.state.user} favorites={this.state.favoriteDrinks} />
-            </>
-        )
+            return (
+                <>
+                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={user} favorites={favoriteDrinks} />
+                </>
+            )
+        }
     }
 }
 export default UserPanel;
