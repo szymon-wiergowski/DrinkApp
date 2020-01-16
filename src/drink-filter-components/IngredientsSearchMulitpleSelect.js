@@ -54,7 +54,7 @@ export function IngredientsSearchMulitpleSelect(props) {
           ingredients={props.ingredients}
         >
           {ingredients.map(ingredient => (
-            <MenuItem key={ingredients.id} value={ingredient.name}>
+            <MenuItem key={ingredient.id} value={ingredient.name}>
               <Checkbox checked={props.valueSearchIngredients.indexOf(ingredient.name) > -1} />
               <ListItemText primary={ingredient.name} />
             </MenuItem>
