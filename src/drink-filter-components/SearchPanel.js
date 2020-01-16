@@ -1,21 +1,31 @@
 import React from 'react';
 import { DrinkSearchField } from '../drink-filter-components/DrinkSearchField';
 import { IngredientsSearchMulitpleSelect } from '../drink-filter-components/IngredientsSearchMulitpleSelect';
-import { AlkoSearchRadio } from '../drink-filter-components/AlkoSearchRadio';
+import { AlkoSearch } from '../drink-filter-components/AlkoSearch';
 import Grid from '@material-ui/core/Grid';
 
-export default function SearchPanel() {
+export default function SearchPanel(props) {
     return (
         <div>
             <Grid container spacing={5} justify="center" alignItems="center">
                 <Grid item>
-                    <DrinkSearchField />
+                    <DrinkSearchField
+                        valueSearchField={props.valueSearchField}
+                        onChangeText={props.onChangeText}
+                    />
                 </Grid>
                 <Grid item>
-                    <IngredientsSearchMulitpleSelect />
+                    <IngredientsSearchMulitpleSelect
+                        ingredients={props.ingredients}
+                        valueSearchIngredients={props.valueSearchIngredients}
+                        onChangeIngredients={props.onChangeIngredients}
+                    />
                 </Grid>
                 <Grid item>
-                    <AlkoSearchRadio />
+                    <AlkoSearch
+                        valueAlko={props.valueAlko}
+                        onChangeAlko={props.onChangeAlko}
+                    />
                 </Grid>
             </Grid>
         </div>

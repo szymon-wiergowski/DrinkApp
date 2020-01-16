@@ -10,12 +10,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    minWidth: 120,
+    minWidth: 300,
     maxWidth: 300
   },
 }));
 
-const ITEM_HEIGHT = 50;
+const ITEM_HEIGHT = 200;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
@@ -26,68 +26,15 @@ const MenuProps = {
   }
 };
 
-const ingredients = [
-  {
-      id: 1,
-      name: "sok z limonki"
-  },
-  {
-      id: 2,
-      name: "cukier"
-  },
-  {
-      id: 3,
-      name: "lód"
-  },
-  {
-      id: 4,
-      name: "rum"
-  },
-  {
-      id: 5,
-      name: "sok z cytryny"
-  },
-  {
-      id: 6,
-      name: "sok ananasowy"
-  },
-  {
-      id: 7,
-      name: "sok grejpfrutowy"
-  },
-  {
-      id: 8,
-      name: "listki mięty"
-  },
-  {
-      id: 9,
-      name: "tequila"
-  },
-  {
-      id: 10,
-      name: "cointreau"
-  },
-  {
-      id: 11,
-      name: "bezalkoholowe blue curacao"
-  },
-  {
-      id: 12,
-      name: "wiórki kokosowe"
-  },
-  {
-      id: 13,
-      name: "syrop kokosowy"
-  }
-];
-
-export function IngredientsSearchMulitpleSelect() {
+export function IngredientsSearchMulitpleSelect(props) {
   const classes = useStyles();
-  const [ingredientName, setingredientName] = React.useState([]);
+  // const [ingredientName, setingredientName] = React.useState([]);
 
-  const handleChange = event => {
-    setingredientName(event.target.value);
-  };
+  // const handleChange = event => {
+  //   setingredientName(event.target.value);
+  // };
+
+  const ingredients = props.ingredients;
 
   return (
     <div>
@@ -98,16 +45,17 @@ export function IngredientsSearchMulitpleSelect() {
         <Select
           labelId="mutiple-checkbox-label"
           id="mutiple-checkbox"
-          multiple value={ingredientName}
-          onChange={handleChange}
+          multiple value={props.valueSearchIngredients}
+          onChange={props.onChangeIngredients}
           input={<Input />}
           renderValue={selected => selected.join(", ")}
           MenuProps={MenuProps}
           color="secondary"
+          ingredients={props.ingredients}
         >
           {ingredients.map(ingredient => (
-            <MenuItem key={ingredient.id} value={ingredient.name}>
-              <Checkbox checked={ingredientName.indexOf(ingredient.name) > -1} />
+            <MenuItem key={ingredients.id} value={ingredient.name}>
+              <Checkbox checked={props.valueSearchIngredients.indexOf(ingredient.name) > -1} />
               <ListItemText primary={ingredient.name} />
             </MenuItem>
           ))}

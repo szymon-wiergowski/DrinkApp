@@ -27,7 +27,7 @@ class UserPanel extends React.Component {
                     drinks: data.drinks,
                     isLoading: false,
                 })
-            })
+            });
         getUsers()
             .then(data => {
                 this.setState({
