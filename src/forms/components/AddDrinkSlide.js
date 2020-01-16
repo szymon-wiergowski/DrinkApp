@@ -1,4 +1,6 @@
 import React from "react";
+import Fab from "@material-ui/core/Fab";
+import CloseIcon from "@material-ui/icons/Close";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -6,7 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import FormPropsTextFields from "../FormDrink";
-import './../../App.css'
+import "./../../App.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -35,16 +37,27 @@ export default class AlertDialogSlide extends React.Component {
           keepMounted
           aria-labelledby="alert-dialog-slide-title"
         >
+          <Fab
+            onClick={this.handleClose}
+            size="small"
+            style={{
+              position: "absolute",
+              top: "5px",
+              right: "5px"
+            }}
+            color="secondary"
+            href="/"
+            aria-label="close"
+          >
+            <CloseIcon />
+          </Fab>
           <DialogTitle aria-labelledby="simple-dialog-title">
             {"DODAJ DRINKA"}
           </DialogTitle>
           <DialogContent>
             <FormPropsTextFields />
           </DialogContent>
-          <DialogActions style={{justifyContent: 'space-around'}}>
-            <Button onClick={this.handleClose} color="secondary" href="/">
-              ANULUJ
-            </Button>
+          <DialogActions >
             <Button onClick={this.handleClose} color="secondary" href="/">
               ZAPISZ
             </Button>

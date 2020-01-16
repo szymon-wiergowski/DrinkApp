@@ -4,6 +4,7 @@ import Drink from '../drink/Drink';
 import SearchPanel from '../drink-filter-components/SearchPanel';
 import { getDrinks, getIngredients } from '../DataFetch/DataFetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Dashboard from "../dashboard/dashboard";
 
 export class DrinkList extends React.Component {
 
@@ -152,7 +153,8 @@ export class DrinkList extends React.Component {
 
     return (
       <div>
-          <SearchPanel
+        <Dashboard />
+        <SearchPanel
             valueSearchField={this.state.search}
             onChangeText={this.handleSearchChange}
             ingredients={this.state.ingredients}
@@ -174,6 +176,6 @@ export class DrinkList extends React.Component {
               origin={drink.origin}
             />)}
       </div>
-    )
+    );
   }
 }
