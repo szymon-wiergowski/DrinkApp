@@ -29,7 +29,7 @@ export class DrinkList extends React.Component {
 
   render() {
     return (
-      <div style={{ width: "100%" }}>
+      <div>
         <Dashboard />
         <SearchPanel />
         <div>

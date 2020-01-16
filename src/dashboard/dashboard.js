@@ -5,13 +5,14 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import RadialChart from "./components/RadialChart";
+import BarChartHasBackground from "./components/BarChartHasBackground";
 import TwoLevelPieChart from "./components/TwoLevelPieChart";
 import CustomContentTreemap from "./components/CustomContentTreemap";
+import DashboardIcon from "@material-ui/icons/Dashboard";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    width: "100vw"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -26,21 +27,29 @@ export default function SimpleExpansionPanel() {
     <div className={classes.root}>
       <ExpansionPanel defaultExpanded={true}>
         <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon style={{ color: "#FF0266" }} />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          style={{ flexFlow: "row wrap" }}
+          style={{ flexFlow: "row wrap", alignItems: "center" }}
         >
-          <Typography className={classes.heading}>DASHBOARD</Typography>
+          <DashboardIcon
+            color="secondary"
+            style={{ fontSize: 20, marginRight: "5px" }}
+          />
+          <Typography
+            color="textSecondary"
+            style={{ marginRight: "auto", fontSize: 14 }}
+          >
+            DASHBOARD
+          </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails
           style={{
-            flexFlow: "row wrap",
-            justifyContent: "space-around",
-            alignItems: "center"
+            flexWrap: "wrap",
+            justifyContent: "space-around"
           }}
         >
-          <RadialChart />
+          <BarChartHasBackground />
           <TwoLevelPieChart />
           <CustomContentTreemap />
         </ExpansionPanelDetails>

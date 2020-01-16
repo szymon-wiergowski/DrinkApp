@@ -2,10 +2,10 @@ import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
 const data = [
-  { name: "DRINKI", value: 6 },
-  { name: "SKLEPY", value: 4 },
-  { name: "UŻYTKOWNICY", value: 5 },
-  { name: "SKŁADNIKI", value: 20 }
+  { id: 1, name: "DRINKI", value: 12 },
+  { id: 2, name: "SKLEPY", value: 4 },
+  { id: 3, name: "UŻYTKOWNICY", value: 5 },
+  { id: 4, name: "SKŁADNIKI", value: 20 }
 ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -59,17 +59,18 @@ const renderActiveShape = props => {
         fill={fill}
       />
       <path
+        key={data.id}
         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
         stroke={fill}
         fill="none"
       />
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+      <circle key={data.id} cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+      >{`${value}`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -83,7 +84,7 @@ const renderActiveShape = props => {
   );
 };
 
-export default class Example extends PureComponent {
+export default class TwoLevelPieChart extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/hqnrgxpj/";
 
   state = {
@@ -98,24 +99,33 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <PieChart width={500} height={400}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={renderActiveShape}
-          data={data}
-          cx={200}
-          cy={200}
-          innerRadius={70}
-          outerRadius={120}
-          fill="#8884d8"
-          dataKey="value"
-          onMouseEnter={this.onPieEnter}
-        >
-          {data.map((entry, index) => (
-            <Cell fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center"
+        }}
+      >
+        <p>Udział poszczególnych dancyh</p>
+        <PieChart width={500} height={400}>
+          <Pie
+            activeIndex={this.state.activeIndex}
+            activeShape={renderActiveShape}
+            data={data}
+            cx={240}
+            cy={190}
+            innerRadius={60}
+            outerRadius={120}
+            fill="#8884d8"
+            dataKey="value"
+            onMouseEnter={this.onPieEnter}
+          >
+            {data.map((_, index) => (
+              <Cell key={index} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+      </div>
     );
   }
 }
