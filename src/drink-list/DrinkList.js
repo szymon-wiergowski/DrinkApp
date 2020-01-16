@@ -2,7 +2,6 @@ import React from 'react';
 import { FloatingActionButtons } from '../forms/components/AddDrinkButton'
 import Drink from '../drink/Drink';
 import SearchPanel from '../drink-filter-components/SearchPanel';
-import Popup from '../drink/Popup';
 export class DrinkList extends React.Component {
   state = {
     drinks: [],

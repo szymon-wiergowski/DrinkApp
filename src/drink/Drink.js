@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Fab from '@material-ui/core/Fab';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Popup from './Popup.js';
-import EditIcon from '@material-ui/icons/Edit';
+
 class Drink extends React.Component {
   state = {
     expanded: false,

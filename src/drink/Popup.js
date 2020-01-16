@@ -1,7 +1,6 @@
-import React, {Component, Fragment } from 'react';
+import React, {Fragment } from 'react';
 import {Dialog, Button} from '@material-ui/core';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Fab from '@material-ui/core/Fab';
