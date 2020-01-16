@@ -166,7 +166,7 @@ export class DrinkList extends React.Component {
             <Drink
               key={drink.id}
               name={drink.name}
-              /* recipe={drink.recipe} */
+              recipe={drink.recipe}
               ingredients={drink.ingredients}
               power={drink.power}
               ingredients_name={drink.ingredients_name}
