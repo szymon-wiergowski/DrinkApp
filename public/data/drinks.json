@@ -141,5 +141,41 @@
             "recipe": "Wymieszaj wszystkie składniki w shakerze. Podawaj w szklankach long drink. Udekoruj tropikalne drinki bezalkoholowe kawałkiem cytryny.",
             "origin": "Hawaje",
             "ingredients_name":"sok ananasowy, sok grejfrutowy, jogurt naturalny, cukier, lód"
+        },
+        {
+            "id": 9,
+            "name": "Flamingo",
+            "alko": true,
+            "ingredients": [
+               6,
+               1,
+               4,
+               3,
+               20
+               
+            ],
+            "img_url": "./img/Flamingo.jpg",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić do shakera lód, wlać składniki i dokładnie wstrząsać. Następnie przecedzić do szkła.",
+            "origin": "Hiszpania",
+            "ingredients_name":"sok ananasowy, sok z limonki, rum, syrop granadine,lód"
+        },
+        { "id": 10,
+            "name": "Niebieska Laguna",
+            "alko": true,
+            "ingredients": [
+              16,
+              5,
+              3,
+              21
+               
+            ],
+            "img_url": "./img/Niebieskalaguna.jpg",
+            "power": "15%",
+            "description": "orzeźwiający",
+            "recipe": "Wlać składniki do shakera, dodać lód i energicznie mieszać około 10 sekund. Przecedzić do szkła.",
+            "origin": "Hiszpania",
+            "ingredients_name":"wódka, syrop cytrynowy, lód, blue curacao"
         }
     ]}

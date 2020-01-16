@@ -83,6 +83,14 @@
         {
             "id": 19,
             "name": "jogurt naturalny"
+        },
+        {
+            "id": 20,
+            "name": "syrop granadine"
+        },
+        {
+            "id": 21,
+            "name": "blue curacao"
         }
     ]
 }

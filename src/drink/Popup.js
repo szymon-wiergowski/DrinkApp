@@ -4,6 +4,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
 class Popup extends React.Component{
     state={
         open:false,
@@ -14,31 +16,68 @@ class Popup extends React.Component{
     })
     render(){
       const {open} = this.state
-            return <Fragment>
-           <Button variant="outlined" color="primary" onClick={this.handleToggle}>Więcej
+            return <Fragment>    <Fab color="secondary" aria-label="edit" onClick={this.handleToggle}>
+            <EditIcon/>
+             <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
+        <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}><img src={this.props.img_url} alt={""} className="popup_img" width="200px" height="200px"></img>
+                   Nazwa:
+                  </DialogTitle>
+                  <DialogTitle id="customized-dialog-title">
+                   {this.props.name}
+                  </DialogTitle>
+                  <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
+                   Składniki: 
+                  </DialogTitle>
+                    <DialogContentText style={{margin:"20px"}}>
+                    {this.props.ingredients_name}
+                    </DialogContentText>
+                    <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
+                  Sposób przygotowania:
+                  </DialogTitle>
+                    <DialogContentText style={{margin:"20px"}}>
+                    {this.props.description} {this.props.recipe} 
+                    </DialogContentText>
+                  <DialogActions>
+                  <Button color="primary">
+                      Skopiuj
+                    </Button>
+                    <Button color="primary">
+                      Dodaj do ulubionych
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+          </Fab>
+           <Button variant="outlined" className="buttonPopup" color="primary" onClick={this.handleToggle}>Więcej
       </Button> <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
-      <DialogTitle id="customized-dialog-title">
-           Nazwa: {this.props.name}
-        </DialogTitle>
-                <DialogContent>
-                <DialogTitle id="customized-dialog-title">
-                Składniki: 
+      <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}><img src={this.props.img_url} alt={""} className="popup_img" width="200px" height="200px"></img>
+                 Nazwa:
                 </DialogTitle>
-                  <DialogContentText>
+                <DialogTitle id="customized-dialog-title">
+                 {this.props.name}
+                </DialogTitle>
+                <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
+                 Pochodzenie:
+                </DialogTitle>
+                  <DialogContentText style={{margin:"20px"}}>
+                  {this.props.origin}
+                  </DialogContentText>
+                <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
+                 Składniki: 
+                </DialogTitle>
+                  <DialogContentText style={{margin:"20px"}}>
                   {this.props.ingredients_name}
                   </DialogContentText>
-                  <DialogTitle id="customized-dialog-title">
+                  <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
                 Sposób przygotowania:
                 </DialogTitle>
-                  <DialogContentText>
+                  <DialogContentText style={{margin:"20px"}}>
                   {this.props.description} {this.props.recipe} 
                   </DialogContentText>
-                  <DialogTitle id="customized-dialog-title">
+                <DialogTitle id="customized-dialog-title" style={{ color: "#f50057"}}>
                  Zawartość alkoholu:      </DialogTitle>
-                  <DialogContentText>
-                  {this.props.power}   
-                  </DialogContentText>
-                </DialogContent>
+                 <DialogContentText style={{margin:"20px"}}>
+                 {this.props.power}
+                 </DialogContentText>
                 <DialogActions>
                 <Button color="primary">
                     Skopiuj
@@ -51,5 +90,4 @@ class Popup extends React.Component{
      </Fragment>
     }
 }
-
 export default Popup;

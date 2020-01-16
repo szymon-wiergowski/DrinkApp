@@ -24,7 +24,7 @@ class Drink extends React.Component {
       <CardActionArea>
         <CardMedia
           image={this.props.img_url}
-        />
+        />      
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2"><img src={this.props.img_url} alt={""} width="200px" height="200px"
           /></Typography><br />
@@ -36,7 +36,6 @@ class Drink extends React.Component {
           </Typography><br />
           <Typography variant="body2" color="textSecondary" component="p"><b>Zawartość alkoholu:</b><br />
             {this.props.power}
-            {this.props.origin}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -44,10 +43,7 @@ class Drink extends React.Component {
         <Fab variant="extended" className="fab">
           <FavoriteIcon />
         </Fab>
-        <Fab color="secondary" aria-label="edit">
-          <EditIcon />
-        </Fab>
-        <Popup key={this.props.id} name={this.props.name} recipe={this.props.recipe} ingredients={this.props.ingredients} power={this.props.power} ingredients_name={this.props.ingredients_name} img_url={this.props.img_url}></Popup>
+        <Popup key={this.props.id} name={this.props.name} recipe={this.props.recipe} ingredients={this.props.ingredients} power={this.props.power} ingredients_name={this.props.ingredients_name} img_url={this.props.img_url} origin={this.props.origin}></Popup>
       </CardActions>
     </Card>
   }
