@@ -91,6 +91,22 @@
         {
             "id": 21,
             "name": "blue curacao"
+        },
+        {
+            "id": 22,
+            "name": "mięta"
+        },
+        {
+            "id": 23,
+            "name": "sok z granatu"
+        },
+        {
+            "id": 24,
+            "name": "lemoniada"
+        },
+        {
+            "id": 25,
+            "name": "limonka"
         }
     ]
 }
