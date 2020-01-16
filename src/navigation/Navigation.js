@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
 });
 
-export function Navbar() {
+export function Navbar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [state, setState] = React.useState({
@@ -40,9 +40,9 @@ export function Navbar() {
     };
 
     const toggleDrawer = (side, open) => event => {
-        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
+        // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        //     return;
+        // }
 
         setState({ ...state, [side]: open });
     };
@@ -51,11 +51,9 @@ export function Navbar() {
         <div
             className={classes.list}
             role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                <UserPanel />
+                <UserPanel logout={props.logout} loginValue={props.loginValue} loginOnChange={props.loginOnChange} loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
             </List>
         </div>
     );
@@ -72,18 +70,18 @@ export function Navbar() {
                 >
                     <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
-                    <Tab icon={<FontDownloadRoundedIcon />} label="alkomat" component={Link} to="/alco"></Tab>
+                    <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
                     <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
                     <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
                 </Tabs>
                 <SwipeableDrawer
-                        anchor="right"
-                        open={state.right}
-                        onClose={toggleDrawer('right', false)}
-                        onOpen={toggleDrawer('right', true)}
-                    >
-                        {sideList('right')}
-                    </SwipeableDrawer>
+                    anchor="right"
+                    open={state.right}
+                    onClose={toggleDrawer('right', false)}
+                    onOpen={toggleDrawer('right', true)}
+                >
+                    {sideList('right')}
+                </SwipeableDrawer>
             </Paper>
         </AppBar>
     );

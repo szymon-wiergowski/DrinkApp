@@ -133,8 +133,15 @@ export class DrinkList extends React.Component {
       searchIngredients: e.target.value,
     })
   }
+  
+  handleToggle=()=>
+  this.setState({
+      open: !this.state.open
+  })
 
   render() {
+    const {open} = this.state
+    
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />
     }
@@ -145,7 +152,6 @@ export class DrinkList extends React.Component {
 
     return (
       <div>
-        <div>
           <SearchPanel
             valueSearchField={this.state.search}
             onChangeText={this.handleSearchChange}
@@ -155,8 +161,7 @@ export class DrinkList extends React.Component {
             valueAlko={this.state.alko}
             onChangeAlko={this.handleAlkoChange}
           />
-        </div>
-        <div>
+          <FloatingActionButtons />
           {this.state.drinks.map(drink =>
             <Drink
               key={drink.id}
@@ -166,9 +171,8 @@ export class DrinkList extends React.Component {
               power={drink.power}
               ingredients_name={drink.ingredients_name}
               img_url={drink.img_url}
+              origin={drink.origin}
             />)}
-        </div>
-        <FloatingActionButtons />
       </div>
     )
   }

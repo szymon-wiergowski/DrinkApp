@@ -1,36 +1,51 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/jsx-no-comment-textnodes*/
 import React from 'react';
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
+//import { makeStyles } from '@material-ui/core/styles';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+//import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from '@material-ui/core/CardMedia';
+import Fab from '@material-ui/core/Fab';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import Popup from './Popup.js';
 
 class Drink extends React.Component {
-    state = {
-        expanded: false,
-    }
-
-    toggleExpanded = () => {
-        this.setState({
-            expanded: !this.state.expanded
-        })
-    }
-
-    render() {
-        return <Card style={{maxWidth: "700px", margin: "16px auto", padding: "50px"}}>
-         <Typography variant="body2" color="textSecondary" component="p" class="img"><img src="drink.png" width='200px' height='200px' alt="picture" class="Mohito"></img>
-                 </Typography>
-            <CardHeader title={this.props.name} class="name" />
-            <CardContent>
-                 <Typography variant="body2" color="textSecondary" component="p"><p><b>Składniki:</b></p>
-                    {this.props.ingredients_name}
-                 </Typography>
-                 <Typography variant="body2" color="textSecondary" component="p"><p><b>Zawartość alkoholu:</b></p>
-                    {this.props.power}
-                 </Typography>
-                 <Typography variant="body2" color="textSecondary" component="p"><p><a href="https://www.google.pl/" target="_blank">Wiecej...</a></p>
-</Typography>
-            </CardContent>
-
-        </Card>
-    }
-
+  state = {
+    expanded: false,
+  }
+  toggleExpanded = () => {
+    this.setState({
+      expanded: !this.state.expanded
+    })
+  }
+  render() {
+    return <Card style={{ width: "550px", height: "500px", margin: "16px 16px 0 50px", padding: "50px", float: "left" }}>
+      <CardActionArea>
+        <CardMedia
+          image={this.props.img_url}
+        />      
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2"><img src={this.props.img_url} alt={""} width="200px" height="200px"
+          /></Typography><br />
+          <Typography gutterBottom variant="h5" component="h2" className="name">
+            {this.props.name}
+          </Typography><br />
+          <Typography variant="body2" color="textSecondary" component="p"><b>Składniki:</b><br />
+            {this.props.ingredients_name}
+          </Typography><br />
+          <Typography variant="body2" color="textSecondary" component="p"><b>Zawartość alkoholu:</b><br />
+            {this.props.power}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Fab variant="extended" className="fab">
+          <FavoriteIcon />
+        </Fab>
+        <Popup key={this.props.id} name={this.props.name} recipe={this.props.recipe} ingredients={this.props.ingredients} power={this.props.power} ingredients_name={this.props.ingredients_name} img_url={this.props.img_url} origin={this.props.origin}></Popup>
+      </CardActions>
+    </Card>
+  }
 }
 export default Drink;

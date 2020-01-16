@@ -17,7 +17,7 @@ const UserFavList = (props) => {
             </ListItemIcon>
             <ListItemText primary={drink.name} secondary={drink.recipe} />
             <ListItemSecondaryAction>
-                <IconButton aria-label="delete" color="secondary">
+                <IconButton onClick={() => props.delete(drink.id)} aria-label="delete" color="secondary">
                     <DeleteIcon />
                 </IconButton>
             </ListItemSecondaryAction>
