@@ -33,9 +33,10 @@ export class DrinkList extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     const alkoChanged = prevState.alko !== this.state.alko;
     const searchChanged = prevState.search !== this.state.search;
+    const ingredientsChanged = prevState.searchIngredients !== this.state.searchIngredients;
     if (
       (
-        searchChanged || alkoChanged
+        searchChanged || alkoChanged || ingredientsChanged
       ) &&
       !this.state.isLoading
     ) {
@@ -56,6 +57,17 @@ export class DrinkList extends React.Component {
             }
             return drink.alko === this.state.alko;
           },
+        )
+        .filter(
+          drink => {
+            if (this.state.searchIngredients.length === 0) {
+              return true
+            } else {
+              return (
+                this.state.searchIngredients.every(searchIngredient => drink.ingredients_name.indexOf(searchIngredient) > -1)
+              )
+            }
+          }
         )
         .filter(
           drink => {
@@ -120,7 +132,6 @@ export class DrinkList extends React.Component {
     this.setState({
       searchIngredients: e.target.value,
     })
-    console.log('zaznaczony składnik', this.state.searchIngredients)
   }
 
   render() {
