@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import LocalBarRoundedIcon from "@material-ui/icons/LocalBarRounded";
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 import FontDownloadRoundedIcon from "@material-ui/icons/FontDownloadRounded";
 import ExploreRoundedIcon from "@material-ui/icons/ExploreRounded";
