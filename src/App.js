@@ -27,9 +27,9 @@ class App extends React.Component {
         })
       })
   }
-  handelLogout = () => {
+  handelLogout = (e) => {
     this.setState({
-      loggedUserId: 0,
+      loggedUserId: e,
     })
   }
   handelChange = (e) => {
