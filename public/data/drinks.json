@@ -282,7 +282,23 @@
             "recipe": "Wrzucić lód do szkła, wlać składniki i energicznie wymieszać. Udekorować plasterkiem limonki.",
             "origin": "Rosja",
             "ingredients_name":"limonka, sok z cytryny, ginger, wódka, lód"
-        }
-    
-    
+        },
+        {"id": 17,
+            "name": "Napoli",
+            "alko": true,
+            "ingredients": [
+           25,
+           5,
+           16,
+           30,
+           3,
+           33
+            ],
+            "img_url": "./img/Napoli.jpg",
+            "power": "15%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić lód do szkła, wlać składniki i energicznie wymieszać. Wycisnąć do drinka skórkę z pomarańczy i następnie ją do niego wrzucić.",
+            "origin": "Włochy",
+            "ingredients_name":"limonka, Galliano, sok z cytryny, ginger, wódka, lód"
+        }  
     ]}
