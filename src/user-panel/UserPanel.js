@@ -56,7 +56,7 @@ class UserPanel extends React.Component {
 
             return (
                 <>
-                    <UserPanelCard delete={this.handleDelete} onToggle={this.props.onToggle} user={user} favorites={favoriteDrinks} />
+                    <UserPanelCard delete={this.handleDelete} logout={this.props.logout} onToggle={this.props.onToggle} user={user} favorites={favoriteDrinks} />
                 </>
             )
         }
