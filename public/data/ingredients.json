@@ -107,6 +107,26 @@
         {
             "id": 25,
             "name": "limonka"
-        }
+        },
+        {
+            "id": 26,
+            "name": "gin"
+        },
+        {
+            "id":27,
+        "name": "syrop granadine"
+    },
+    {
+        "id":28,
+        "name":"Curacao Triple Sec"
+    },
+    {
+        "id":29,
+        "name":"sól"
+    },
+    {
+        "id":30,
+        "name":"ginger"
+    }
     ]
 }

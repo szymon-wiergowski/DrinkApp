@@ -212,6 +212,77 @@
             "recipe": "Wlej sok grejfrutowy do szklanki, dodaj tonik i łyżkę cukru, energicznie mieszaj składniki około 10 sekund. Przecedź do szkła, na koniec dodaj kostki lodu.",
             "origin": "Meksyk",
             "ingredients_name":"sok grejfrutowy, cukier, tonik, lód"
+        },
+        {"id": 13,
+            "name": "Pink Lady",
+            "alko": true,
+            "ingredients": [
+             26,
+             5,
+             27,
+             3
+
+            ],
+            "img_url": "./img/Pinklady.jpg",
+            "power": "8%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
+            "origin": "USA",
+            "ingredients_name":"gin, sok z cytryny, syrop granadine, lód"
+        },
+        {"id": 14,
+            "name": "White Lady",
+            "alko": true,
+            "ingredients": [
+             26,
+             5,
+             3,
+             28
+
+            ],
+            "img_url": "./img/Whitelady.jpg",
+            "power": "15%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
+            "origin": "USA",
+            "ingredients_name":"gin, sok z cytryny, Curacao Triple Sec, lód"
+        },
+        {"id": 15,
+            "name": "Salty Dog",
+            "alko": true,
+            "ingredients": [
+            16,
+            7,
+            5,
+            3,
+            29
+
+            ],
+            "img_url": "./img/Saltydog.jpg",
+            "power": "15%",
+            "description": "orzeźwiający",
+            "recipe": "Brzeg szklanki zanurzyć w soku z cytryny, a potem delikatnie w soli. Do szkła wrzucić lód, wlać wódkę i dopełnić sokiem.",
+            "origin": "USA",
+            "ingredients_name":"wódka, sok grejfrutowy, sok z cytryny, lód, sól"
+        },
+        {"id": 16,
+            "name": "Moscow Mule",
+            "alko": true,
+            "ingredients": [
+           25,
+           5,
+           16,
+           30,
+           3
+
+            ],
+            "img_url": "./img/Moscowmule.jpg",
+            "power": "15%",
+            "description": "orzeźwiający",
+            "recipe": "Wrzucić lód do szkła, wlać składniki i energicznie wymieszać. Udekorować plasterkiem limonki.",
+            "origin": "Rosja",
+            "ingredients_name":"limonka, sok z cytryny, ginger, wódka, lód"
         }
+    
     
     ]}
