@@ -65,12 +65,8 @@
             "name": "wódka"
         },
         {
-            "id": 15,
-            "name": "likier brzoskwiniowy"
-        },
-        {
             "id": 17,
-            "name": "sok pomarańczowy"
+            "name": "likier brzoskwiniowy"
         },
         {
             "id": 18,
@@ -79,10 +75,6 @@
         {
             "id": 19,
             "name": "tonik"
-        },
-        {
-            "id": 19,
-            "name": "jogurt naturalny"
         },
         {
             "id": 20,
@@ -113,20 +105,32 @@
             "name": "gin"
         },
         {
-            "id":27,
-        "name": "syrop granadine"
-    },
-    {
-        "id":28,
-        "name":"Curacao Triple Sec"
-    },
-    {
-        "id":29,
-        "name":"sól"
-    },
-    {
-        "id":30,
-        "name":"ginger"
-    }
-    ]
+            "id": 27,
+            "name": "syrop granadine"
+        },
+        {
+            "id": 28,
+            "name": "sok pomarańczowy"
+        },
+        {
+            "id": 29,
+            "name":"Curacao Triple Sec"
+        },
+        {
+            "id": 30,
+            "name":"sól"
+        },
+        {
+            "id": 31,
+            "name":"ginger"
+        },
+        {
+            "id": 32,
+            "name": "jogurt naturalny"
+        },
+        {
+            "id": 33,
+            "name": "Galliano"
+        }
+        ]
 }
