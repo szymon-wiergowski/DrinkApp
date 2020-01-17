@@ -40,12 +40,22 @@ const UserPanelCard = (props) => {
                     <Typography variant="body2" color="textSecondary" component="p">
                         Wzrost: {props.user.height} cm.
                 </Typography>
-                    <Button onClick={() => props.logout} variant="contained" color="secondary">Wyloguj się.</Button>
                 </CardContent>
                 <Divider />
                 <List >
                     <UserFavList delete={props.delete} favorites={props.favorites} />
                 </List>
+                <Button
+                    style={{
+                        position: 'relative', left: '50%',
+                        transform: 'translate(-50%)',
+                        marginBottom: '15px',
+                        width: 300,
+                    }}
+                    onClick={() => props.logout(0)}
+                    variant="contained"
+                    color="secondary">Wyloguj się.
+            </Button>
             </Card>
         </>
     )
