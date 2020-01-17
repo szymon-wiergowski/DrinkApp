@@ -106,8 +106,8 @@ export default class TwoLevelPieChart extends PureComponent {
           textAlign: "center"
         }}
       >
-        <p>Udział poszczególnych dancyh</p>
-        <PieChart width={500} height={400}>
+        <p>Udział poszczególnych danych</p>
+        <PieChart width={490} height={370}>
           <Pie
             activeIndex={this.state.activeIndex}
             activeShape={renderActiveShape}
