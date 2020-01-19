@@ -56,5 +56,29 @@
  
   </select>
   
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA8REupQlXYTxa8oU45PvJ0frzn4K3F-Ss",
+      authDomain: "drinkapp-7833e.firebaseapp.com",
+      databaseURL: "https://drinkapp-7833e.firebaseio.com",
+      projectId: "drinkapp-7833e",
+      storageBucket: "drinkapp-7833e.appspot.com",
+      messagingSenderId: "671386710238",
+      appId: "1:671386710238:web:c7338e579a4c5bc67d524f",
+      measurementId: "G-FWPKH8HRF1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
         </body>
         </html>

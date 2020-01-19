@@ -9,6 +9,8 @@ import BarChartHasBackground from "./components/BarChartHasBackground";
 import TwoLevelPieChart from "./components/TwoLevelPieChart";
 import CustomContentTreemap from "./components/CustomContentTreemap";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import Box from "@material-ui/core/Box";
+import "../App.css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,6 +27,7 @@ export default function SimpleExpansionPanel() {
 
   return (
     <div className={classes.root}>
+      {/* <div style={{ height: "75vh" }}> */}
       <ExpansionPanel defaultExpanded={true}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon style={{ color: "#FF0266" }} />}
@@ -49,11 +52,13 @@ export default function SimpleExpansionPanel() {
             justifyContent: "space-around"
           }}
         >
+         
           <BarChartHasBackground />
           <TwoLevelPieChart />
           <CustomContentTreemap />
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      {/* </div> */}
     </div>
   );
 }

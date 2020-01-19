@@ -1,5 +1,4 @@
-{
-    "drinks": [{
+    [{
             "id": 1,
             "name": "Mohito",
             "alko": true,
@@ -301,4 +300,4 @@
             "origin": "Włochy",
             "ingredients_name":"limonka, Galliano, sok z cytryny, ginger, wódka, lód"
         }  
-    ]}
+    ]

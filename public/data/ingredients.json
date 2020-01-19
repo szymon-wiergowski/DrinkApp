@@ -1,5 +1,4 @@
-{
-    "ingredients": [
+ [
         {
             "id": 1,
             "name": "sok z limonki"
@@ -133,4 +132,3 @@
             "name": "Galliano"
         }
         ]
-}
