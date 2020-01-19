@@ -1,5 +1,4 @@
-{
-    "users": [{
+[{
             "id": 1,
             "username": "Kowalski",
             "name": "Jan Kowalski",
@@ -63,4 +62,3 @@
             "gender": "famale"
         }
     ]
-}
