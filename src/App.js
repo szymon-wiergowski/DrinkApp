@@ -23,7 +23,7 @@ class App extends React.Component {
     getUsers()
       .then(data => {
         this.setState({
-          users: [...data.users],
+          users: data,
         })
       })
   }
@@ -60,6 +60,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
       <BrowserRouter>
         <Navbar logout={this.handelLogout.bind(this)} oginValue={this.state.value} loginOnChange={this.handelChange.bind(this)} loggedUserId={this.state.loggedUserId} loginUser={this.handleLoginUser.bind(this)} />

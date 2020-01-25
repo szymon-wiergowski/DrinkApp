@@ -1,37 +1,63 @@
+const BASE_URL = "https://drinkapp-7833e.firebaseio.com";
+
 function getDrinks() {
-    return fetch("./data/drinks.json")
-        .then(response => response.json())
-        .then(data => {
-            const drinks = data
-            return Promise.resolve(drinks);
-        });
+  return fetch(`${BASE_URL}/drinks.json`)
+    .then(response => response.json())
+    .then(data => {
+      const keys = Object.keys(data);
+      const drinks = keys.map(key => {
+        return {
+          id: key,
+          ...data[key]
+        };
+      });
+      return Promise.resolve(drinks);
+    });
 }
 
 function getIngredients() {
-    return fetch("./data/ingredients.json")
-        .then(response => response.json())
-        .then(data => {
-            const ingredients = data;
-            return Promise.resolve(ingredients);
-        });
+  return fetch(`${BASE_URL}/ingredients.json`)
+    .then(response => response.json())
+    .then(data => {
+      const keys = Object.keys(data);
+      const ingredients = keys.map(key => {
+        return {
+          id: key,
+          ...data[key]
+        };
+      });
+      return Promise.resolve(ingredients);
+    });
 }
 
 function getShops() {
-    return fetch("./data/shops.json")
-        .then(response => response.json())
-        .then(data => {
-            const shops = data;
-            return Promise.resolve(shops);
-        });
+  return fetch(`${BASE_URL}/shops.json`)
+    .then(response => response.json())
+    .then(data => {
+      const keys = Object.keys(data);
+      const shops = keys.map(key => {
+        return {
+          id: key,
+          ...data[key]
+        };
+      });
+      return Promise.resolve(shops);
+    });
 }
 
 function getUsers() {
-    return fetch("./data/users.json")
-        .then(response => response.json())
-        .then(data => {
-            const users = data;
-            return Promise.resolve(users);
-        });
+  return fetch(`${BASE_URL}/users.json`)
+    .then(response => response.json())
+    .then(data => {
+      const keys = Object.keys(data);
+      const users = keys.map(key => {
+        return {
+          id: key,
+          ...data[key]
+        };
+      });
+      return Promise.resolve(users);
+    });
 }
 
-export { getDrinks, getIngredients, getShops, getUsers }
+export { getDrinks, getIngredients, getShops, getUsers };
