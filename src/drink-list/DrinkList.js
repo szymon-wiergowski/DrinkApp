@@ -50,7 +50,7 @@ export class DrinkList extends React.Component {
       getDrinks(),
       getIngredients(),
     ]).then(data => {
-      const filteredDrinks = data[0].drinks
+      const filteredDrinks = data[0]
         .filter(
           drink => {
             if (this.state.alko === 'all') {
@@ -91,7 +91,7 @@ export class DrinkList extends React.Component {
       if (this.state.sortOrder === 'desc') {
         sortedDrinks.reverse();
       };
-      const sortedIngredients = data[1].ingredients.sort((a, b) => {
+      const sortedIngredients = data[1].sort((a, b) => {
         const iA = a[this.state.sortBy];
         const iB = b[this.state.sortBy];
         if (typeof iA === 'string') {
