@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
-import IngrediensList from "./components/IngrediensList";
+import IngrediensList from "./IngrediensList";
 
 const strength = [
   {

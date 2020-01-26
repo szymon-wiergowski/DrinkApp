@@ -35,7 +35,7 @@ export default class IngrediensList extends React.Component {
       () => {
         getIngredients()
           .then(data => {
-            const sortedIngredients = data.ingredients.sort((a, b) => {
+            const sortedIngredients = data.sort((a, b) => {
               const iA = a[this.state.sortBy];
               const iB = b[this.state.sortBy];
               if (typeof iA === "string") {

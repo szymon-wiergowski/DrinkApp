@@ -1,10 +1,11 @@
 import React from 'react';
-import { FloatingActionButtons } from '../forms/components/AddDrinkButton'
 import Drink from '../drink/Drink';
 import SearchPanel from '../drink-filter-components/SearchPanel';
 import { getDrinks, getIngredients } from '../DataFetch/DataFetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dashboard from "../dashboard/dashboard";
+import AddDrinkButton from "./components/AddDrinkButton";
+import AddDrinkSlide from './components/AddDrinkSlide';
 
 export class DrinkList extends React.Component {
 
@@ -21,6 +22,7 @@ export class DrinkList extends React.Component {
       alko: 'all',
       sortBy: 'name',
       sortOrder: 'asc',
+      addDrinkPopupIsOpen: false
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleAlkoChange = this.handleAlkoChange.bind(this);
@@ -44,6 +46,10 @@ export class DrinkList extends React.Component {
       this.fetchDatas();
     }
   }
+  handleToggleForm = () =>
+  this.setState({
+    addDrinkPopupIsOpen: !this.state.addDrinkPopupIsOpen
+  });
 
   fetchDatas() {
     Promise.all([
@@ -153,6 +159,7 @@ export class DrinkList extends React.Component {
 
     return (
       <div>
+        <AddDrinkButton handleToggleForm={this.handleToggleForm} />
         <Dashboard />
         <SearchPanel
             valueSearchField={this.state.search}
@@ -163,7 +170,6 @@ export class DrinkList extends React.Component {
             valueAlko={this.state.alko}
             onChangeAlko={this.handleAlkoChange}
           />
-          <FloatingActionButtons />
           {this.state.drinks.map(drink =>
             <Drink
               key={drink.id}
@@ -175,6 +181,7 @@ export class DrinkList extends React.Component {
               img_url={drink.img_url}
               origin={drink.origin}
             />)}
+            {this.state.addDrinkPopupIsOpen && <AddDrinkSlide />}
       </div>
     );
   }
