@@ -1,11 +1,12 @@
 import React from "react";
+
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LocalBarTwoToneIcon from "@material-ui/icons/LocalBarTwoTone";
 import BatteryUnknownIcon from "@material-ui/icons/BatteryUnknown";
-import IngrediensList from "./components/IngrediensList";
+import IngrediensList from "./IngrediensList";
 
 const strength = [
   {
@@ -26,12 +27,12 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 350
+      width: 450
     }
   }
 }));
 
-export default function FormPropsTextFields() {
+export default function FormDrink() {
   const classes = useStyles();
   const [strengthen, setPowercy] = React.useState("");
 
