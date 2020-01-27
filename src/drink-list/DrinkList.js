@@ -130,14 +130,9 @@ export class DrinkList extends React.Component {
   }
 
   handleIngredientsChange(e, value) {
-    if (e.target.value === undefined) {
-      this.setState({
-        searchIngredients: []
-      })
-    } else {
     this.setState({
-      searchIngredients:  value.map(el =>el.id),
-    })}
+      searchIngredients: value.map(el => el.id),
+    })
   }
 
   handleToggle = () =>
@@ -147,6 +142,7 @@ export class DrinkList extends React.Component {
 
   render() {
     const { open } = this.state
+    console.log('wybrane skłądniki', this.state.searchIngredients)
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />
@@ -158,7 +154,7 @@ export class DrinkList extends React.Component {
 
     return (
       <div>
-        {/* <Dashboard /> */}
+        <Dashboard />
         <SearchPanel
           valueSearchField={this.state.search}
           onChangeText={this.handleSearchChange}
