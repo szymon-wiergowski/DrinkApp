@@ -65,7 +65,7 @@ export class DrinkList extends React.Component {
               return true
             } else {
               return (
-                this.state.searchIngredients.every(searchIngredient => drink.ingredients_name.indexOf(searchIngredient) > -1)
+                this.state.searchIngredients.every(ingredientId => drink.ingredients.includes(parseInt(ingredientId)))
               )
             }
           }
@@ -129,20 +129,25 @@ export class DrinkList extends React.Component {
     });
   }
 
-  handleIngredientsChange(e) {
+  handleIngredientsChange(e, value) {
+    if (e.target.value === undefined) {
+      this.setState({
+        searchIngredients: []
+      })
+    } else {
     this.setState({
-      searchIngredients: e.target.value,
-    })
+      searchIngredients:  value.map(el =>el.id),
+    })}
   }
-  
-  handleToggle=()=>
-  this.setState({
+
+  handleToggle = () =>
+    this.setState({
       open: !this.state.open
-  })
+    })
 
   render() {
-    const {open} = this.state
-    
+    const { open } = this.state
+
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />
     }
@@ -153,28 +158,28 @@ export class DrinkList extends React.Component {
 
     return (
       <div>
-        <Dashboard />
+        {/* <Dashboard /> */}
         <SearchPanel
-            valueSearchField={this.state.search}
-            onChangeText={this.handleSearchChange}
-            ingredients={this.state.ingredients}
-            valueSearchIngredients={this.state.searchIngredients}
-            onChangeIngredients={this.handleIngredientsChange}
-            valueAlko={this.state.alko}
-            onChangeAlko={this.handleAlkoChange}
-          />
-          <FloatingActionButtons />
-          {this.state.drinks.map(drink =>
-            <Drink
-              key={drink.id}
-              name={drink.name}
-              recipe={drink.recipe}
-              ingredients={drink.ingredients}
-              power={drink.power}
-              ingredients_name={drink.ingredients_name}
-              img_url={drink.img_url}
-              origin={drink.origin}
-            />)}
+          valueSearchField={this.state.search}
+          onChangeText={this.handleSearchChange}
+          ingredients={this.state.ingredients}
+          valueSearchIngredients={this.state.searchIngredients}
+          onChangeIngredients={this.handleIngredientsChange}
+          valueAlko={this.state.alko}
+          onChangeAlko={this.handleAlkoChange}
+        />
+        <FloatingActionButtons />
+        {this.state.drinks.map(drink =>
+          <Drink
+            key={drink.id}
+            name={drink.name}
+            recipe={drink.recipe}
+            ingredients={drink.ingredients}
+            power={drink.power}
+            ingredients_name={drink.ingredients_name}
+            img_url={drink.img_url}
+            origin={drink.origin}
+          />)}
       </div>
     );
   }

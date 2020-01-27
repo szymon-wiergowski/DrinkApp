@@ -1,66 +1,39 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import ListItemText from "@material-ui/core/ListItemText";
-import Select from "@material-ui/core/Select";
-import Checkbox from "@material-ui/core/Checkbox";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    minWidth: 300,
-    maxWidth: 300
-  },
-}));
-
-const ITEM_HEIGHT = 200;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 300
-    }
+export class IngredientsSearchMulitpleSelect extends React.Component {
+  constructor(props) {
+    super(props);
+    this.checkIngredients = this.checkIngredients.bind(this);
   }
-};
 
-export function IngredientsSearchMulitpleSelect(props) {
-  const classes = useStyles();
-  // const [ingredientName, setingredientName] = React.useState([]);
+  checkIngredients(e, value) {
+    this.props.onChangeIngredients(e,value);
+  }
+  
+  render() {
+    const ingredients = this.props.ingredients;
 
-  // const handleChange = event => {
-  //   setingredientName(event.target.value);
-  // };
+    return (
+      <Autocomplete
+        multiple={true}
+        onChange={(e, value) => this.checkIngredients(e, value)}
+        options={ingredients}
+        disableCloseOnSelect
+        getOptionLabel={option => option.name}
+        style={{ width: 400 }}
+        renderInput={params => (
+          <TextField
+            {...params}
+            label="Składniki"
+            color="secondary"
+            fullWidth
+          />
+        )}
+      />
+    );
+  }
 
-  const ingredients = props.ingredients;
 
-  return (
-    <div>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="mutiple-checkbox-label" color="secondary">
-          <em>Składniki</em>
-        </InputLabel>
-        <Select
-          labelId="mutiple-checkbox-label"
-          id="mutiple-checkbox"
-          multiple value={props.valueSearchIngredients}
-          onChange={props.onChangeIngredients}
-          input={<Input />}
-          renderValue={selected => selected.join(", ")}
-          MenuProps={MenuProps}
-          color="secondary"
-          ingredients={props.ingredients}
-        >
-          {ingredients.map(ingredient => (
-            <MenuItem key={ingredient.id} value={ingredient.name}>
-              <Checkbox checked={props.valueSearchIngredients.indexOf(ingredient.name) > -1} />
-              <ListItemText primary={ingredient.name} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
 }
