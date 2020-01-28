@@ -63,10 +63,9 @@ export class DrinkList extends React.Component {
             if (this.state.searchIngredients.length === 0) {
               return true;
             } else {
-              return this.state.searchIngredients.every(
-                searchIngredient =>
-                  drink.ingredients_name.indexOf(searchIngredient) > -1
-              );
+              return (
+                this.state.searchIngredients.every(ingredientId => drink.ingredients.includes(parseInt(ingredientId)))
+              )
             }
           })
           .filter(drink => {
@@ -123,18 +122,20 @@ export class DrinkList extends React.Component {
     });
   }
 
-  handleIngredientsChange(e) {
+  handleIngredientsChange(e, value) {
     this.setState({
-      searchIngredients: e.target.value
-    });
+      searchIngredients: value.map(el => el.id),
+    })
   }
 
   handleToggle = () =>
     this.setState({
       open: !this.state.open
-    });
+    })
 
   render() {
+    const { open } = this.state
+
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
     }

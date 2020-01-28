@@ -1,4 +1,5 @@
-    [{
+    [
+        {
             "id": 1,
             "name": "Mohito",
             "alko": true,
@@ -44,15 +45,13 @@
                 12,
                 1
             ],
-            "img_url":"./img/Frog.jpg",
+            "img_url": "./img/Frog.jpg",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Sok grejpfruitowy, ananasowy i blue curracao wymieszaj w shakerze. Brzegi kieliszka zanurz w wodzie, po czym przyłóż go dnem do góry do rozsypanych na talerzyku wiórków kokosowych i przyozdób limonką. Do przygotowanego kieliszka do margarity przelej ostrożnie drink z shakera",
             "origin": "Peru",
             "ingredients_name": "sok grejpfrutowy, sok z limonki, bezalkoholowe blue curacao, wiórki kokosowe"
         },
-
-
         {
             "id": 4,
             "name": "Pinacolada",
@@ -69,7 +68,6 @@
             "origin": "Portoryko",
             "ingredients_name": "syrop kokosowy, sok ananasowy, lód"
         },
-  
         {
             "id": 5,
             "name": "Apple Martini",
@@ -85,13 +83,13 @@
             "description": "orzeźwiający",
             "recipe": "Wrzucić kostki lodu do shakera, wlać składniki i energicznie wstrząsać około 10 sekund. Przecedzić do szkła.",
             "origin": "USA",
-            "ingredients_name":"likier jabłkowy, sok jabłkowy, wódka,lód"
+            "ingredients_name": "likier jabłkowy, sok jabłkowy, wódka,lód"
         },
         {
             "id": 6,
             "name": "Sex on the Beach",
             "alko": true,
-            "ingredients": [    
+            "ingredients": [
                 3,
                 15,
                 16,
@@ -103,201 +101,201 @@
             "description": "orzeźwiający",
             "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
             "origin": "USA",
-            "ingredients_name":"likier brzoskwiniowy,sok żurawinowy,sok pomarańczowy, wódka lód"
+            "ingredients_name": "likier brzoskwiniowy,sok żurawinowy,sok pomarańczowy, wódka lód"
         },
         {
             "id": 7,
             "name": "Blue Curacao",
             "alko": false,
             "ingredients": [
-              5,
-              19,
-              11,
-              3
-
+                5,
+                19,
+                11,
+                3
             ],
             "img_url": "./img/Bluecuracao.jpg",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Do shakera wlewamy tonic, sok z cytryny oraz Blue Curacao. Wszystko mieszamy i przelewamy do kieliszków do martini. Dekorujemy plasterkami cytryny i kumkwatem.",
             "origin": "Wenezuela",
-            "ingredients_name":"tonik, sok z cytryny, bezalkoholowy blue curacao, lód"
+            "ingredients_name": "tonik, sok z cytryny, bezalkoholowy blue curacao, lód"
         },
         {
             "id": 8,
             "name": "Tropical",
             "alko": false,
             "ingredients": [
-               6,
-               7,
-               2,
-               3,
-               19
+                6,
+                7,
+                2,
+                3,
+                19
             ],
             "img_url": "./img/Tropical.jpg",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Wymieszaj wszystkie składniki w shakerze. Podawaj w szklankach long drink. Udekoruj tropikalne drinki bezalkoholowe kawałkiem cytryny.",
             "origin": "Hawaje",
-            "ingredients_name":"sok ananasowy, sok grejfrutowy, jogurt naturalny, cukier, lód"
+            "ingredients_name": "sok ananasowy, sok grejfrutowy, jogurt naturalny, cukier, lód"
         },
         {
             "id": 9,
             "name": "Flamingo",
             "alko": true,
             "ingredients": [
-               6,
-               1,
-               4,
-               3,
-               20
-               
+                6,
+                1,
+                4,
+                3,
+                20
             ],
             "img_url": "./img/Flamingo.jpg",
             "power": "8%",
             "description": "orzeźwiający",
             "recipe": "Wrzucić do shakera lód, wlać składniki i dokładnie wstrząsać. Następnie przecedzić do szkła.",
             "origin": "Hiszpania",
-            "ingredients_name":"sok ananasowy, sok z limonki, rum, syrop granadine,lód"
+            "ingredients_name": "sok ananasowy, sok z limonki, rum, syrop granadine,lód"
         },
-        { "id": 10,
+        {
+            "id": 10,
             "name": "Niebieska Laguna",
             "alko": true,
             "ingredients": [
-              16,
-              5,
-              3,
-              21
-               
+                16,
+                5,
+                3,
+                21
             ],
             "img_url": "./img/Niebieskalaguna.jpg",
             "power": "15%",
             "description": "orzeźwiający",
             "recipe": "Wlać składniki do shakera, dodać lód i energicznie mieszać około 10 sekund. Przecedzić do szkła.",
             "origin": "Hiszpania",
-            "ingredients_name":"wódka, syrop cytrynowy, lód, blue curacao"
+            "ingredients_name": "wódka, syrop cytrynowy, lód, blue curacao"
         },
-        {"id": 11,
+        {
+            "id": 11,
             "name": "Granatowy Mohito",
             "alko": false,
             "ingredients": [
-              3,
-              22,
-              23,
-              24,
-              25
-               
+                3,
+                22,
+                23,
+                24,
+                25
             ],
             "img_url": "./img/Granatowymojito.jpg",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Wlać składniki do shakera, dodać lód i energicznie mieszać około 10 sekund. Przecedzić do szkła.",
             "origin": "Kuba",
-            "ingredients_name":"limonka, mięta, sok z granatu, lemoniada, lód"
+            "ingredients_name": "limonka, mięta, sok z granatu, lemoniada, lód"
         },
-        {"id": 12,
+        {
+            "id": 12,
             "name": "Paloma Fizz",
             "alko": false,
             "ingredients": [
-             7,
-             2,
-             3,
-             19
-               
+                7,
+                2,
+                3,
+                19
             ],
             "img_url": "./img/Palomafizz.jpg",
             "power": "0%",
             "description": "orzeźwiający",
             "recipe": "Wlej sok grejfrutowy do szklanki, dodaj tonik i łyżkę cukru, energicznie mieszaj składniki około 10 sekund. Przecedź do szkła, na koniec dodaj kostki lodu.",
             "origin": "Meksyk",
-            "ingredients_name":"sok grejfrutowy, cukier, tonik, lód"
+            "ingredients_name": "sok grejfrutowy, cukier, tonik, lód"
         },
-        {"id": 13,
+        {
+            "id": 13,
             "name": "Pink Lady",
             "alko": true,
             "ingredients": [
-             26,
-             5,
-             27,
-             3
-
+                26,
+                5,
+                27,
+                3
             ],
             "img_url": "./img/Pinklady.jpg",
             "power": "8%",
             "description": "orzeźwiający",
             "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
             "origin": "USA",
-            "ingredients_name":"gin, sok z cytryny, syrop granadine, lód"
+            "ingredients_name": "gin, sok z cytryny, syrop granadine, lód"
         },
-        {"id": 14,
+        {
+            "id": 14,
             "name": "White Lady",
             "alko": true,
             "ingredients": [
-             26,
-             5,
-             3,
-             28
-
+                26,
+                5,
+                3,
+                28
             ],
             "img_url": "./img/Whitelady.jpg",
             "power": "15%",
             "description": "orzeźwiający",
             "recipe": "Wrzucić lód do shakera, następnie wlać wszystkie składniki i energicznie wstrząsać. Przecedzić do szkła.",
             "origin": "USA",
-            "ingredients_name":"gin, sok z cytryny, Curacao Triple Sec, lód"
+            "ingredients_name": "gin, sok z cytryny, Curacao Triple Sec, lód"
         },
-        {"id": 15,
+        {
+            "id": 15,
             "name": "Salty Dog",
             "alko": true,
             "ingredients": [
-            16,
-            7,
-            5,
-            3,
-            29
-
+                16,
+                7,
+                5,
+                3,
+                29
             ],
             "img_url": "./img/Saltydog.jpg",
             "power": "15%",
             "description": "orzeźwiający",
             "recipe": "Brzeg szklanki zanurzyć w soku z cytryny, a potem delikatnie w soli. Do szkła wrzucić lód, wlać wódkę i dopełnić sokiem.",
             "origin": "USA",
-            "ingredients_name":"wódka, sok grejfrutowy, sok z cytryny, lód, sól"
+            "ingredients_name": "wódka, sok grejfrutowy, sok z cytryny, lód, sól"
         },
-        {"id": 16,
+        {
+            "id": 16,
             "name": "Moscow Mule",
             "alko": true,
             "ingredients": [
-           25,
-           5,
-           16,
-           30,
-           3
-
+                25,
+                5,
+                16,
+                30,
+                3,
+                31
             ],
             "img_url": "./img/Moscowmule.jpg",
             "power": "15%",
             "description": "orzeźwiający",
             "recipe": "Wrzucić lód do szkła, wlać składniki i energicznie wymieszać. Udekorować plasterkiem limonki.",
             "origin": "Rosja",
-            "ingredients_name":"limonka, sok z cytryny, ginger, wódka, lód"
+            "ingredients_name": "limonka, sok z cytryny, ginger, wódka, lód"
         },
-        {"id": 17,
+        {
+            "id": 17,
             "name": "Napoli",
             "alko": true,
             "ingredients": [
-           25,
-           5,
-           16,
-           30,
-           3,
-           33
+                25,
+                5,
+                16,
+                30,
+                3,
+                33
             ],
             "img_url": "./img/Napoli.jpg",
             "power": "15%",
             "description": "orzeźwiający",
             "recipe": "Wrzucić lód do szkła, wlać składniki i energicznie wymieszać. Wycisnąć do drinka skórkę z pomarańczy i następnie ją do niego wrzucić.",
             "origin": "Włochy",
-            "ingredients_name":"limonka, Galliano, sok z cytryny, ginger, wódka, lód"
-        }  
+            "ingredients_name": "limonka, Galliano, sok z cytryny, ginger, wódka, lód"
+        }
     ]
