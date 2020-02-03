@@ -10,9 +10,6 @@ import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import FontDownloadRoundedIcon from '@material-ui/icons/FontDownloadRounded';
 import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import List from '@material-ui/core/List';
-import UserPanel from '../user-panel/UserPanel';
 
 
 const useStyles = makeStyles({
@@ -31,32 +28,10 @@ const useStyles = makeStyles({
 export function Navbar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const [state, setState] = React.useState({
-        right: false,
-    });
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    const toggleDrawer = (side, open) => event => {
-        // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-        //     return;
-        // }
-
-        setState({ ...state, [side]: open });
-    };
-
-    const sideList = side => (
-        <div
-            className={classes.list}
-            role="presentation"
-        >
-            <List>
-                <UserPanel logout={props.logout} loginValue={props.loginValue} loginOnChange={props.loginOnChange} loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
-            </List>
-        </div>
-    );
 
     return (
         <AppBar>
@@ -72,16 +47,8 @@ export function Navbar(props) {
                     <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
                     <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
                     <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
-                    <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
+                    <Tab icon={<AccountCircleRoundedIcon />} label="konto" component={Link} to="/UserPanel"></Tab>
                 </Tabs>
-                <SwipeableDrawer
-                    anchor="right"
-                    open={state.right}
-                    onClose={toggleDrawer('right', false)}
-                    onOpen={toggleDrawer('right', true)}
-                >
-                    {sideList('right')}
-                </SwipeableDrawer>
             </Paper>
         </AppBar>
     );
