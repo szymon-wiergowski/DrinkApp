@@ -1,63 +1,54 @@
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { getDrinks, getUsers } from '../DataFetch/DataFetch';
-import UserPanelCard from './components/UserPanelCard';
-import LoginPanel from './components/LoginPanel';
+import LoggedUser from './Components/LoggedUser'
+import SwitchButtons from './Components/SwitchButtons'
+import LoginForm from './Components/LoginForm'
+import RegisterForm from './Components/RegisterForm'
+import { Card } from '@material-ui/core';
 
 class UserPanel extends React.Component {
     state = {
-        drinks: [],
-        users: [],
-        isLoading: false,
+        displayCard: false,
+        loginButtonToggle: "contained",
+        registerButtonToggle: "",
     }
 
-    componentDidMount() {
+    handelChangePanel = (card, loginBtn, regBtn) => {
         this.setState({
-            loggedUserId: this.props.loggedUserId,
-        })
-        getDrinks()
-            .then(data => {
-                this.setState({
-                    isLoading: true,
-                })
-                return data;
-            })
-            .then(data => {
-                this.setState({
-                    drinks: data.drinks,
-                    isLoading: false,
-                })
-            });
-        getUsers()
-            .then(data => {
-                this.setState({
-                    users: data.users,
-                })
-            })
-    }
-
-    handleDelete = (id) => {
-        const index = this.state.favoriteDrinks.findIndex(drink => drink.id === id)
-        const favDrinks = [...this.state.favoriteDrinks]
-        favDrinks.splice(index, 1)
-        this.setState({
-            favoriteDrinks: favDrinks
+            displayCard: card,
+            loginButtonToggle: loginBtn,
+            registerButtonToggle: regBtn,
         })
     }
 
     render() {
-        if (this.props.loggedUserId === 0) {
-            return <LoginPanel loginValue={this.props.loginValue} loginOnChange={this.props.loginOnChange} loginUser={this.props.loginUser} onToggle={this.props.onToggle} />
-        } else if (this.state.users.length === 0 || this.state.drinks.length === 0) {
-            return <CircularProgress color="secondary" />
-        } else if (this.state.isLoading === false) {
-            const user = this.state.users.find(user => user.id === this.props.loggedUserId);
-            const favoriteDrinks = this.state.drinks.filter(drink => user.favorites.includes(drink.id))
-
+        const handelChangePanel = this.handelChangePanel.bind(this)
+        const { displayCard, loginButtonToggle, registerButtonToggle } = this.state
+        const { user, login, logout, signUp, value, handleChange, error } = this.props
+        if (user === null) {
+            if (displayCard === false) {
+                return (
+                    <>
+                        <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
+                            <SwitchButtons regBtn={registerButtonToggle} loginBtn={loginButtonToggle} handelChangePanel={handelChangePanel} />
+                            <LoginForm error={error} login={login} value={value} handleChange={handleChange} />
+                        </Card>
+                    </>
+                )
+            } else if (displayCard === true) {
+                return (
+                    <>
+                        <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
+                            <SwitchButtons regBtn={registerButtonToggle} loginBtn={loginButtonToggle} handelChangePanel={handelChangePanel} />
+                            <RegisterForm error={error} signUp={signUp} value={value} handleChange={handleChange} />
+                        </Card>
+                    </>
+                )
+            }
+        } else {
             return (
-                <>
-                    <UserPanelCard delete={this.handleDelete} logout={this.props.logout} onToggle={this.props.onToggle} user={user} favorites={favoriteDrinks} />
-                </>
+                <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
+                    <LoggedUser logout={logout} />
+                </Card>
             )
         }
     }

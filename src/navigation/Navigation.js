@@ -7,12 +7,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import LocalBarRoundedIcon from "@material-ui/icons/LocalBarRounded";
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
-import FontDownloadRoundedIcon from "@material-ui/icons/FontDownloadRounded";
-import ExploreRoundedIcon from "@material-ui/icons/ExploreRounded";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import List from "@material-ui/core/List";
-import UserPanel from "../user-panel/UserPanel";
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import FontDownloadRoundedIcon from '@material-ui/icons/FontDownloadRounded';
+import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
+
 
 const useStyles = makeStyles({
   root: {
@@ -28,60 +26,30 @@ const useStyles = makeStyles({
 });
 
 export function Navbar(props) {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-    const [state, setState] = React.useState({
-        right: false,
-    });
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const toggleDrawer = (side, open) => event => {
-    // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    //     return;
-    // }
-
-    setState({ ...state, [side]: open });
-  };
-
-    const sideList = side => (
-        <div
-            className={classes.list}
-            role="presentation"
+  return (
+    <AppBar>
+      <Paper square className={classes.root}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="fullWidth"
+          indicatorColor='secondary'
+          textColor='secondary'
         >
-            <List>
-                <UserPanel logout={props.logout} loginValue={props.loginValue} loginOnChange={props.loginOnChange} loginUser={props.loginUser} loggedUserId={props.loggedUserId} onToggle={toggleDrawer} />
-            </List>
-        </div>
-    );
-
-    return (
-        <AppBar>
-            <Paper square className={classes.root}>
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    variant="fullWidth"
-                    indicatorColor='secondary'
-                    textColor='secondary'
-                >
-                    <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
-                    <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
-                    <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
-                    <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
-                    <Tab icon={<AccountCircleRoundedIcon />} label="konto" onClick={toggleDrawer('right', true)}></Tab>
-                </Tabs>
-                <SwipeableDrawer
-                    anchor="right"
-                    open={state.right}
-                    onClose={toggleDrawer('right', false)}
-                    onOpen={toggleDrawer('right', true)}
-                >
-                    {sideList('right')}
-                </SwipeableDrawer>
-            </Paper>
-        </AppBar>
-    );
+          <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
+          <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
+          <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
+          <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
+          <Tab icon={<AccountCircleRoundedIcon />} label="konto" component={Link} to="/UserPanel"></Tab>
+        </Tabs>
+      </Paper>
+    </AppBar>
+  );
 }
