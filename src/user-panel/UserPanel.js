@@ -14,41 +14,9 @@ class UserPanel extends React.Component {
 
     handelChangePanel = (card, loginBtn, regBtn) => {
         this.setState({
-<<<<<<< HEAD
             displayCard: card,
             loginButtonToggle: loginBtn,
             registerButtonToggle: regBtn,
-=======
-            loggedUserId: this.props.loggedUserId,
-        })
-        getDrinks()
-            .then(data => {
-                this.setState({
-                    isLoading: true,
-                })
-                return data;
-            })
-            .then(data => {
-                this.setState({
-                    drinks: data.drinks,
-                    isLoading: false,
-                })
-            });
-        getUsers()
-            .then(data => {
-                this.setState({
-                    users: data.users,
-                })
-            })
-    }
-
-    handleDelete = (id) => {
-        const index = this.state.favoriteDrinks.findIndex(drink => drink.id === id)
-        const favDrinks = [...this.state.favoriteDrinks]
-        favDrinks.splice(index, 1)
-        this.setState({
-            favoriteDrinks: favDrinks
->>>>>>> 649fb50aaa21e8614cf3d3ca5e63288cc82282e6
         })
     }
 
