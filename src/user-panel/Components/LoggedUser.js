@@ -8,25 +8,27 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import Button from '@material-ui/core/Button';
+import FavoriteDrinksList from './FavoriteDrinksList'
 
 const LoggedUser = (props) => {
+    const { userData, drinks, logout, hendleDeleteFavoriteDrink } = props
     return (
         <>
-            <CardHeader avatar={<Avatar aria-label="recipe">JK</Avatar>} title={`Witaj, `} />
+            <CardHeader avatar={<Avatar aria-label="recipe">{userData.firstname.substring(0, 1)}{userData.surname.substring(0, 1)}</Avatar>} title={`Witaj, ${userData.firstname}`} />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Wiek:  lat.
+                    Wiek: {userData.age} lat.
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Waga:  kg.
+                    Waga: {userData.weight} kg.
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Wzrost:  cm.
+                    Wzrost: {userData.height} cm.
                 </Typography>
             </CardContent>
             <Divider />
             <List >
-                {/* <UserFavList delete={props.delete} favorites={props.favorites} /> */}
+                <FavoriteDrinksList hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} drinks={drinks} />
             </List>
             <Button
                 style={{
@@ -35,7 +37,7 @@ const LoggedUser = (props) => {
                     marginBottom: '15px',
                     width: 300,
                 }}
-                onClick={props.logout}
+                onClick={logout}
                 variant="contained"
                 color="secondary">Wyloguj się.
                 </Button>
