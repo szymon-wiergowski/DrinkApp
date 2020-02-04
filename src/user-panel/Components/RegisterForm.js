@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -44,6 +45,65 @@ const RegisterForm = (props) => {
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    value={props.value}
+                    onChange={props.handleChange}
+                    type="text"
+                    name="firstname"
+                    label="Imię"
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    value={props.value}
+                    onChange={props.handleChange}
+                    type="text"
+                    name="surname"
+                    label="Nazwisko"
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    value={props.value}
+                    onChange={props.handleChange}
+                    type="number"
+                    name="weight"
+                    label="Waga"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">Kg</InputAdornment>,
+                    }}
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    value={props.value}
+                    onChange={props.handleChange}
+                    type="number"
+                    name="height"
+                    label="Wzrost"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="start">cm</InputAdornment>,
+                    }}
+                    variant="outlined"
+                    color="secondary"
+                />
+                <TextField
+                    required
+                    value={props.value}
+                    onChange={props.handleChange}
+                    type="number"
+                    name="age"
+                    label="Wiek"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="start">lat</InputAdornment>,
+                    }}
                     variant="outlined"
                     color="secondary"
                 />
