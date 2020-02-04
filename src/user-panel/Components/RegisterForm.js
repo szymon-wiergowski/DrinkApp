@@ -24,7 +24,7 @@ const RegisterForm = (props) => {
     const classes = useStyles();
     return (
         <>
-            <form className={classes.root} noValidate autoComplete="on">
+            <form onSubmit={props.signUp} className={classes.root} noValidate autoComplete="on">
                 <TextField
                     required
                     label="Adres email"
@@ -49,7 +49,7 @@ const RegisterForm = (props) => {
                 />
                 <FormControlLabel
                     control={
-                        <Checkbox value="checkedA" />
+                        <Checkbox value="checked" />
                     }
                     label="Zapoznałem się z regulaminem:*"
                 />
@@ -65,6 +65,7 @@ const RegisterForm = (props) => {
                 >
                     Przejdź do regulaminu.
                 </Link>
+                <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                 <Button type="submit" variant="contained" color="secondary">Zarejestruj się!</Button>
             </form>
         </>

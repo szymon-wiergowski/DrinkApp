@@ -22,8 +22,8 @@ const SwitchButtons = (props) => {
     return (
         <div className={classes.groupButtons} >
             <ButtonGroup color="secondary" aria-label="secondary button group">
-                <Button onClick={() => props.displayCardChange(false, "contained", "outlined")} variant={props.loginBtn} >Zaloguj się</Button>
-                <Button onClick={() => props.displayCardChange(true, "outlined", "contained")} variant={props.regBtn} >Zarejestruj się</Button>
+                <Button onClick={() => props.handelChangePanel(false, "contained", "outlined")} variant={props.loginBtn} >Zaloguj się</Button>
+                <Button onClick={() => props.handelChangePanel(true, "outlined", "contained")} variant={props.regBtn} >Zarejestruj się</Button>
             </ButtonGroup>
         </div>
     )

@@ -8,27 +8,28 @@ import './App.css'
 import { PageWrapper } from './wrapper/PageWrapper';
 import MapContainer from './map/Map';
 import { DrinkList } from './drink-list/DrinkList'
-// import { getUsers } from './DataFetch/DataFetch';
+import { getUsers } from './DataFetch/DataFetch';
 import fire from './Config'
 import UserPanel from './user-panel/UserPanel'
 
 class App extends React.Component {
   state = {
-    user: [],
-    uid: '',
-    // users: [],
+    user: null,
+    users: [],
+    userData: [],
     email: '',
     password: '',
+    error: '',
   }
 
   componentDidMount() {
     this.authListener();
-    // getUsers()
-    //   .then(data => {
-    //     this.setState({
-    //       users: [...data.users],
-    //     })
-    //   })
+    getUsers()
+      .then(data => {
+        this.setState({
+          users: [...data.users],
+        })
+      })
   }
 
   authListener() {
@@ -36,16 +37,11 @@ class App extends React.Component {
       if (user) {
         this.setState({ user });
       } else {
-        this.setState({ user: [] });
+        this.setState({ user: null });
       }
     })
   }
 
-  // handelLogout = (e) => {
-  //   this.setState({
-  //     loggedUserId: e,
-  //   })
-  // }
   handelChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -55,57 +51,44 @@ class App extends React.Component {
     })
   }
 
-  // login(e) {
-  //   e.preventDefault();
-  //   fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-  //     this.setState({ uid: u.user.uid })
-  //     console.log(this.state.user)
-  //   }).catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
-
-  // signUp = (e) => {
-  //   e.preventDefault();
-  //   fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-  //   }).catch((error) => {
-  //     console.log(error)
-  //   })
-  // };
-
-  // logout() {
-  //   fire.auth().signOut();
-  // }
+  login(e) {
+    e.preventDefault();
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
 
 
-  // handleLoginUser = (e) => {
-  //   e.preventDefault()
-  //   if (this.state.users.length === 0) {
-  //   } else if (this.state.username === '' || this.state.password === '') {
-  //     alert('Musisz wypełnić oba pola')
-  //   } else {
-  //     const user = this.state.users.find(user => user.username === this.state.username);
-  //     if (!user) {
-  //       alert('Nie ma takiego użytkownika')
-  //     } else if (user.password !== this.state.password) {
-  //       alert('Hasło jest nie poprawne')
-  //     } else {
-  //       this.setState({
-  //         loggedUserId: user.id,
-  //       })
-  //     }
-  //   }
-  // }
-  // signUp={this.signUp.bind(this)}
-  // user={this.state.user}
-  // login={this.login.bind(this)}
-  // logout={this.logout.bind(this)}
-  // loginValue={this.state.value}
-  // loginOnChange={this.handelChange.bind(this)}
-  // loggedUserId={this.state.loggedUserId} 
+      this.setState({ uid: u.user.uid })
+    }).catch((error) => {
+      this.setState({
+        error: error.message
+      })
+    })
+  }
+
+  signUp = (e) => {
+    e.preventDefault();
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+    }).catch((error) => {
+      this.setState({
+        error: error.message
+      })
+    })
+  };
+
+  logout(e) {
+    e.preventDefault();
+    fire.auth().signOut();
+    this.setState({
+      user: null,
+    })
+  }
+
   render() {
     const handleChange = this.handelChange.bind(this);
-    const { user, value } = this.state
+    const login = this.login.bind(this);
+    const logout = this.logout.bind(this);
+    const signUp = this.signUp.bind(this);
+    const { user, value, error } = this.state
+    console.log(this.state.users)
     return (
       <BrowserRouter>
         <Navbar user={user} />
@@ -129,7 +112,7 @@ class App extends React.Component {
             />
             <Route
               path="/userpanel"
-              render={() => <UserPanel user={user} value={value} handleChange={handleChange} isAuthed={true} />}
+              render={() => <UserPanel error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
             />
             <Route
               path="/"

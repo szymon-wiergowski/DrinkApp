@@ -21,7 +21,7 @@ const LoginForm = (props) => {
     const classes = useStyles();
     return (
         <>
-            <form className={classes.root} noValidate autoComplete="on">
+            <form onSubmit={props.login} className={classes.root} noValidate autoComplete="on">
                 <TextField
                     required
                     label="Adres email"
@@ -44,6 +44,7 @@ const LoginForm = (props) => {
                     variant="outlined"
                     color="secondary"
                 />
+                <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                 <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
             </form>
         </>
