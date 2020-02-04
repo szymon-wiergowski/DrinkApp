@@ -9,25 +9,35 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const FavoriteDrinksList = (props) => {
-    const { drinks, hendleDeleteFavoriteDrink } = props
-    const favoriteDrinksList = drinks.map(drink => (
-        <ListItem key={drink.id}>
-            <ListItemIcon>
-                <LocalBarOutlinedIcon color="secondary" />
-            </ListItemIcon>
-            <ListItemText primary={drink.name} secondary={drink.recipe} />
-            <ListItemSecondaryAction>
-                <IconButton onClick={() => hendleDeleteFavoriteDrink(drink.id)} aria-label="delete" color="secondary">
-                    <DeleteIcon />
-                </IconButton>
-            </ListItemSecondaryAction>
-        </ListItem>
-    ))
-    return (
-        <>
-            {favoriteDrinksList}
-        </>
-    )
+    const { favoriteDrinks, hendleDeleteFavoriteDrink } = props
+    if (favoriteDrinks.length !== 0) {
+        const favoriteDrinksList = favoriteDrinks.map(drink => (
+            <ListItem key={drink.id}>
+                <ListItemIcon>
+                    <LocalBarOutlinedIcon color="secondary" />
+                </ListItemIcon>
+                <ListItemText primary={drink.name} secondary={drink.recipe} />
+                <ListItemSecondaryAction>
+                    <IconButton onClick={() => hendleDeleteFavoriteDrink(drink.id)} aria-label="delete" color="secondary">
+                        <DeleteIcon />
+                    </IconButton>
+                </ListItemSecondaryAction>
+            </ListItem>
+        ))
+
+        return (
+            <>
+                {favoriteDrinksList}
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h1>Brak ulubionych drinków</h1>
+            </>
+        )
+    }
+
 }
 
 export default FavoriteDrinksList;

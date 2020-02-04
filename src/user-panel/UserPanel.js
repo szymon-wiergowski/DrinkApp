@@ -23,7 +23,7 @@ class UserPanel extends React.Component {
     render() {
         const handelChangePanel = this.handelChangePanel.bind(this)
         const { displayCard, loginButtonToggle, registerButtonToggle } = this.state
-        const { user, hendleDeleteFavoriteDrink, userData, drinks, login, logout, signUp, value, handleChange, error } = this.props
+        const { user, hendleDeleteFavoriteDrink, userData, favoriteDrinks, login, logout, signUp, value, handleChange, error } = this.props
         if (user === null) {
             if (displayCard === false) {
                 return (
@@ -47,7 +47,7 @@ class UserPanel extends React.Component {
         } else {
             return (
                 <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
-                    <LoggedUser hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} drinks={drinks} logout={logout} />
+                    <LoggedUser hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} logout={logout} />
                 </Card>
             )
         }

@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import FavoriteDrinksList from './FavoriteDrinksList'
 
 const LoggedUser = (props) => {
-    const { userData, drinks, logout, hendleDeleteFavoriteDrink } = props
+    const { userData, favoriteDrinks, logout, hendleDeleteFavoriteDrink } = props
     return (
         <>
             <CardHeader avatar={<Avatar aria-label="recipe">{userData.firstname.substring(0, 1)}{userData.surname.substring(0, 1)}</Avatar>} title={`Witaj, ${userData.firstname}`} />
@@ -28,7 +28,7 @@ const LoggedUser = (props) => {
             </CardContent>
             <Divider />
             <List >
-                <FavoriteDrinksList hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} drinks={drinks} />
+                <FavoriteDrinksList hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} favoriteDrinks={favoriteDrinks} />
             </List>
             <Button
                 style={{

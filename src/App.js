@@ -125,16 +125,22 @@ class App extends React.Component {
 
   render() {
     const currentUser = fire.auth().currentUser;
-    let userData
+    let userData = [];
+    let favoriteDrinks = [];
     if (currentUser !== null) {
       userData = this.state.users.find(user => user.id === currentUser.uid);
+      if (this.state.drinks.length !== 0 && userData.favorites) {
+        favoriteDrinks = this.state.drinks.filter(drink => userData.favorites.includes(drink.id))
+      }
     }
+
+
     const handleChange = this.handelChange.bind(this);
     const login = this.login.bind(this);
     const logout = this.logout.bind(this);
     const signUp = this.signUp.bind(this);
     const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this);
-    const { user, drinks, value, isLoading, error } = this.state
+    const { user, value, isLoading, error } = this.state
     if (isLoading) {
       return (
         <>
@@ -165,7 +171,7 @@ class App extends React.Component {
               />
               <Route
                 path="/userpanel"
-                render={() => <UserPanel hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} drinks={drinks} error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
+                render={() => <UserPanel hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
               />
               <Route
                 path="/"
