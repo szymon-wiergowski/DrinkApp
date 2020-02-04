@@ -2,22 +2,22 @@ import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
-import Alcomat from './alcomat/Alcomat'
-// import AlertDialogSlide from './forms/components/AddDrinkSlide'
-import './App.css'
+import Alcomat from './alcomat/Alcomat';
+// import AlertDialogSlide from './forms/components/AddDrinkSlide;'
+import './App.css';
 import { PageWrapper } from './wrapper/PageWrapper';
 import MapContainer from './map/Map';
-import { DrinkList } from './drink-list/DrinkList'
+import { DrinkList } from './drink-list/DrinkList';
 import { getUsers, getDrinks } from './DataFetch/DataFetch';
-import fire from './Config'
-import UserPanel from './user-panel/UserPanel'
+import fire from './Config';
+import UserPanel from './user-panel/UserPanel';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class App extends React.Component {
   state = {
     user: null,
     users: [],
     drinks: [],
-    userData: [],
     email: '',
     password: '',
     error: '',
@@ -47,6 +47,7 @@ class App extends React.Component {
         isLoading: false,
       })
     })
+
   }
 
   authListener() {
@@ -71,7 +72,9 @@ class App extends React.Component {
   login(e) {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-      this.setState({ uid: u.user.uid })
+      this.setState({
+        error: '',
+      })
     }).catch((error) => {
       this.setState({
         error: error.message
@@ -98,8 +101,9 @@ class App extends React.Component {
         method: 'POST',
         body: JSON.stringify(createUserData)
       });
-      console.log(createUserData)
-      console.log(u)
+      this.setState({
+        error: '',
+      })
     }).catch((error) => {
       this.setState({
         error: error.message
@@ -115,16 +119,32 @@ class App extends React.Component {
     })
   }
 
+  hendleDeleteFavoriteDrink(e) {
+    e.preventDefault();
+  }
+
   render() {
+    const currentUser = fire.auth().currentUser;
+    let userData = [];
+    let favoriteDrinks = [];
+    if (currentUser !== null) {
+      userData = this.state.users.find(user => user.id === currentUser.uid);
+      if (this.state.drinks.length !== 0 && userData.favorites) {
+        favoriteDrinks = this.state.drinks.filter(drink => userData.favorites.includes(drink.id))
+      }
+    }
+
+
     const handleChange = this.handelChange.bind(this);
     const login = this.login.bind(this);
     const logout = this.logout.bind(this);
     const signUp = this.signUp.bind(this);
+    const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this);
     const { user, value, isLoading, error } = this.state
     if (isLoading) {
       return (
         <>
-          <h1>Loading data...</h1>
+          <CircularProgress color="secondary" />
         </>
       )
     } else {
@@ -151,7 +171,7 @@ class App extends React.Component {
               />
               <Route
                 path="/userpanel"
-                render={() => <UserPanel error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
+                render={() => <UserPanel hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
               />
               <Route
                 path="/"
