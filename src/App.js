@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Navbar } from './navigation/Navigation';
 import { Shops } from './shop-list/ShopList';
 import Alcomat from './alcomat/Alcomat';
-// import AlertDialogSlide from './forms/components/AddDrinkSlide;'
 import './App.css';
 import { PageWrapper } from './wrapper/PageWrapper';
 import MapContainer from './map/Map';
@@ -180,7 +179,7 @@ class App extends React.Component {
               />
               <Route
                 path="/alcomat"
-                component={Alcomat}
+                render={() => <Alcomat userData={userData} user={user} isAuthed={true} />}
               />
               <Route
                 path="/userpanel"
