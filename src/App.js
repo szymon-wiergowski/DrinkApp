@@ -30,6 +30,7 @@ class App extends React.Component {
     favorites: [],
     gender: '',
     id: '',
+    checkedRules: false,
   }
 
   componentDidMount() {
@@ -47,7 +48,6 @@ class App extends React.Component {
         isLoading: false,
       })
     })
-
   }
 
   authListener() {
@@ -57,6 +57,12 @@ class App extends React.Component {
       } else {
         this.setState({ user: null });
       }
+    })
+  }
+
+  hendleCheckbox = (e) => {
+    this.setState({
+      checkedRules: !this.state.checkedRules,
     })
   }
 
@@ -84,12 +90,11 @@ class App extends React.Component {
 
   signUp = (e) => {
     e.preventDefault();
-    const { age, firstname, favorites, gender, height, surname, weight } = this.state
+    const { age, firstname, gender, height, surname, weight } = this.state
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-      // const curentUser = fire.auth().currentUser;
       const createUserData = {
         age,
-        favorites,
+        favorites: [],
         firstname,
         gender,
         height,
@@ -102,12 +107,23 @@ class App extends React.Component {
         body: JSON.stringify(createUserData)
       });
       this.setState({
-        error: '',
+        isLoading: true
+      });
+      Promise.all([
+        getUsers(),
+        getDrinks()
+      ]).then(data => {
+        this.setState({
+          users: [...data[0]],
+          drinks: [...data[1]],
+          isLoading: false,
+          error: '',
+        })
       })
     }).catch((error) => {
       this.setState({
         error: error.message
-      })
+      });
     })
   };
 
@@ -119,35 +135,36 @@ class App extends React.Component {
     })
   }
 
-  hendleDeleteFavoriteDrink(e) {
-    e.preventDefault();
+  hendleDeleteFavoriteDrink(id) {
+    alert(`id: ${id}`)
   }
 
   render() {
-    const currentUser = fire.auth().currentUser;
-    let userData = [];
-    let favoriteDrinks = [];
-    if (currentUser !== null) {
-      userData = this.state.users.find(user => user.id === currentUser.uid);
-      if (this.state.drinks.length !== 0 && userData.favorites) {
-        favoriteDrinks = this.state.drinks.filter(drink => userData.favorites.includes(drink.id))
-      }
-    }
-
-
     const handleChange = this.handelChange.bind(this);
     const login = this.login.bind(this);
     const logout = this.logout.bind(this);
     const signUp = this.signUp.bind(this);
+    const hendleCheckbox = this.hendleCheckbox.bind(this);
     const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this);
-    const { user, value, isLoading, error } = this.state
+    const { user, users, drinks, checkedRules, value, isLoading, error } = this.state;
+    const currentUser = fire.auth().currentUser;
+    let userData = [];
+    let favoriteDrinks = [];
+
     if (isLoading) {
       return (
         <>
           <CircularProgress color="secondary" />
         </>
       )
-    } else {
+    }
+    else {
+      if (currentUser !== null && users !== []) {
+        userData = users.find(user => user.id === currentUser.uid);
+        if (userData.favorites) {
+          favoriteDrinks = drinks.filter(drink => userData.favorites.includes(drink.id))
+        }
+      }
       return (
         <BrowserRouter>
           <Navbar user={user} />
@@ -157,10 +174,6 @@ class App extends React.Component {
                 path="/shops"
                 component={Shops}
               />
-              {/* <Route
-              path="/addDrink"
-              component={AlertDialogSlide}
-            /> */}
               <Route
                 path="/map"
                 component={MapContainer}
@@ -171,7 +184,7 @@ class App extends React.Component {
               />
               <Route
                 path="/userpanel"
-                render={() => <UserPanel hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
+                render={() => <UserPanel hendleCheckbox={hendleCheckbox} checkedRules={checkedRules} hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} error={error} logout={logout} login={login} signUp={signUp} user={user} value={value} handleChange={handleChange} isAuthed={true} />}
               />
               <Route
                 path="/"
