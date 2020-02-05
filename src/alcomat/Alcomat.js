@@ -1,12 +1,23 @@
 import React from 'react';
+import { Card } from '@material-ui/core';
+import AlcomatApp from './components/AlcomatApp'
 
-export default class Alcomat extends React.Component {
-
+class Alcomat extends React.Component {
     render() {
-        return (
-            <>
-                <h1>Musisz się zalogować, aby korzystać z alkomatu online.</h1>
-            </>
-        )
+        const { user, userData } = this.props
+        if (user === null) {
+            return (
+                <>
+                    <h1>nie zaloowany</h1>
+                </>
+            )
+        } else {
+            return (
+                <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
+                    <AlcomatApp userData={userData} />
+                </Card>
+            )
+        }
     }
 }
+export default Alcomat;
