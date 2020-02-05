@@ -94,7 +94,7 @@ class App extends React.Component {
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
       const createUserData = {
         age,
-        favorites =[],
+        favorites: [],
         firstname,
         gender,
         height,
