@@ -21,16 +21,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const RegisterForm = (props) => {
-
+    const { checkedRules, error, value, handleChange, hendleCheckbox, signUp } = props
     const classes = useStyles();
     return (
         <>
-            <form onSubmit={props.signUp} className={classes.root} noValidate autoComplete="on">
+            <form onSubmit={signUp} className={classes.root} noValidate autoComplete="on">
                 <TextField
                     required
                     label="Adres email"
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     name="email"
                     type="email"
                     defaultValue=""
@@ -39,8 +39,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     label="Hasło"
                     name="password"
                     type="password"
@@ -50,8 +50,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     type="text"
                     name="firstname"
                     label="Imię"
@@ -60,8 +60,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     type="text"
                     name="surname"
                     label="Nazwisko"
@@ -70,8 +70,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     type="number"
                     name="weight"
                     label="Waga"
@@ -83,8 +83,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     type="number"
                     name="height"
                     label="Wzrost"
@@ -96,8 +96,8 @@ const RegisterForm = (props) => {
                 />
                 <TextField
                     required
-                    value={props.value}
-                    onChange={props.handleChange}
+                    value={value}
+                    onChange={handleChange}
                     type="number"
                     name="age"
                     label="Wiek"
@@ -109,7 +109,7 @@ const RegisterForm = (props) => {
                 />
                 <FormControlLabel
                     control={
-                        <Checkbox value="checked" />
+                        <Checkbox onChange={hendleCheckbox} type="checkbox" checked={checkedRules ? "checked" : null} />
                     }
                     label="Zapoznałem się z regulaminem:*"
                 />
@@ -125,7 +125,7 @@ const RegisterForm = (props) => {
                 >
                     Przejdź do regulaminu.
                 </Link>
-                <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
+                <span style={{ color: 'red' }}>{error === '' ? null : error}</span>
                 <Button type="submit" variant="contained" color="secondary">Zarejestruj się!</Button>
             </form>
         </>

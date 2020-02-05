@@ -23,7 +23,7 @@ class UserPanel extends React.Component {
     render() {
         const handelChangePanel = this.handelChangePanel.bind(this)
         const { displayCard, loginButtonToggle, registerButtonToggle } = this.state
-        const { user, hendleDeleteFavoriteDrink, userData, favoriteDrinks, login, logout, signUp, value, handleChange, error } = this.props
+        const { user, checkedRules, hendleDeleteFavoriteDrink, userData, favoriteDrinks, login, logout, signUp, value, handleChange, hendleCheckbox, error } = this.props
         if (user === null) {
             if (displayCard === false) {
                 return (
@@ -39,7 +39,7 @@ class UserPanel extends React.Component {
                     <>
                         <Card style={{ padding: '20px', margin: '100px', minWidth: '400px' }}>
                             <SwitchButtons regBtn={registerButtonToggle} loginBtn={loginButtonToggle} handelChangePanel={handelChangePanel} />
-                            <RegisterForm error={error} signUp={signUp} value={value} handleChange={handleChange} />
+                            <RegisterForm hendleCheckbox={hendleCheckbox} checkedRules={checkedRules} error={error} signUp={signUp} value={value} handleChange={handleChange} />
                         </Card>
                     </>
                 )
