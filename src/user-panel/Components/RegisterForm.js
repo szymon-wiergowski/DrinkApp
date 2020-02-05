@@ -120,7 +120,7 @@ const RegisterForm = (props) => {
                     type="checkbox"
                     name="checkbox"
                     onClick={() => {
-                        console.log("I'm a button.");
+                        alert('Regulamin w przygotowaniu');
                     }}
                 >
                     Przejdź do regulaminu.
