@@ -48,7 +48,6 @@ class App extends React.Component {
         isLoading: false,
       })
     })
-
   }
 
   authListener() {
@@ -93,10 +92,9 @@ class App extends React.Component {
     e.preventDefault();
     const { age, firstname, gender, height, surname, weight } = this.state
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-      // const curentUser = fire.auth().currentUser;
       const createUserData = {
         age,
-        favorites: [],
+        favorites =[],
         firstname,
         gender,
         height,
@@ -141,8 +139,6 @@ class App extends React.Component {
     alert(`id: ${id}`)
   }
 
-  compon
-
   render() {
     const handleChange = this.handelChange.bind(this);
     const login = this.login.bind(this);
@@ -151,8 +147,6 @@ class App extends React.Component {
     const hendleCheckbox = this.hendleCheckbox.bind(this);
     const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this);
     const { user, users, drinks, checkedRules, value, isLoading, error } = this.state;
-
-
     const currentUser = fire.auth().currentUser;
     let userData = [];
     let favoriteDrinks = [];
@@ -163,14 +157,14 @@ class App extends React.Component {
           <CircularProgress color="secondary" />
         </>
       )
-    } else {
+    }
+    else {
       if (currentUser !== null && users !== []) {
         userData = users.find(user => user.id === currentUser.uid);
         if (userData.favorites) {
           favoriteDrinks = drinks.filter(drink => userData.favorites.includes(drink.id))
         }
       }
-
       return (
         <BrowserRouter>
           <Navbar user={user} />
@@ -180,10 +174,6 @@ class App extends React.Component {
                 path="/shops"
                 component={Shops}
               />
-              {/* <Route
-              path="/addDrink"
-              component={AlertDialogSlide}
-            /> */}
               <Route
                 path="/map"
                 component={MapContainer}
