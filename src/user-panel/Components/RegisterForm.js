@@ -71,8 +71,8 @@ const RegisterForm = (props) => {
                     color="secondary"
                 />
                 <RadioGroup name="gender" value={value} onChange={handleChange}>
-                    <FormControlLabel value="female" control={<Radio />} label="Kobieta" />
-                    <FormControlLabel value="male" control={<Radio />} label="Mężczyzna" />
+                    <FormControlLabel value="Kobieta" control={<Radio />} label="Kobieta" />
+                    <FormControlLabel value="Mężczyzna" control={<Radio />} label="Mężczyzna" />
                 </RadioGroup>
                 <TextField
                     required
