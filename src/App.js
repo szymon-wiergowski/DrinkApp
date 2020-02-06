@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { Navbar } from './navigation/Navigation';
-import { Shops } from './shop-list/ShopList';
-import Alcomat from './alcomat/Alcomat';
-import './App.css';
-import { PageWrapper } from './wrapper/PageWrapper';
-import MapContainer from './map/Map';
-import { DrinkList } from './drink-list/DrinkList';
-import { getUsers, getDrinks } from './DataFetch/DataFetch';
-import fire from './Config';
-import UserPanel from './user-panel/UserPanel';
-import CircularProgress from "@material-ui/core/CircularProgress";
+import React from 'react'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { Navbar } from './navigation/Navigation'
+import { Shops } from './shop-list/ShopList'
+import Alcomat from './alcomat/Alcomat'
+import './App.css'
+import { PageWrapper } from './wrapper/PageWrapper'
+import MapContainer from './map/Map'
+import { DrinkList } from './drink-list/DrinkList'
+import { getUsers, getDrinks } from './DataFetch/DataFetch'
+import fire from './Config'
+import UserPanel from './user-panel/UserPanel'
+import CircularProgress from "@material-ui/core/CircularProgress"
 
 class App extends React.Component {
   state = {
@@ -30,13 +30,14 @@ class App extends React.Component {
     gender: '',
     id: '',
     checkedRules: false,
+    validationOk: false,
   }
 
   componentDidMount() {
     this.authListener()
     this.setState({
       isLoading: true
-    });
+    })
     Promise.all([
       getUsers(),
       getDrinks()
@@ -52,9 +53,9 @@ class App extends React.Component {
   authListener() {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ user });
+        this.setState({ user })
       } else {
-        this.setState({ user: null });
+        this.setState({ user: null })
       }
     })
   }
@@ -66,16 +67,16 @@ class App extends React.Component {
   }
 
   handelChange = (e) => {
-    e.preventDefault();
-    const name = e.target.name;
-    const value = e.target.value;
+    e.preventDefault()
+    const name = e.target.name
+    const value = e.target.value
     this.setState({
       [name]: value
-    });
-  };
+    })
+  }
 
   login(e) {
-    e.preventDefault();
+    e.preventDefault()
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
       this.setState({
         error: '',
@@ -87,48 +88,114 @@ class App extends React.Component {
     })
   }
 
-  signUp = (e) => {
-    e.preventDefault();
-    const { age, firstname, gender, height, surname, weight } = this.state
-    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-      const createUserData = {
-        age,
-        favorites: [],
-        firstname,
-        gender,
-        height,
-        id: u.user.uid,
-        surname,
-        weight,
-      };
-      fetch('https://drinkapp-7833e.firebaseio.com/users.json', {
-        method: 'POST',
-        body: JSON.stringify(createUserData)
-      });
+  registerValidate = () => {
+    const re = /[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2}/
+    if (!re.test(this.state.firstname)) {
       this.setState({
-        isLoading: true
-      });
-      Promise.all([
-        getUsers(),
-        getDrinks()
-      ]).then(data => {
-        this.setState({
-          users: [...data[0]],
-          drinks: [...data[1]],
-          isLoading: false,
-          error: '',
-        })
+        error: 'Imię musi zawierać przynajmniej dwie litery.',
+        validationOk: false
       })
-    }).catch((error) => {
+    } else if (!re.test(this.state.surname)) {
       this.setState({
-        error: error.message
-      });
-    })
-  };
+        error: 'Nazwisko musi zawierać przynajmniej dwie litery.',
+        validationOk: false
+      })
+    } else if (this.state.gender === '') {
+      this.setState({
+        error: 'Wybież płeć.',
+        validationOk: false
+      })
+    } else if (!Number.isInteger(parseInt(this.state.weight))) {
+      this.setState({
+        error: 'Podaj wagę.',
+        validationOk: false
+      })
+    } else if (parseInt(this.state.weight) < 30 || parseInt(this.state.weight) > 300) {
+      this.setState({
+        error: 'Waga musi być w przedziale od 30 do 300 kg.',
+        validationOk: false
+      })
+    } else if (!Number.isInteger(parseInt(this.state.height))) {
+      this.setState({
+        error: 'Podaj wzrost.',
+        validationOk: false
+      })
+    } else if (parseInt(this.state.height) < 30 || parseInt(this.state.height) > 250) {
+      this.setState({
+        error: 'Wzrost musi być w przedziale od 30 do 250 cm.',
+        validationOk: false
+      })
+    } else if (!Number.isInteger(parseInt(this.state.age))) {
+      this.setState({
+        error: 'Podaj wiek.',
+        validationOk: false
+      })
+    } else if (parseInt(this.state.age) < 18 || parseInt(this.state.age) > 120) {
+      this.setState({
+        error: 'Wiek musi być w przedziale od 18 do 120 lat.',
+        validationOk: false
+      })
+    } else if (!this.state.checkedRules) {
+      this.setState({
+        error: 'Musisz zaakceptować regulamin.',
+        validationOk: false
+      })
+    } else {
+      this.setState({
+        error: '',
+        validationOk: true
+      })
+    }
+  }
+
+
+  signUp = (e) => {
+    e.preventDefault()
+    this.registerValidate()
+    setTimeout(() => {
+      if (this.state.validationOk) {
+        const { age, firstname, gender, height, surname, weight } = this.state
+        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+          const createUserData = {
+            age,
+            favorites: [],
+            firstname,
+            gender,
+            height,
+            id: u.user.uid,
+            surname,
+            weight,
+          }
+          fetch('https://drinkapp-7833e.firebaseio.com/users.json', {
+            method: 'POST',
+            body: JSON.stringify(createUserData)
+          })
+          this.setState({
+            isLoading: true
+          })
+          Promise.all([
+            getUsers(),
+            getDrinks()
+          ]).then(data => {
+            this.setState({
+              users: [...data[0]],
+              drinks: [...data[1]],
+              isLoading: false,
+              error: '',
+            })
+          })
+        }).catch((error) => {
+          this.setState({
+            error: error.message
+          })
+        })
+      }
+    }, 1000)
+  }
 
   logout(e) {
-    e.preventDefault();
-    fire.auth().signOut();
+    e.preventDefault()
+    fire.auth().signOut()
     this.setState({
       user: null,
     })
@@ -139,16 +206,16 @@ class App extends React.Component {
   }
 
   render() {
-    const handleChange = this.handelChange.bind(this);
-    const login = this.login.bind(this);
-    const logout = this.logout.bind(this);
-    const signUp = this.signUp.bind(this);
-    const hendleCheckbox = this.hendleCheckbox.bind(this);
-    const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this);
-    const { user, users, drinks, checkedRules, value, isLoading, error } = this.state;
-    const currentUser = fire.auth().currentUser;
-    let userData = [];
-    let favoriteDrinks = [];
+    const handleChange = this.handelChange.bind(this)
+    const login = this.login.bind(this)
+    const logout = this.logout.bind(this)
+    const signUp = this.signUp.bind(this)
+    const hendleCheckbox = this.hendleCheckbox.bind(this)
+    const hendleDeleteFavoriteDrink = this.hendleDeleteFavoriteDrink.bind(this)
+    const { user, users, drinks, checkedRules, value, isLoading, error } = this.state
+    const currentUser = fire.auth().currentUser
+    let userData = []
+    let favoriteDrinks = []
 
     if (isLoading) {
       return (
@@ -159,7 +226,7 @@ class App extends React.Component {
     }
     else {
       if (currentUser !== null && users !== []) {
-        userData = users.find(user => user.id === currentUser.uid);
+        userData = users.find(user => user.id === currentUser.uid)
         if (userData.favorites) {
           favoriteDrinks = drinks.filter(drink => userData.favorites.includes(drink.id))
         }
@@ -194,9 +261,9 @@ class App extends React.Component {
             <Redirect to="/" />
           </Switch>
         </BrowserRouter>
-      );
+      )
     }
   }
 }
 
-export default App;
+export default App

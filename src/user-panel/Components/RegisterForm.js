@@ -6,6 +6,8 @@ import Link from '@material-ui/core/Link';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -68,6 +70,10 @@ const RegisterForm = (props) => {
                     variant="outlined"
                     color="secondary"
                 />
+                <RadioGroup name="gender" value={value} onChange={handleChange}>
+                    <FormControlLabel value="female" control={<Radio />} label="Kobieta" />
+                    <FormControlLabel value="male" control={<Radio />} label="Mężczyzna" />
+                </RadioGroup>
                 <TextField
                     required
                     value={value}
