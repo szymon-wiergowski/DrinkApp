@@ -202,7 +202,11 @@ class App extends React.Component {
   }
 
   hendleDeleteFavoriteDrink(id) {
-    alert(`id: ${id}`)
+    console.log(fire.auth().currentUser)
+    // fetch('https://drinkapp-7833e.firebaseio.com/drinks.json', {
+    //   method: 'DELETE,
+    //   body: JSON.stringify(createUserData)
+    // })
   }
 
   render() {
