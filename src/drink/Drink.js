@@ -25,11 +25,11 @@ class Drink extends React.Component {
       <>
         <Card
           style={{
-            width: "550px",
+            width: "300px",
             height: "500px",
             margin: "16px 16px 0 50px",
             padding: "50px",
-            float: "left"
+            float: "left" 
           }}
         >
           <CardActionArea>
