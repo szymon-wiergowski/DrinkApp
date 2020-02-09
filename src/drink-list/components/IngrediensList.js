@@ -93,7 +93,6 @@ export default class IngrediensList extends React.Component {
             {option.name}
           </React.Fragment>
         )}
-        style={{ width: 250 }}
         renderInput={params => (
           <TextField
             {...params}
