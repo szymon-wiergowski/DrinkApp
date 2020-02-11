@@ -1,9 +1,9 @@
 import React from 'react';
-import LoggedUser from './components/LoggedUser'
-import SwitchButtons from './components/SwitchButtons'
-import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
+import SwitchButtons from './components/SwitchButtons';
+import LoginForm from "./components/LoginForm"
+import RegisterForm from './components/RegisterForm';
 import { Card } from '@material-ui/core';
+import LoggedUser from './components/LoggedUser';
 
 class UserPanel extends React.Component {
     state = {

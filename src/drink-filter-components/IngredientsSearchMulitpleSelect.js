@@ -21,6 +21,7 @@ export class IngredientsSearchMulitpleSelect extends React.Component {
         onChange={(e, value) => this.checkIngredients(e, value)}
         options={ingredients}
         disableCloseOnSelect
+        filterSelectedOptions
         getOptionLabel={option => option.name}
         style={{ width: 400 }}
         renderInput={params => (
