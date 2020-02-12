@@ -99,33 +99,24 @@ export default class TwoLevelPieChart extends PureComponent {
 
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-        }}
-      >
-        <p>Udział poszczególnych danych</p>
-        <PieChart width={490} height={370}>
-          <Pie
-            activeIndex={this.state.activeIndex}
-            activeShape={renderActiveShape}
-            data={data}
-            cx={240}
-            cy={190}
-            innerRadius={60}
-            outerRadius={120}
-            fill="#8884d8"
-            dataKey="value"
-            onMouseEnter={this.onPieEnter}
-          >
-            {data.map((_, index) => (
-              <Cell key={index} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-        </PieChart>
-      </div>
+      <PieChart width={490} height={370}>
+        <Pie
+          activeIndex={this.state.activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          cx={240}
+          cy={190}
+          innerRadius={60}
+          outerRadius={120}
+          fill="#8884d8"
+          dataKey="value"
+          onMouseEnter={this.onPieEnter}
+        >
+          {data.map((_, index) => (
+            <Cell key={index} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+      </PieChart>
     );
   }
 }
