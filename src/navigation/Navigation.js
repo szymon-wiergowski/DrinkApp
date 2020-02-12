@@ -44,7 +44,7 @@ export function Navbar(props) {
         >
           <Tab
             icon={<HomeIcon />}
-            label="home"
+            label="drink app"
             component={Link}
             to="/"
           ></Tab>

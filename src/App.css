@@ -24,7 +24,7 @@
 .dashboard{
     display: flex;
     position: relative;
-    height: 45rem;
+    height: 53rem;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
     flex-direction: column;
@@ -40,22 +40,38 @@
 }
 .dashboard__card{
     position: absolute;
-    top: 5rem;
+    top: 13rem;
     }
 .dashboard__item--main{
-    width: 50rem;
+    width: 15rem;
     text-align: center;
     margin: 3rem 5rem;
 }
 .dashboard__title{
     font-size: 4.5rem;
     text-align: center;
+    margin-left: -3rem;
+    color: white;
     }
 .dashboard__subtitle{
     font-size: 2.5rem;
     text-align: center;
+    color: white;
+    }
+.dashboard__subtitle--display{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-left: -13rem;
+    width: 42rem;
+    color: white;
     }
 .dashboard__subtitle--item{
+    width: 25rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(88, 88, 88);
+}
+.dashboard__subtitle--right{
     width: 25rem;
     font-size: 1.5rem;
     text-align: center;
@@ -67,6 +83,8 @@
     height: 26rem;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
+    margin-top: 0.8rem;
+    padding-bottom: 0.6rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -95,12 +113,17 @@
     text-align: center;
     margin: 3rem 5rem;
 }
+.dashboard__subtitle--display{
+    color: white;
+}
 .dashboard__items--revers{
     display: flex;
     position: relative;
     height: 26rem;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
+    margin-top: 0.8rem;
+    padding-bottom: 0.6rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -109,6 +132,11 @@
     border-color: gray;
 }
 .dashboard__title--item{
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(88, 88, 88);
+}
+.dashboard__title--right{
     font-size: 3rem;
     text-align: center;
     color: rgb(88, 88, 88);
@@ -129,7 +157,7 @@
 }
 .dashboard__chart1--title{
     width: 25rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-top: 2rem;
     margin-left: 4rem;
     margin-bottom: 3rem;
@@ -139,7 +167,7 @@
 }
 .dashboard__chart2--title{
     width: 25rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-top: 4rem;
     margin-left: 2.5rem;
     margin-bottom: -1rem;
@@ -153,7 +181,7 @@ img{
     max-width: 600px;
    }
 
-@media (max-width: 1400px){
+@media only screen and (max-width: 1400px){
     .dashboard{
     height: 28rem;
     }
@@ -163,12 +191,40 @@ img{
     .dashboard__subtitle{
         font-size: 1.5rem;
     }
+    .dashboard__card{
+        position: absolute;
+        top: 5rem;
+        }
     .dashboard__title--item{
         font-size: 2rem;
+        color: gray;
+        margin-top: -11rem;
+        text-align: left;
+    }
+    .dashboard__title--right{
+        font-size: 2rem;
+        color: white;
+        margin-top: -11rem;
+        margin-right: -8rem;
+        text-align: right;
+    }
+    .dashboard__item{
+        position: absolute;
+        margin-left: -4rem;
     }
     .dashboard__subtitle--item{
         font-size: 1.2rem;
+        width: 18rem;
+        text-align: left;
+        color: gray;
     }
+    .dashboard__subtitle--right{
+        font-size: 1.2rem;
+        width: 18rem;
+        text-align: left;
+        color: white;
+    }
+    
     .dashboard__items{
         flex-direction: column;
         height: auto;
@@ -186,21 +242,48 @@ img{
     }
 }
     
-@media (max-width: 400px){
+@media only screen and (max-width: 620px){
     .dashboard{
         height: 15rem;
         }
     .dashboard__title{
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+        margin-top: -3rem;
+        margin-left: 1rem;
     }
+    .dashboard__card{
+        position: absolute;
+        font-size: 2rem;
+        top: 4rem;
+        margin-left: -2rem;
+        }
+    .dashboard__subtitle--display{
+        font-size: 0.7rem;
+        margin-top: -0.5rem;
+        width: 9rem;
+        margin-left: 0rem;
+        color: white;
+        }
     .dashboard__subtitle{
-        font-size: 1.2rem;
+        display: none;
     }
     .dashboard__title--item{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        margin-top: -8.1rem;
+        margin-left: 1rem;
+        color: black;
+    }
+    .dashboard__title--right{
+        font-size: 1.4rem;
+        margin-top: -8.1rem;
+        margin-left: 1rem;
+        color: white;
     }
     .dashboard__subtitle--item{
-        font-size: 1.1rem;
+        display: none;
+    }
+    .dashboard__subtitle--right{
+        display: none;
     }
     .dashboard__item{
         position: absolute;
@@ -208,5 +291,10 @@ img{
         display: flex;
         margin-right: 0.7rem;
         margin-left: 0.7rem;
+    }
+    .dashboard__item--main{
+        width: 5rem;
+        text-align: center;
+        margin: 3rem 5rem;
     }
 }
