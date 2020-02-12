@@ -14,11 +14,11 @@ export default () => {
         <div className="dashboard__card">
           <div className="dashboard__item--main">
             <h1 className="dashboard__title">DrinkApp</h1>
-            <h3 className="dashboard__subtitle">
+            <h3 className="dashboard__subtitle--display">
               DrinkApp™ to najlepszy przepis
               <br /> na drinki i koktajle
             </h3>
-            <h3 className="dashboard__subtitle">
+            <h3 className="dashboard__subtitle--display">
               Mapa ze sklepami i alkomat online
             </h3>
           </div>
@@ -29,7 +29,7 @@ export default () => {
           <h2 className="dashboard__title--item">DRINKI</h2>
           <h3 className="dashboard__subtitle--item">
             Zastanawiasz się jakie drinki możesz przyrządzić ze składników,
-            które posiadasz? Skorzystaj z naszej wyszukiwarki
+            które posiadasz?<br/> Skorzystaj z naszej wyszukiwarki
           </h3>
         </div>
         <div className="dashboard__item--img">
@@ -41,8 +41,8 @@ export default () => {
           <img src={alcomatImg} alt="Alkomat" />
         </div>
         <div className="dashboard__item">
-          <h2 className="dashboard__title--item">ALKOMAT</h2>
-          <h3 className="dashboard__subtitle--item">
+          <h2 className="dashboard__title--right">ALKOMAT</h2>
+          <h3 className="dashboard__subtitle--right">
             Wypiłeś drinka i nie czy możesz prowadzić? Załóż konto i wypróbuj
             nasz wirtualny alkomat
           </h3>
