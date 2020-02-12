@@ -1,61 +1,88 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import dashboardImg from "./components/img/drink.png";
+import alcomatImg from "./components/img/alkomat_safety.png";
+import mapImg from "./components/img/map_shop.png";
 import BarChartHasBackground from "./components/BarChartHasBackground";
 import TwoLevelPieChart from "./components/TwoLevelPieChart";
-import CustomContentTreemap from "./components/CustomContentTreemap";
-import DashboardIcon from "@material-ui/icons/Dashboard";
 import "../App.css";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: "100%"
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
-  }
-}));
-
-export default function SimpleExpansionPanel() {
-  const classes = useStyles();
-
+export default () => {
   return (
-    <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon style={{ color: "#FF0266" }} />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-          style={{ flexFlow: "row wrap", alignItems: "center" }}
-        >
-          <DashboardIcon
-            color="secondary"
-            style={{ fontSize: 20, marginRight: "5px" }}
-          />
-          <Typography
-            color="textSecondary"
-            style={{ marginRight: "auto", fontSize: 14 }}
-          >
-            DASHBOARD
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails
-          style={{
-            flexWrap: "wrap",
-            justifyContent: "space-around"
-          }}
-        >
+    <div className="frame">
+      <div className="dashboard">
+        <div className="dashboard__card">
+          <div className="dashboard__item--main">
+            <h1 className="dashboard__title">DrinkApp</h1>
+            <h3 className="dashboard__subtitle">
+              DrinkApp™ to najlepszy przepis
+              <br /> na drinki i koktajle
+            </h3>
+            <h3 className="dashboard__subtitle">
+              Mapa ze sklepami i alkomat online
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div className="dashboard__items">
+        <div className="dashboard__item">
+          <h2 className="dashboard__title--item">DRINKI</h2>
+          <h3 className="dashboard__subtitle--item">
+            Zastanawiasz się jakie drinki możesz przyrządzić ze składników,
+            które posiadasz? Skorzystaj z naszej wyszukiwarki
+          </h3>
+        </div>
+        <div className="dashboard__item--img">
+          <img src={dashboardImg} alt="Drink" />
+        </div>
+      </div>
+      <div className="dashboard__items--revers">
+        <div className="dashboard__item--img">
+          <img src={alcomatImg} alt="Alkomat" />
+        </div>
+        <div className="dashboard__item">
+          <h2 className="dashboard__title--item">ALKOMAT</h2>
+          <h3 className="dashboard__subtitle--item">
+            Wypiłeś drinka i nie czy możesz prowadzić? Załóż konto i wypróbuj
+            nasz wirtualny alkomat
+          </h3>
+        </div>
+      </div>
+      <div className="dashboard__items">
+        <div className="dashboard__item">
+          <h2 className="dashboard__title--item">MAPA</h2>
+          <h3 className="dashboard__subtitle--item">
+            Jeśli podczas przygotowywania wybranego przez siebie drinka
+            zabraknie Ci składników,
+            <br /> skorzystaj z naszej mapy
+          </h3>
+        </div>
+        <div className="dashboard__item--img">
+          <img src={mapImg} alt="Mapa" />
+        </div>
+      </div>
+
+      <div className="dashboard__charts">
+        <div className="dashboard__item--none">
+          <h2 className="dashboard__title--item">NASZE STATYSTYKI</h2>
+          <h3 className="dashboard__subtitle--item">
+            Nasza baza danych jest stale powiększana o nowe drinki, przepisy i
+            sklepy
+          </h3>
+        </div>
+        <div className="dashboard__item--chart1">
+          <h3 className="dashboard__chart1--title">
+            Planowana liczba drinków w I kw. 2020 r.
+          </h3>
           <BarChartHasBackground />
+        </div>
+        <div className="dashboard__item--chart2">
+          <h3 className="dashboard__chart2--title">
+            Udział poszczególnych danych
+          </h3>
           <TwoLevelPieChart />
-          <CustomContentTreemap />
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </div>
+      </div>
     </div>
   );
-}
+};

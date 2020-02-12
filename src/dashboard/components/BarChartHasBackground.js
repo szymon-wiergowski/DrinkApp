@@ -42,42 +42,17 @@ export default class BarChartHasBackground extends PureComponent {
 
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-        }}
-      >
-        <p
-          style={{
-            marginBottom: "15%"
-          }}
-        >
-          Planowana liczba drinków w I kw. 2020 r.
-        </p>
-        <BarChart
-          width={600}
-          height={270}
-          data={data}
-          margin={{
-            top: 0,
-            right: 30,
-            left: 0,
-            bottom: 0
-          }}
-        >
-          <Legend verticalAlign="top" height={30} />
+      <BarChart width={480} height={270} data={data}>
+        <Legend verticalAlign="top" height={30} />
 
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="pv" name="DRINKI" fill="#0088FE">
-            <LabelList dataKey="pv" position="top" />
-          </Bar>
-        </BarChart>
-      </div>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="pv" name="DRINKI" fill="#0088FE">
+          <LabelList dataKey="pv" position="top" />
+        </Bar>
+      </BarChart>
     );
   }
 }

@@ -17,7 +17,7 @@ export class MapContainer extends Component {
     };
   }
 
-  componentDidMount(props) {
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
         const { latitude, longitude } = position.coords;
