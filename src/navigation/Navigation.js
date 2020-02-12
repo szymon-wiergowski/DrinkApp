@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import LocalBarRoundedIcon from "@material-ui/icons/LocalBarRounded";
-import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
-import FontDownloadRoundedIcon from '@material-ui/icons/FontDownloadRounded';
-import ExploreRoundedIcon from '@material-ui/icons/ExploreRounded';
-
+import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
+import FontDownloadRoundedIcon from "@material-ui/icons/FontDownloadRounded";
+import ExploreRoundedIcon from "@material-ui/icons/ExploreRounded";
 
 const useStyles = makeStyles({
   root: {
@@ -40,14 +39,40 @@ export function Navbar(props) {
           value={value}
           onChange={handleChange}
           variant="fullWidth"
-          indicatorColor='secondary'
-          textColor='secondary'
+          indicatorColor="secondary"
+          textColor="secondary"
         >
-          <Tab icon={<LocalBarRoundedIcon />} label="drinki" component={Link} to="/"></Tab>
-          <Tab icon={<ShoppingCartRoundedIcon />} label="sklepy" component={Link} to="/shops"></Tab>
-          <Tab icon={<FontDownloadRoundedIcon />} label="alcomat" component={Link} to="/alcomat"></Tab>
-          <Tab icon={<ExploreRoundedIcon />} label="mapa" component={Link} to="/map"></Tab>
-          <Tab icon={<AccountCircleRoundedIcon />} label="konto" component={Link} to="/UserPanel"></Tab>
+          <Tab
+            icon={<HomeIcon />}
+            label="home"
+            component={Link}
+            to="/"
+          ></Tab>
+
+          <Tab
+            icon={<LocalBarRoundedIcon />}
+            label="drinki"
+            component={Link}
+            to="/drinklist"
+          ></Tab>
+          <Tab
+            icon={<FontDownloadRoundedIcon />}
+            label="alkomat"
+            component={Link}
+            to="/alcomat"
+          ></Tab>
+          <Tab
+            icon={<ExploreRoundedIcon />}
+            label="mapa"
+            component={Link}
+            to="/map"
+          ></Tab>
+          <Tab
+            icon={<AccountCircleRoundedIcon />}
+            label="konto"
+            component={Link}
+            to="/UserPanel"
+          ></Tab>
         </Tabs>
       </Paper>
     </AppBar>

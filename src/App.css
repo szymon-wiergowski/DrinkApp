@@ -13,4 +13,111 @@
     height:50px;
     width:100px;
 }
+.frame{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
+}
+.dashboard{
+    display: flex;
+    position: relative;
+    height: 45rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./dashboard/components/img/image_dashboard.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: solid;
+    border-width: 0 0 0.5rem 0;
+    border-color: gray;
+}
+.dashboard__card{
+    position: absolute;
+    top: 5rem;
+    }
+.dashboard__item--main{
+    width: 50rem;
+    text-align: center;
+    margin: 3rem 5rem;
+}
+.dashboard__item{
+    width: 26rem;
+    text-align: center;
+    margin: 3rem 5rem;
+}
+.dashboard__title{
+    font-size: 4.5rem;
+    text-align: center;
+    }
+.dashboard__subtitle{
+    font-size: 2.5rem;
+    text-align: center;
+    }
+.dashboard__subtitle--item{
+    width: 25rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.dashboard__items{
+    display: flex;
+    position: relative;
+    height: 26rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-style: solid;
+    border-width: 0 0 0.5rem 0;
+    border-color: gray;
+}
+.dashboard__title--item{
+    font-size: 3rem;
+    text-align: center;
+}
+.dashboard__charts{
+    display: flex;
+    position: relative;
+    height: 26rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+img{
+    height: 24rem;
+    width: auto;
+   }
+.dashboard__items--charts{
+    display: flex;
+    position: relative;
+    height: 24rem;
+    margin-top: 2rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.dashboard__charts--title{
+    position: absolute;
+    top: 5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+/* @media only screen and (max-width: 700px){
+    .dashboard__items{
+    flex-direction: column;
+    }
+    .dashboard__title--item {
+      font-size: 1.125rem;
+    }
+  } */
