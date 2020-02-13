@@ -1,6 +1,7 @@
 import React from "react";
 
-import dashboardImg from "./components/img/drink.png";
+import dashboardImgSmall from "./components/img/image_dashboard_small.png";
+import drinkImg from "./components/img/drink.png";
 import alcomatImg from "./components/img/alkomat_safety.png";
 import mapImg from "./components/img/map_shop.png";
 import BarChartHasBackground from "./components/BarChartHasBackground";
@@ -11,6 +12,9 @@ export default () => {
   return (
     <div className="frame">
       <div className="dashboard">
+        <div className="dashboard__img--display">
+          <img src={dashboardImgSmall} alt="Drink" />
+        </div>
         <div className="dashboard__card">
           <div className="dashboard__item--main">
             <h1 className="dashboard__title">DrinkApp</h1>
@@ -29,18 +33,19 @@ export default () => {
           <h2 className="dashboard__title--item">DRINKI</h2>
           <h3 className="dashboard__subtitle--item">
             Zastanawiasz się jakie drinki możesz przyrządzić ze składników,
-            które posiadasz?<br/> Skorzystaj z naszej wyszukiwarki
+            które posiadasz?
+            <br /> Skorzystaj z naszej wyszukiwarki
           </h3>
         </div>
         <div className="dashboard__item--img">
-          <img src={dashboardImg} alt="Drink" />
+          <img src={drinkImg} alt="Drink" />
         </div>
       </div>
       <div className="dashboard__items--revers">
         <div className="dashboard__item--img">
           <img src={alcomatImg} alt="Alkomat" />
         </div>
-        <div className="dashboard__item">
+        <div className="dashboard__item--right">
           <h2 className="dashboard__title--right">ALKOMAT</h2>
           <h3 className="dashboard__subtitle--right">
             Wypiłeś drinka i nie czy możesz prowadzić? Załóż konto i wypróbuj
@@ -61,7 +66,6 @@ export default () => {
           <img src={mapImg} alt="Mapa" />
         </div>
       </div>
-
       <div className="dashboard__charts">
         <div className="dashboard__item--none">
           <h2 className="dashboard__title--item">NASZE STATYSTYKI</h2>

@@ -16,15 +16,15 @@
 .frame{
     background-color: white;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
 }
 .dashboard{
     display: flex;
     position: relative;
-    height: 53rem;
+    height: 45rem;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
     flex-direction: column;
@@ -39,14 +39,15 @@
     border-color: gray;
 }
 .dashboard__card{
-    position: absolute;
-    top: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     }
 .dashboard__item--main{
-    width: 15rem;
     text-align: center;
-    margin: 3rem 5rem;
-}
+    width: 100%;
+        }
 .dashboard__title{
     font-size: 4.5rem;
     text-align: center;
@@ -59,20 +60,16 @@
     color: white;
     }
 .dashboard__subtitle--display{
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-align: center;
-    margin-left: -13rem;
-    width: 42rem;
     color: white;
     }
 .dashboard__subtitle--item{
-    width: 25rem;
     font-size: 1.5rem;
     text-align: center;
     color: rgb(88, 88, 88);
 }
 .dashboard__subtitle--right{
-    width: 25rem;
     font-size: 1.5rem;
     text-align: center;
     color: rgb(88, 88, 88);
@@ -104,17 +101,12 @@
     justify-content: space-around;
 }
 .dashboard__item{
-    width: 26rem;
-    text-align: center;
-    margin: 3rem 5rem;
+    border: solid red;
 }
 .dashboard__item--none{
     width: 26rem;
     text-align: center;
     margin: 3rem 5rem;
-}
-.dashboard__subtitle--display{
-    color: white;
 }
 .dashboard__items--revers{
     display: flex;
@@ -135,6 +127,9 @@
     font-size: 3rem;
     text-align: center;
     color: rgb(88, 88, 88);
+}
+.dashboard__item--right{
+    border: solid blue;
 }
 .dashboard__title--right{
     font-size: 3rem;
@@ -175,56 +170,88 @@
     text-align: center;
     color: rgb(88, 88, 88);
 }
+.dashboard__img--display{
+    display: none;
+}
 img{
     height: auto;
     width: 100%;
     max-width: 600px;
    }
-
 @media only screen and (max-width: 1400px){
+    
+  
     .dashboard{
-    height: 28rem;
+        height: auto;
+        background-image: none;
+    }
+    .dashboard__img--display{
+        display: inline;
     }
     .dashboard__title{
         font-size: 2.5rem;
+        text-align: center;
+        margin-left: 0rem;
     }
     .dashboard__subtitle{
         font-size: 1.5rem;
     }
     .dashboard__card{
         position: absolute;
-        top: 5rem;
+        top: 25%;
         }
+       .dashboard__item{
+        position: absolute;
+        display: flex;
+        justify-content: flex-start;       
+        flex-direction: column;
+        text-align: left;
+        height: 60%;
+        width: 18rem;
+        margin-left: -8.5rem;
+        top: 0;
+    }
+    .dashboard__item--right{
+        position: absolute;
+        display: flex;
+        justify-content: flex-start;       
+        flex-direction: column;
+        text-align: right;
+        height: 60%;
+        width: 18rem;
+        margin-left: 8.5rem;
+        top: 0;
+    }
     .dashboard__title--item{
+        width: 100%;
         font-size: 2rem;
+        margin-left: 0.7rem;
         color: gray;
-        margin-top: -11rem;
         text-align: left;
     }
     .dashboard__title--right{
+        width: 100%;
         font-size: 2rem;
+        margin-right: 0.7rem;
+        margin-left: -1rem;
         color: white;
-        margin-top: -11rem;
-        margin-right: -8rem;
         text-align: right;
-    }
-    .dashboard__item{
-        position: absolute;
-        margin-left: -4rem;
     }
     .dashboard__subtitle--item{
         font-size: 1.2rem;
-        width: 18rem;
+        margin-left: 0.7rem;
         text-align: left;
         color: gray;
     }
     .dashboard__subtitle--right{
         font-size: 1.2rem;
-        width: 18rem;
-        text-align: left;
+        margin-right: 0.7rem;
+        text-align: right;
         color: white;
     }
-    
+    .dashboard__subtitle--display{
+        font-size: 1.1rem;
+        }
     .dashboard__items{
         flex-direction: column;
         height: auto;
@@ -242,27 +269,16 @@ img{
     }
 }
     
-@media only screen and (max-width: 620px){
+@media only screen and (max-width: 600px){
     .dashboard{
-        height: 15rem;
-        }
-    .dashboard__title{
-        font-size: 1.6rem;
-        margin-top: -3rem;
-        margin-left: 1rem;
+        height: auto;
     }
-    .dashboard__card{
-        position: absolute;
-        font-size: 2rem;
-        top: 4rem;
-        margin-left: -2rem;
-        }
+    .dashboard__img--display{
+        display: inline;
+    }
+   
     .dashboard__subtitle--display{
-        font-size: 0.7rem;
-        margin-top: -0.5rem;
-        width: 9rem;
-        margin-left: 0rem;
-        color: white;
+        display: none;
         }
     .dashboard__subtitle{
         display: none;
@@ -292,9 +308,18 @@ img{
         margin-right: 0.7rem;
         margin-left: 0.7rem;
     }
+    .dashboard__item--right{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        margin-right: 0.7rem;
+        margin-left: 0.7rem;
+    }
     .dashboard__item--main{
-        width: 5rem;
-        text-align: center;
-        margin: 3rem 5rem;
+        position: absolute;
+        display: flex;
+        margin-right: 2rem;
+        margin-left: -5rem;
+        margin-top: 4rem;
     }
 }
