@@ -13,7 +13,7 @@ export default () => {
     <div className="frame">
       <div className="dashboard">
         <div className="dashboard__img--display">
-          <img src={dashboardImgSmall} alt="Drink" />
+          <img src={dashboardImgSmall} alt="Dashboard" />
         </div>
         <div className="dashboard__card">
           <div className="dashboard__item--main">
