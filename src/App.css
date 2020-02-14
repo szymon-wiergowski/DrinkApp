@@ -343,7 +343,6 @@
     width: 80%;
     height: 95vh;
     overflow: hidden;
-
     }
 .googleMaps__map{
     position: absolute;
@@ -354,10 +353,12 @@
     height: 100% !important;
     }
 .googleMaps__label{
-    background-color: rgb(156, 152, 152);
     width: 20%;
     height: 100%;
 }
-.list__header{
-    font-size: 120px;
+.shop__header{
+    font-size: 1.5rem;
+    color: gray;
+    margin-left: 1.5rem;
+    text-align: left;
 }

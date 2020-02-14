@@ -5,8 +5,8 @@ import "../App.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import MapGoogle from "./components/MapGoogle";
-import List from "./components/ListOfShops";
-import { getShops, getIngredients } from "../DataFetch/DataFetch";
+import ListOfShops from "./components/ListOfShops";
+import { getShops } from "../DataFetch/DataFetch";
 
 export default class Map extends React.Component {
   state = {
@@ -51,11 +51,9 @@ export default class Map extends React.Component {
       });
   }
 
-  handleSearchChange(e) {
-    this.setState({
-      search: e.target.value.toLowerCase()
-    });
-  }
+  handleOnAction = () => {
+    console.log("click");
+  };
 
   render() {
     if (this.state.loading) {
@@ -71,7 +69,7 @@ export default class Map extends React.Component {
     return (
       <div className="googleMaps">
         <div className="googleMaps__label">
-          <List shops={shops} />
+          <ListOfShops shops={shops} onCheck={this.handleOnAction}/>
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">

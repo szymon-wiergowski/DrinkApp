@@ -19,12 +19,13 @@ const useStyles = makeStyles(theme => ({
 export default function FolderList(props) {
   const classes = useStyles();
 
-  const { shops } = props;
+  const { shops, onCheck } = props;
 
   return (
     <List className={classes.root}>
+      <h1 className="shop__header">NASZE SKLEPY</h1>
       {shops.map(shop => {
-        return <Shop key={shop.id} shop={shop} />;
+        return <Shop key={shop.id} id={shop.id} shop={shop} onCheck={onCheck} />;
       })}
     </List>
   );
