@@ -173,7 +173,7 @@
 .dashboard__img--display{
     display: none;
 }
-img{
+.dashboard__img{
     height: auto;
     width: 100%;
     max-width: 600px;
@@ -333,18 +333,31 @@ img{
     }
 }
 .googleMaps{
-    position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    flex-wrap: wrap;
     height: calc(100vh - 73px);
 }
-.googleMaps_map{
-    height: calc(100vh - 73px);
-    width: 25%;
-}
+.googleMaps__mapframe{
+    position: relative;
+    width: 80%;
+    height: 95vh;
+    overflow: hidden;
+
+    }
+.googleMaps__map{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    }
 .googleMaps__label{
-    background-color: white;
-    height: calc(100vh - 73px);;
-    width: 35%;
+    background-color: rgb(156, 152, 152);
+    width: 20%;
+    height: 100%;
+}
+.list__header{
+    font-size: 120px;
 }

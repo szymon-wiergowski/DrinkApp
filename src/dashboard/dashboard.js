@@ -13,7 +13,7 @@ export default () => {
     <div className="frame">
       <div className="dashboard">
         <div className="dashboard__img--display">
-          <img src={dashboardImgSmall} alt="Dashboard" />
+          <img className="dashboard__img" src={dashboardImgSmall} alt="Dashboard" />
         </div>
         <div className="dashboard__card">
           <div className="dashboard__item--main">
@@ -38,12 +38,12 @@ export default () => {
           </h3>
         </div>
         <div className="dashboard__item--img">
-          <img src={drinkImg} alt="Drink" />
+          <img className="dashboard__img" src={drinkImg} alt="Drink" />
         </div>
       </div>
       <div className="dashboard__items--revers">
         <div className="dashboard__item--img">
-          <img src={alcomatImg} alt="Alkomat" />
+          <img className="dashboard__img" src={alcomatImg} alt="Alkomat" />
         </div>
         <div className="dashboard__item--right">
           <h2 className="dashboard__title--right">ALKOMAT</h2>
@@ -63,7 +63,7 @@ export default () => {
           </h3>
         </div>
         <div className="dashboard__item--img">
-          <img src={mapImg} alt="Mapa" />
+          <img className="dashboard__img" src={mapImg} alt="Mapa" />
         </div>
       </div>
       <div className="dashboard__charts">
