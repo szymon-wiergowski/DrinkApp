@@ -34,6 +34,7 @@ export function AlkoSearch(props) {
           <MenuItem value='all'>Wszystkie</MenuItem>
           <MenuItem value={true}>Alkoholowe</MenuItem>
           <MenuItem value={false}>Bezalkoholowe</MenuItem>
+
         </Select>
       </FormControl>
     </div>

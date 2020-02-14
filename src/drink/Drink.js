@@ -4,7 +4,6 @@ import { Card, CardContent, Typography } from "@material-ui/core";
 //import { makeStyles } from '@material-ui/core/styles';
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
-//import CardMedia from '@material-ui/core/CardMedia';
 import CardMedia from "@material-ui/core/CardMedia";
 import Fab from "@material-ui/core/Fab";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -39,8 +38,8 @@ class Drink extends React.Component {
                 <img
                   src={this.props.img_url}
                   alt={""}
-                  width="200px"
-                  height="200px"
+                  width="150px"
+                  height="150px"
                 />
               </Typography>
               <br />
