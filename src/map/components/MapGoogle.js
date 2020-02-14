@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 
+const initialFormState = {
+  lat: 54.40333,
+  lng: 18.570192
+};
+
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: { lat: 54.40333, lng: 18.570192 },
+      userLocation: { ...initialFormState },
       loading: true
       //   stores: [
       //     { latitude: 54.409746, longitude: 18.576603 },
@@ -49,7 +54,15 @@ export class MapContainer extends Component {
   //     });
   //   };
 
+
+      // this.setState({
+      //   userLocation: { lat: this.props.latitude, lng: this.props.longitude }
+      // });
+    }
+  }
+
   render() {
+
     const { loading, userLocation } = this.state;
     const { google } = this.props;
 

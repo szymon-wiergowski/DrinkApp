@@ -8,6 +8,8 @@ import MapGoogle from "./components/MapGoogle";
 import ListOfShops from "./components/ListOfShops";
 import { getShops } from "../DataFetch/DataFetch";
 
+
+
 export default class Map extends React.Component {
   state = {
     shops: [],
@@ -65,7 +67,7 @@ export default class Map extends React.Component {
       latitude: coords.lat,
       longitude: coords.lon
     });
-  };
+ };
 
   render() {
     if (this.state.loading) {
@@ -75,8 +77,8 @@ export default class Map extends React.Component {
     if (this.error) {
       return <div>Bład: {this.state.error}</div>;
     }
-    
-    const { shops } = this.state;
+
+    const { shops, latitude, longitude } = this.state;
 
     return (
       <div className="googleMaps">
@@ -85,7 +87,7 @@ export default class Map extends React.Component {
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">
-            <MapGoogle />
+            <MapGoogle latitude={latitude} longitude={longitude} />
           </div>
         </div>
       </div>
