@@ -58,16 +58,34 @@ export class MapContainer extends Component {
     }
 
     return (
-      <div
-        style={{
-          position: "relative",
-          height: "calc(100vh - 73px)",
-          width: "100%"
-        }}
-      >
-        <Map google={google} initialCenter={userLocation} zoom={14}>
+      <div className="googleMaps">
+        <Map
+          className="googleMaps_map"
+          google={google}
+          initialCenter={userLocation}
+          zoom={14}
+          // disableDefaultUI={true}
+          mapTypeControl={true}
+          mapTypeControlOptions={{
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_RIGHT
+          }}
+          zoomControl={true}
+          zoomControlOptions={{
+            position: google.maps.ControlPosition.RIGHT_TOP
+          }}
+          scaleControl={true}
+          streetViewControl={true}
+          streetViewControlOptions={{
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          }}
+        >
           {/* {this.displayMarkers()} */}
         </Map>
+
+        <div className="googleMaps__label">
+          <p>Tu są sklepy</p>
+        </div>
       </div>
     );
   }

@@ -279,7 +279,6 @@ img{
     .dashboard__img--display{
         display: inline;
     }
-   
     .dashboard__subtitle--display{
         display: none;
         }
@@ -289,6 +288,11 @@ img{
     .dashboard__title--item{
         font-size: 2.1rem;
         color: black;
+    }
+    .dashboard__title{
+        font-size: 3rem;
+        color: white;
+        text-align: center;
     }
     .dashboard__title--right{
         font-size: 2.1rem;
@@ -316,13 +320,31 @@ img{
         margin-left: 4.9rem;
         margin-right: 0.7rem;
         margin-top: 4rem;
-
     }
     .dashboard__item--main{
         position: absolute;
         display: flex;
-        margin-right: 2rem;
-        margin-left: -5rem;
+        height: 8rem;
+        width: 14rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         margin-top: 4rem;
     }
+}
+.googleMaps{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 73px);
+}
+.googleMaps_map{
+    height: calc(100vh - 73px);
+    width: 25%;
+}
+.googleMaps__label{
+    background-color: white;
+    height: calc(100vh - 73px);;
+    width: 35%;
 }
