@@ -8,7 +8,10 @@ import MapGoogle from "./components/MapGoogle";
 import ListOfShops from "./components/ListOfShops";
 import { getShops } from "../DataFetch/DataFetch";
 
-
+const initialuserLocation = {
+  lat: 54.40333,
+  lng: 18.570192
+};
 
 export default class Map extends React.Component {
   state = {
@@ -19,12 +22,28 @@ export default class Map extends React.Component {
     sortOrder: "asc",
     search: "",
     shop: [],
-    latitude: "",
-    longitude: ""
+    userLocation: { ...initialuserLocation }
   };
 
   componentDidMount() {
     this.fetchData();
+    this.geolocation();
+  }
+
+  geolocation() {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+
+        this.setState({
+          userLocation: { lat: latitude, lng: longitude },
+          loading: false
+        });
+      },
+      () => {
+        this.setState({ loading: false });
+      }
+    );
   }
 
   fetchData() {
@@ -64,10 +83,10 @@ export default class Map extends React.Component {
     });
     const coords = checkedShop[0];
     this.setState({
-      latitude: coords.lat,
-      longitude: coords.lon
+      shop: coords,
+      userLocation: { lat: coords.lat, lng: coords.lon }
     });
- };
+  };
 
   render() {
     if (this.state.loading) {
@@ -78,7 +97,7 @@ export default class Map extends React.Component {
       return <div>Bład: {this.state.error}</div>;
     }
 
-    const { shops, latitude, longitude } = this.state;
+    const { shop, shops, loading, userLocation } = this.state;
 
     return (
       <div className="googleMaps">
@@ -87,7 +106,11 @@ export default class Map extends React.Component {
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">
-            <MapGoogle latitude={latitude} longitude={longitude} />
+            <MapGoogle
+              loading={loading}
+              userLocation={userLocation}
+              shop={shop}
+            />
           </div>
         </div>
       </div>
