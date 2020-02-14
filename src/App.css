@@ -361,3 +361,31 @@
     margin-left: 1.5rem;
     text-align: left;
 }
+/* .googleMaps__item{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+} */
+.googleMaps__button{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+@media only screen and (max-width: 1300px){
+    .googleMaps{
+        flex-direction: row;
+    }
+    .googleMaps__mapframe{
+        position: relative;
+        width: 100%;
+        height: 65vh;
+        overflow: visible;
+        }
+    .googleMaps__label{
+        width: 100%;
+        height: 20%;
+    }
+    .googleMaps__items{
+        display: flex;
+        flex-direction: row;
+    }
+}

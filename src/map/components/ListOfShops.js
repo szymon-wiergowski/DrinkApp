@@ -25,7 +25,11 @@ export default function FolderList(props) {
     <List className={classes.root}>
       <h1 className="shop__header">NASZE SKLEPY</h1>
       {shops.map(shop => {
-        return <Shop key={shop.id} id={shop.id} shop={shop} onCheck={onCheck} />;
+        return (
+          <div key={shop.id} className="googleMaps__items">
+            <Shop id={shop.id} shop={shop} onCheck={onCheck} />
+          </div>
+        );
       })}
     </List>
   );

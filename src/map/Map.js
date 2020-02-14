@@ -13,7 +13,12 @@ export default class Map extends React.Component {
     shops: [],
     loading: true,
     error: "",
-    search: ""
+    sortBy: "name",
+    sortOrder: "asc",
+    search: "",
+    shop: [],
+    latitude: "",
+    longitude: ""
   };
 
   componentDidMount() {
@@ -51,8 +56,15 @@ export default class Map extends React.Component {
       });
   }
 
-  handleOnAction = () => {
-    console.log("click");
+  handleOnAction = id => {
+    const checkedShop = this.state.shops.filter(shop => {
+      return shop.id === id;
+    });
+    const coords = checkedShop[0];
+    this.setState({
+      latitude: coords.lat,
+      longitude: coords.lon
+    });
   };
 
   render() {
@@ -63,13 +75,13 @@ export default class Map extends React.Component {
     if (this.error) {
       return <div>Bład: {this.state.error}</div>;
     }
-
+    
     const { shops } = this.state;
 
     return (
       <div className="googleMaps">
         <div className="googleMaps__label">
-          <ListOfShops shops={shops} onCheck={this.handleOnAction}/>
+          <ListOfShops shops={shops} onCheck={this.handleOnAction} />
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">
