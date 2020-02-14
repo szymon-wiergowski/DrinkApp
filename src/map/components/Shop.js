@@ -1,13 +1,12 @@
 import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-
-import "../../App.css";
+import { pink } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,20 +16,36 @@ const useStyles = makeStyles(theme => ({
   },
   inline: {
     display: "inline"
+  },
+  rounded: {
+    color: "#fff",
+    
+  },
+  pink: {
+    color: theme.palette.getContrastText(pink[500]),
+    backgroundColor: pink[500]
   }
 }));
 
-export default function FolderList() {
+export default props => {
   const classes = useStyles();
 
+  const { shop } = props;
+  const firstLetterOfShop = shop.name.charAt(0);
+
   return (
-    <List className={classes.root}>
+    <div key={shop.id}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="B" src="../../dashboard/components/img/alkomat_safety.png" />
+          <Avatar
+            className={classes.pink}
+            variant="rounded"
+            src="/static/images/avatar/2.jpg"
+            alt={firstLetterOfShop}
+          />
         </ListItemAvatar>
         <ListItemText
-          primary="Biedronka"
+          primary={shop.name}
           secondary={
             <React.Fragment>
               <Typography
@@ -39,13 +54,13 @@ export default function FolderList() {
                 className={classes.inline}
                 color="textPrimary"
               >
-                sporzywczak
+                {shop.localization}
               </Typography>
-              {" – ul. Obowodowa 5, Reda"}
+              {` – Otwarte: ${shop.openHours}`}
             </React.Fragment>
           }
         />
       </ListItem>
-    </List>
+    </div>
   );
-}
+};

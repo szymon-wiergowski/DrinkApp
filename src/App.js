@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { Navbar } from "./navigation/Navigation";
-import { Shops } from "./shop-list/ShopList";
 import Alcomat from "./alcomat/Alcomat";
 import "./App.css";
 import { PageWrapper } from "./wrapper/PageWrapper";
@@ -257,7 +256,6 @@ class App extends React.Component {
           <Switch>
             <PageWrapper>
               <Route path="/" component={Dashboard} exact />
-              <Route path="/shops" component={Shops} />
               <Route path="/map" component={MapContainer} />
               <Route
                 path="/alcomat"

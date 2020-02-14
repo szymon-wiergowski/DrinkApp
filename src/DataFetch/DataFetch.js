@@ -41,7 +41,7 @@ function getShops() {
           ...data[key]
         };
       });
-      return Promise.resolve(shops);
+      return shops;
     });
 }
 
