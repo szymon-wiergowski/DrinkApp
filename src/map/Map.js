@@ -1,23 +1,36 @@
-import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
+import React from "react";
 
-export class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userLocation: { lat: 54.40333, lng: 18.570192 },
-      loading: true
-      //   stores: [
-      //     { latitude: 54.409746, longitude: 18.576603 },
-      //     { latitude: 54.406666, longitude: 18.569598 },
-      //     { latitude: 54.41041, longitude: 18.565582 },
-      //     { latitude: 54.40876, longitude: 18.567254 },
-      //     { latitude: 54.395471, longitude: 18.579619 }
-      //   ]
-    };
-  }
+import "../App.css";
+
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+import MapGoogle from "./components/MapGoogle";
+import ListOfShops from "./components/ListOfShops";
+import { getShops } from "../DataFetch/DataFetch";
+
+const initialuserLocation = {
+  lat: 54.40333,
+  lng: 18.570192
+};
+
+export default class Map extends React.Component {
+  state = {
+    shops: [],
+    loading: true,
+    error: "",
+    sortBy: "name",
+    sortOrder: "asc",
+    search: "",
+    shop: [],
+    userLocation: { ...initialuserLocation }
+  };
 
   componentDidMount() {
+    this.fetchData();
+    this.geolocation();
+  }
+
+  geolocation() {
     navigator.geolocation.getCurrentPosition(
       position => {
         const { latitude, longitude } = position.coords;
@@ -33,47 +46,74 @@ export class MapContainer extends Component {
     );
   }
 
-  //   displayMarkers = () => {
-  //     return this.state.stores.map((store, index) => {
-  //       return (
-  //         <Marker
-  //           key={index}
-  //           id={index}
-  //           position={{
-  //             lat: store.latitude,
-  //             lng: store.longitude
-  //           }}
-  //           onClick={() => console.log("You clicked me!")}
-  //         />
-  //       );
-  //     });
-  //   };
+  fetchData() {
+    getShops()
+      .then(data => {
+        const filteredShops = data.filter(shop => {
+          const shopName = shop.name.toLowerCase();
+          return shopName.includes(this.state.search);
+        });
+        const sortedShops = filteredShops.sort((a, b) => {
+          const dA = a[this.state.sortBy];
+          const dB = b[this.state.sortBy];
+          if (typeof dA === "string") {
+            return dA.localeCompare(dB);
+          } else {
+            return dA - dB;
+          }
+        });
+        if (this.state.sortOrder === "desc") {
+          sortedShops.reverse();
+        }
+        this.setState({
+          shops: sortedShops,
+          loading: false
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error: error.toString()
+        });
+      });
+  }
+
+  handleOnAction = id => {
+    const checkedShop = this.state.shops.filter(shop => {
+      return shop.id === id;
+    });
+    const coords = checkedShop[0];
+    this.setState({
+      shop: coords,
+      userLocation: { lat: coords.lat, lng: coords.lon }
+    });
+  };
 
   render() {
-    const { loading, userLocation } = this.state;
-    const { google } = this.props;
-
-    if (loading) {
-      return null;
+    if (this.state.loading) {
+      return <CircularProgress color="secondary" />;
     }
 
+    if (this.error) {
+      return <div>Bład: {this.state.error}</div>;
+    }
+
+    const { shop, shops, loading, userLocation } = this.state;
+
     return (
-      <div
-        style={{
-          position: "relative",
-          height: "calc(100vh - 73px)",
-          width: "100%"
-        }}
-      >
-        <Map google={google} initialCenter={userLocation} zoom={14}>
-          {/* {this.displayMarkers()} */}
-        </Map>
+      <div className="googleMaps">
+        <div className="googleMaps__label">
+          <ListOfShops shops={shops} onCheck={this.handleOnAction} />
+        </div>
+        <div className="googleMaps__mapframe">
+          <div className="googleMaps__map">
+            <MapGoogle
+              loading={loading}
+              userLocation={userLocation}
+              shop={shop}
+            />
+          </div>
+        </div>
       </div>
     );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAuwndUmqb8cwyyD7BmYDsbA7tVoPZYmZU",
-  v: "3.30"
-})(MapContainer);

@@ -51,7 +51,6 @@
 .dashboard__title{
     font-size: 4.5rem;
     text-align: center;
-    margin-left: -3rem;
     color: white;
     }
 .dashboard__subtitle{
@@ -173,7 +172,7 @@
 .dashboard__img--display{
     display: none;
 }
-img{
+.dashboard__img{
     height: auto;
     width: 100%;
     max-width: 600px;
@@ -279,7 +278,6 @@ img{
     .dashboard__img--display{
         display: inline;
     }
-   
     .dashboard__subtitle--display{
         display: none;
         }
@@ -289,6 +287,11 @@ img{
     .dashboard__title--item{
         font-size: 2.1rem;
         color: black;
+    }
+    .dashboard__title{
+        font-size: 3rem;
+        color: white;
+        text-align: center;
     }
     .dashboard__title--right{
         font-size: 2.1rem;
@@ -316,13 +319,73 @@ img{
         margin-left: 4.9rem;
         margin-right: 0.7rem;
         margin-top: 4rem;
-
     }
     .dashboard__item--main{
         position: absolute;
         display: flex;
-        margin-right: 2rem;
-        margin-left: -5rem;
+        height: 8rem;
+        width: 14rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         margin-top: 4rem;
+    }
+}
+.googleMaps{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: calc(100vh - 73px);
+}
+.googleMaps__mapframe{
+    position: relative;
+    width: 80%;
+    height: 95vh;
+    overflow: hidden;
+    }
+.googleMaps__map{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    }
+.googleMaps__label{
+    width: 20%;
+    height: 100%;
+}
+.shop__header{
+    font-size: 1.5rem;
+    color: gray;
+    margin-left: 1.5rem;
+    text-align: left;
+}
+/* .googleMaps__item{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+} */
+.googleMaps__button{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+@media only screen and (max-width: 1300px){
+    .googleMaps{
+        flex-direction: row;
+    }
+    .googleMaps__mapframe{
+        position: relative;
+        width: 100%;
+        height: 65vh;
+        overflow: visible;
+        }
+    .googleMaps__label{
+        width: 100%;
+        height: 20%;
+    }
+    .googleMaps__items{
+        display: flex;
+        flex-direction: row;
     }
 }
