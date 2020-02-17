@@ -28,6 +28,7 @@ export default class AddDrinkSlide extends React.Component {
       alko: undefined,
     };
     this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangeIngredients = this.handleChangeIngredients.bind(this);
   }
 
   handleChangeName(e) {
@@ -36,10 +37,19 @@ export default class AddDrinkSlide extends React.Component {
     })
   }
 
+  handleChangeIngredients(e, value) {
+    this.setState({
+      ingredients: value.map(el => el.id),
+    })
+    const ingredientsToString = value.map(el => el.name).join(', ')
+    this.setState({
+      ingredient_name: ingredientsToString
+    })
+  }
+
   render() {
     const { handleToggleForm } = this.props;
-    const { name } = this.state;
-    
+    const { name, ingredients } = this.state;
     return (
       <div>
         <Dialog
@@ -68,6 +78,8 @@ export default class AddDrinkSlide extends React.Component {
             <FormDrink
               name={name}
               onChangeName={this.handleChangeName}
+              ingredients={ingredients}
+              onChangeIngredients={this.handleChangeIngredients}
             />
           </DialogContent>
           <DialogActions>

@@ -40,8 +40,8 @@ export default function FormDrink(props) {
     setPowercy(event.target.value);
   };
   return (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-      <form className={classes.root} noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <form className={classes.root} noValidate autoComplete="off" style={{ display: 'flex', flexDirection: 'column' }}>
         <TextField
           required
           value={props.name}
@@ -59,7 +59,10 @@ export default function FormDrink(props) {
             )
           }}
         />
-        <IngrediensList />
+        <IngrediensList
+          ingredients={props.ingredients}
+          onChangeIngredients={props.onChangeIngredients}
+        />
         <TextField
           required
           fullWidth
