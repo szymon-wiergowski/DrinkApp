@@ -15,42 +15,68 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AddDrinkSlide(props) {
-  const { handleToggleForm } = props;
+export default class AddDrinkSlide extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      ingredients: [],
+      ingredient_name: '',
+      power: '',
+      origin: '',
+      recipe: '',
+      alko: undefined,
+    };
+    this.handleChangeName = this.handleChangeName.bind(this);
+  }
 
-  return (
-    <div>
-      <Dialog
-        open={handleToggleForm}
-        TransitionComponent={Transition}
-        keepMounted
-        aria-labelledby="alert-dialog-slide-title"
-      >
-        <Fab
-          onClick={handleToggleForm}
-          size="small"
-          style={{
-            position: "absolute",
-            top: "5px",
-            right: "5px"
-          }}
-          color="secondary"
-          aria-label="close"
+  handleChangeName(e) {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
+  render() {
+    const { handleToggleForm } = this.props;
+    const { name } = this.state;
+    
+    return (
+      <div>
+        <Dialog
+          open={handleToggleForm}
+          TransitionComponent={Transition}
+          keepMounted
+          aria-labelledby="alert-dialog-slide-title"
         >
-          <CloseIcon />
-        </Fab>
-        <DialogTitle aria-labelledby="simple-dialog-title">
-          {"DODAJ DRINKA"}
-        </DialogTitle>
-        <DialogContent>
-          <FormDrink />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleToggleForm} color="secondary">
-            ZAPISZ
+          <Fab
+            onClick={handleToggleForm}
+            size="small"
+            style={{
+              position: "absolute",
+              top: "5px",
+              right: "5px"
+            }}
+            color="secondary"
+            aria-label="close"
+          >
+            <CloseIcon />
+          </Fab>
+          <DialogTitle aria-labelledby="simple-dialog-title">
+            {"DODAJ DRINKA"}
+          </DialogTitle>
+          <DialogContent>
+            <FormDrink
+              name={name}
+              onChangeName={this.handleChangeName}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleToggleForm} color="secondary">
+              ZAPISZ
           </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
-  );
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  }
 }

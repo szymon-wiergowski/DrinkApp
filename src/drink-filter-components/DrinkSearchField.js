@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import LocalBarRoundedIcon from '@material-ui/icons/LocalBarRounded';
 
 export function DrinkSearchField(props) {
-
   return (
     <div>
       <Grid container spacing={1} alignItems="flex-end">
