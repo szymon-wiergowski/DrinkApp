@@ -102,7 +102,9 @@ export default class Map extends React.Component {
     return (
       <div className="googleMaps">
         <div className="googleMaps__label">
-          <ListOfShops shops={shops} onCheck={this.handleOnAction} />
+          <div className="googleMaps__shops">
+            <ListOfShops shops={shops} onCheck={this.handleOnAction} />
+          </div>
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">

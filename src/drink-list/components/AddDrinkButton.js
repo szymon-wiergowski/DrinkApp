@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
+import "../../App.css";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,7 +23,7 @@ export default function AddDrinkButton(props) {
     const { handleToggleForm } = props;
 
     return (
-        <div style={{ position: 'fixed', bottom: '4%', right: '2.5%', height: 'auto' }}>
+        <div className="adddrink__button">
             <div className={classes.root}>
                 <Fab onClick={handleToggleForm} variant="extended" color="secondary" aria-label="add">
                     <AddIcon />

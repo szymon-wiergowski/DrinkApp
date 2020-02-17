@@ -19,7 +19,7 @@ export default function AddDrinkSlide(props) {
   const { handleToggleForm } = props;
 
   return (
-    <div>
+    <div className="drinkslide">
       <Dialog
         open={handleToggleForm}
         TransitionComponent={Transition}

@@ -13,7 +13,11 @@ export default () => {
     <div className="frame">
       <div className="dashboard">
         <div className="dashboard__img--display">
-          <img className="dashboard__img" src={dashboardImgSmall} alt="Dashboard" />
+          <img
+            className="dashboard__img"
+            src={dashboardImgSmall}
+            alt="Dashboard"
+          />
         </div>
         <div className="dashboard__card">
           <div className="dashboard__item--main">
@@ -48,8 +52,8 @@ export default () => {
         <div className="dashboard__item--right">
           <h2 className="dashboard__title--right">ALKOMAT</h2>
           <h3 className="dashboard__subtitle--right">
-            Wypiłeś drinka i nie czy możesz prowadzić? Załóż konto i wypróbuj
-            nasz wirtualny alkomat
+            Wypiłeś drinka i nie wiesz czy możesz prowadzić? Załóż konto i
+            wypróbuj nasz wirtualny alkomat
           </h3>
         </div>
       </div>
