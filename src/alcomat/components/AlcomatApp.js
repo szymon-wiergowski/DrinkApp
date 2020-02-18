@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 const AlcomatApp = (props) => {
-    const { userData, favoriteDrinks, logout, hendleDeleteFavoriteDrink } = props
+    const { userData, calculatePromiles, handleChange, promiles } = props
     const classes = useStyles();
     return (
         <>
@@ -64,7 +64,7 @@ const AlcomatApp = (props) => {
                 <TextField
                     disabled
                     value={`Płeć: ${userData.gender}`}
-                    // onChange={handleChange}
+                    onChange={handleChange}
                     name="gender"
                     type="gender"
                     defaultValue=""
@@ -73,7 +73,7 @@ const AlcomatApp = (props) => {
                 />
                 <TextField
                     label="Ile wypiłeś wódki?"
-                    // onChange={handleChange}
+                    onChange={handleChange}
                     name="vodka"
                     type="number"
                     defaultValue=""
@@ -82,10 +82,11 @@ const AlcomatApp = (props) => {
                     }}
                     variant="outlined"
                     color="secondary"
+                    inputProps={{ min: "0", max: "10", step: "1" }}
                 />
                 <TextField
                     label="Ile wypiłeś wina?"
-                    // onChange={handleChange}
+                    onChange={handleChange}
                     name="wine"
                     type="number"
                     defaultValue=""
@@ -94,10 +95,11 @@ const AlcomatApp = (props) => {
                     }}
                     variant="outlined"
                     color="secondary"
+                    inputProps={{ min: "0", max: "10", step: "1" }}
                 />
                 <TextField
                     label="Ile wypiłeś piwa?"
-                    // onChange={handleChange}
+                    onChange={handleChange}
                     name="beer"
                     type="number"
                     defaultValue="" InputProps={{
@@ -105,20 +107,30 @@ const AlcomatApp = (props) => {
                     }}
                     variant="outlined"
                     color="secondary"
+                    inputProps={{ min: "0", max: "10", step: "1" }}
                 />
                 <TextField
-                    // onChange={handleChange}
-                    name="date"
-                    type="datetime-local"
-                    defaultValue="2020-05-24T10:30"
+                    onChange={handleChange}
+                    label="Ile godzin temu zacząłeś pić?"
+                    name="hours"
+                    type="number"
+                    defaultValue="" InputProps={{
+                        endAdornment: <InputAdornment position="end">godzin</InputAdornment>,
+                    }}
                     variant="outlined"
                     color="secondary"
+                    inputProps={{ min: "0", max: "20", step: "1" }}
                 />
                 <Button
-                    onClick={logout}
+                    onClick={calculatePromiles}
                     variant="contained"
                     color="secondary">Oblicz promile!
                 </Button>
+                {promiles != null ? <Typography
+                    gutterBottom
+                    variant="h5"
+                    color="secondary"
+                >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Ruskich`}</Typography> : null}
             </form>
         </>
     )
