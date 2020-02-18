@@ -101,12 +101,13 @@ export class DrinkList extends React.Component {
           isLoading: false
         });
       })
-      .catch(error => {
-        this.setState({
-          hasError: true,
-          error: error.toString()
-        });
+    .catch(err => {
+      console.log(err)
+      this.setState({
+        hasError: true,
+        error: err.toString()
       });
+    });
   }
 
   handleSearchChange(e) {
@@ -147,7 +148,10 @@ export class DrinkList extends React.Component {
       <div>
         <AddDrinkButton handleToggleForm={this.handleToggleForm} />
         {this.state.addDrinkSlideIsOpen && (
-          <AddDrinkSlide handleToggleForm={this.handleToggleForm} />
+          <AddDrinkSlide
+            handleToggleForm={this.handleToggleForm}
+            fetchDatas={this.fetchDatas}
+          />
         )}
         <SearchPanel
           valueSearchField={this.state.search}
@@ -158,21 +162,21 @@ export class DrinkList extends React.Component {
           valueAlko={this.state.alko}
           onChangeAlko={this.handleAlkoChange}
         />
-      {(!this.state.isLoading & this.state.drinks.length < 1)
-      ? <h1 style={{textAlign: 'center', color: 'red'}}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
-      : this.state.drinks.map(drink => (
-        <Drink
-          key={drink.id}
-          name={drink.name}
-          recipe={drink.recipe}
-          ingredients={drink.ingredients}
-          power={drink.power}
-          ingredients_name={drink.ingredients_name}
-          img_url={drink.img_url}
-          origin={drink.origin}
-        />
-      ))
-      }
+        {(!this.state.isLoading & this.state.drinks.length < 1)
+          ? <h1 style={{ textAlign: 'center', color: 'red' }}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
+          : this.state.drinks.map(drink => (
+            <Drink
+              key={drink.id}
+              name={drink.name}
+              recipe={drink.recipe}
+              ingredients={drink.ingredients}
+              power={drink.power}
+              ingredients_name={drink.ingredients_name}
+              img_url={drink.img_url}
+              origin={drink.origin}
+            />
+          ))
+        }
       </div>
     );
   }

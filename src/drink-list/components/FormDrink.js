@@ -10,15 +10,15 @@ import IngrediensList from "./IngrediensList";
 
 const strength = [
   {
-    value: "> 15%",
+    value: ">15%",
     label: "Mocny (pow. 15%)"
   },
   {
-    value: "0,5% - 15%",
+    value: "0,5%-15%",
     label: "Słaby (od 0,5% do 15%)"
   },
   {
-    value: "< 0,5%",
+    value: "<0,5%",
     label: "Bezalkoholowy"
   }
 ];

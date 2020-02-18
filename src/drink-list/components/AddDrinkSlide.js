@@ -10,7 +10,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import FormDrink from "./FormDrink";
 import "./../../App.css";
-import {BASE_URL} from '../../DataFetch/DataFetch';
+import { BASE_URL } from '../../DataFetch/DataFetch';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,7 +22,7 @@ export default class AddDrinkSlide extends React.Component {
     this.state = {
       name: '',
       ingredients: [],
-      ingredient_name: '',
+      ingredients_name: '',
       power: '',
       origin: '',
       recipe: '',
@@ -45,7 +45,7 @@ export default class AddDrinkSlide extends React.Component {
       ingredients: value.map(el => el.id),
     })
     this.setState({
-      ingredient_name: value.map(el => el.name).join(', ')
+      ingredients_name: value.map(el => el.name).join(', ')
     })
   }
 
@@ -54,26 +54,29 @@ export default class AddDrinkSlide extends React.Component {
       power: e.target.value
     })
     this.setState({
-      alko: ((e.target.value === "< 0,5%") ? false : true)
+      alko: (e.target.value === "<0,5%") ? false : true
     })
   }
 
   handleButtonClick() {
     fetch(`${BASE_URL}/drinks.json`, {
       method: 'POST',
-      body: JSON.stringify({...this.state})
+      body: JSON.stringify({ ...this.state })
     })
-    this.props.handleToggleForm()
+      .then(() => {
+        this.props.handleToggleForm();
+        this.props.fetchDatas();
+      })
   }
 
   render() {
     const { handleToggleForm } = this.props;
     const { name, ingredients, recipe, origin, power } = this.state;
-
+    
     return (
       <div>
         <Dialog
-          open={handleToggleForm}
+          open={true}
           TransitionComponent={Transition}
           keepMounted
           aria-labelledby="alert-dialog-slide-title"
