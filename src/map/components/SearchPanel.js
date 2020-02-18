@@ -1,49 +1,26 @@
 import React from "react";
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import Autocomplete from "@material-ui/lab/Autocomplete";
 
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-export default function SearchPanel(props) {
-  const { onChangeIngredients } = props;
-
-
-  const checkIngredients = (e, value) => {
-    onChangeIngredients(e,value);
-  }
+export default function FormDrink(props) {
+  const { valueSearchField, onChangeText } = props;
 
   return (
     <div>
-      <div>
-      <Grid container spacing={1} alignItems="flex-end">
-        <Grid item>
-          <ShoppingCartOutlinedIcon />
-        </Grid>
-        <Grid item>
-          <TextField value={props.valueSearchField} onChange={props.onChangeText} id="input-with-icon-grid" color="secondary" label={<em>Sklep:</em>} />
-        </Grid>
-      </Grid>
-    </div>
-
-      <div>
-      <Autocomplete
-        multiple={true}
-        onChange={(e, value) => checkIngredients(e, value)}
-        disableCloseOnSelect
-        filterSelectedOptions
-        getOptionLabel={option => option.name}
-        style={{ width: 400 }}
-        renderInput={params => (
-          <TextField
-            {...params}
-            label="miasto"
-            color="secondary"
-            fullWidth
-          />
-        )}
-      />
-      </div>
+      <FormControl  color="secondary">
+        <InputLabel>
+          <em>Rodzaj</em>
+        </InputLabel>
+        <Select value={valueSearchField} onChange={onChangeText}>
+          <MenuItem value="Gdynia">Gdynia</MenuItem>
+          <MenuItem value="Gdańsk">Gdańsk</MenuItem>
+          <MenuItem value="Gdańsk">Gdańsk</MenuItem>
+          <MenuItem value="Pruszcz_Gdański">Pruszcz Gdański</MenuItem>
+        </Select>
+      </FormControl>
     </div>
   );
 }

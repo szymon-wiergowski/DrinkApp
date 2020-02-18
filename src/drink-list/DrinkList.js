@@ -43,10 +43,6 @@ export class DrinkList extends React.Component {
       this.fetchDatas();
     }
   }
-  handleToggleForm = () =>
-    this.setState({
-      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
-    });
 
   fetchDatas() {
     Promise.all([getDrinks(), getIngredients()])
@@ -62,9 +58,9 @@ export class DrinkList extends React.Component {
             if (this.state.searchIngredients.length === 0) {
               return true;
             } else {
-              return (
-                this.state.searchIngredients.every(ingredientId => drink.ingredients.includes(parseInt(ingredientId)))
-              )
+              return this.state.searchIngredients.every(ingredientId =>
+                drink.ingredients.includes(parseInt(ingredientId))
+              );
             }
           })
           .filter(drink => {
@@ -123,17 +119,27 @@ export class DrinkList extends React.Component {
 
   handleIngredientsChange(e, value) {
     this.setState({
-      searchIngredients: value.map(el => el.id),
-    })
+      searchIngredients: value.map(el => el.id)
+    });
   }
 
   handleToggle = () =>
     this.setState({
       open: !this.state.open
-    })
+    });
+
+  handleToggleForm = () =>
+    this.setState({
+      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
+    });
+
+    componentWillUnmount(){
+      if(!this.state.isLoading)
+      this.fetchDatas()   
+    }
 
   render() {
-    const { open } = this.state
+    const { open } = this.state;
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
@@ -158,21 +164,27 @@ export class DrinkList extends React.Component {
           valueAlko={this.state.alko}
           onChangeAlko={this.handleAlkoChange}
         />
-      {(!this.state.isLoading & this.state.drinks.length < 1)
-      ? <h1 style={{textAlign: 'center', color: 'red'}}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
-      : this.state.drinks.map(drink => (
-        <Drink
-          key={drink.id}
-          name={drink.name}
-          recipe={drink.recipe}
-          ingredients={drink.ingredients}
-          power={drink.power}
-          ingredients_name={drink.ingredients_name}
-          img_url={drink.img_url}
-          origin={drink.origin}
-        />
-      ))
-      }
+        {!this.state.isLoading & (this.state.drinks.length < 1) ? (
+          <h1 style={{ textAlign: "center", color: "red" }}>
+            Brak wyników
+            <br />
+            Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do
+            naszej bazy :)
+          </h1>
+        ) : (
+          this.state.drinks.map(drink => (
+            <Drink
+              key={drink.id}
+              name={drink.name}
+              recipe={drink.recipe}
+              ingredients={drink.ingredients}
+              power={drink.power}
+              ingredients_name={drink.ingredients_name}
+              img_url={drink.img_url}
+              origin={drink.origin}
+            />
+          ))
+        )}
       </div>
     );
   }

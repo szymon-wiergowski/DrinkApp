@@ -8,7 +8,7 @@ import MapGoogle from "./components/MapGoogle";
 import ListOfShops from "./components/ListOfShops";
 import { getShops } from "../DataFetch/DataFetch";
 
-const initialuserLocation = {
+const initialUserLocation = {
   lat: 54.40333,
   lng: 18.570192
 };
@@ -22,7 +22,7 @@ export default class Map extends React.Component {
     sortOrder: "asc",
     search: "",
     shop: [],
-    userLocation: { ...initialuserLocation }
+    userLocation: { ...initialUserLocation }
   };
 
   componentDidMount() {
@@ -88,6 +88,12 @@ export default class Map extends React.Component {
     });
   };
 
+  handleSearchChange = (event) => {
+    this.setState({
+      search: event.target.value
+    });
+  }
+
   render() {
     if (this.state.loading) {
       return <CircularProgress color="secondary" />;
@@ -98,12 +104,19 @@ export default class Map extends React.Component {
     }
 
     const { shop, shops, loading, userLocation } = this.state;
+    console.log("dupa searh", this.state.search)
+
 
     return (
       <div className="googleMaps">
         <div className="googleMaps__label">
           <div className="googleMaps__shops">
-            <ListOfShops shops={shops} onCheck={this.handleOnAction} />
+            <ListOfShops
+              shops={shops}
+              onCheck={this.handleOnAction}
+              valueSearchField={this.state.search}
+              onChangeText={this.handleSearchChange}
+            />
           </div>
         </div>
         <div className="googleMaps__mapframe">

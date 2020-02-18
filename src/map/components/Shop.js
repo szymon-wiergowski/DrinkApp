@@ -74,7 +74,7 @@ export default props => {
         </ListItem>
       </div>
       <div className="googleMaps__button">
-        <Button color="primary" onClick={() => handleOnClick(id)}>
+        <Button color="default" onClick={() => handleOnClick(id)}>
           POKAŻ NA MAPIE
         </Button>
       </div>
