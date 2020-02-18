@@ -10,6 +10,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import FormDrink from "./FormDrink";
 import "./../../App.css";
+import {BASE_URL} from '../../DataFetch/DataFetch';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -27,13 +28,15 @@ export default class AddDrinkSlide extends React.Component {
       recipe: '',
       alko: undefined,
     };
-    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
     this.handleChangeIngredients = this.handleChangeIngredients.bind(this);
+    this.handleAlko = this.handleAlko.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  handleChangeName(e) {
+  handleOnChange(e) {
     this.setState({
-      name: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -41,15 +44,32 @@ export default class AddDrinkSlide extends React.Component {
     this.setState({
       ingredients: value.map(el => el.id),
     })
-    const ingredientsToString = value.map(el => el.name).join(', ')
     this.setState({
-      ingredient_name: ingredientsToString
+      ingredient_name: value.map(el => el.name).join(', ')
     })
+  }
+
+  handleAlko(e) {
+    this.setState({
+      power: e.target.value
+    })
+    this.setState({
+      alko: ((e.target.value === "< 0,5%") ? false : true)
+    })
+  }
+
+  handleButtonClick() {
+    fetch(`${BASE_URL}/drinks.json`, {
+      method: 'POST',
+      body: JSON.stringify({...this.state})
+    })
+    this.props.handleToggleForm()
   }
 
   render() {
     const { handleToggleForm } = this.props;
-    const { name, ingredients } = this.state;
+    const { name, ingredients, recipe, origin, power } = this.state;
+
     return (
       <div>
         <Dialog
@@ -77,13 +97,17 @@ export default class AddDrinkSlide extends React.Component {
           <DialogContent>
             <FormDrink
               name={name}
-              onChangeName={this.handleChangeName}
+              onChangeData={this.handleOnChange}
               ingredients={ingredients}
               onChangeIngredients={this.handleChangeIngredients}
+              recipe={recipe}
+              origin={origin}
+              power={power}
+              onChangeAlko={this.handleAlko}
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleToggleForm} color="secondary">
+            <Button onClick={this.handleButtonClick} color="secondary">
               ZAPISZ
           </Button>
           </DialogActions>

@@ -18,11 +18,6 @@ const useStyles = makeStyles(theme => ({
 export function AlkoSearch(props) {
   const classes = useStyles();
 
-  // const [age, setAge] = React.useState('');
-  // const handleChange = event => {
-  //   setAge(event.target.value);
-  // };
-
   return (
     <div>
       <FormControl className={classes.formControl} color='secondary'>

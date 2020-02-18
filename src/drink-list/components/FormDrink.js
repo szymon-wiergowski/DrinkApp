@@ -32,20 +32,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FormDrink(props) {
+export default function FormDrink({name, onChangeData, ingredients, onChangeIngredients, recipe, origin, power, onChangeAlko}) {
   const classes = useStyles();
-  const [strengthen, setPowercy] = React.useState("");
 
-  const handleChange = event => {
-    setPowercy(event.target.value);
-  };
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <form className={classes.root} noValidate autoComplete="off" style={{ display: 'flex', flexDirection: 'column' }}>
         <TextField
           required
-          value={props.name}
-          onChange={props.onChangeName}
+          name='name'
+          value={name}
+          onChange={onChangeData}
           fullWidth
           id="outlined-required"
           label="Nazwa"
@@ -60,11 +57,14 @@ export default function FormDrink(props) {
           }}
         />
         <IngrediensList
-          ingredients={props.ingredients}
-          onChangeIngredients={props.onChangeIngredients}
+          ingredients={ingredients}
+          onChangeIngredients={onChangeIngredients}
         />
         <TextField
           required
+          name='recipe'
+          value={recipe}
+          onChange={onChangeData}
           fullWidth
           id="outlined-multiline-static"
           label="Przepis"
@@ -76,6 +76,9 @@ export default function FormDrink(props) {
         />
         <TextField
           required
+          name='origin'
+          value={origin}
+          onChange={onChangeData}
           fullWidth
           id="outlined-required"
           label="Pochodzenie"
@@ -88,8 +91,8 @@ export default function FormDrink(props) {
           id="outlined-select-power"
           select
           label="Moc"
-          value={strengthen}
-          onChange={handleChange}
+          value={power}
+          onChange={onChangeAlko}
           helperText="Wybierz moc drinka"
           variant="outlined"
           color="secondary"
