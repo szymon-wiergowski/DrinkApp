@@ -21,7 +21,7 @@ export default function AlkoSearch(props) {
   const { valueAlko, onChangeAlko, valueCity, onChangeCity } = props;
 
   return (
-    <div>
+    <div className="googleMaps__searchpanel">
       <FormControl className={classes.formControl} color="secondary">
         <InputLabel >
           <em>Sprzedarz alkoholu</em>
