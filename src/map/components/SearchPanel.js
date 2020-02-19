@@ -18,18 +18,30 @@ const useStyles = makeStyles(theme => ({
 export default function AlkoSearch(props) {
   const classes = useStyles();
 
-  const { valueAlko, onChangeAlko } = props;
+  const { valueAlko, onChangeAlko, valueCity, onChangeCity } = props;
 
   return (
     <div>
       <FormControl className={classes.formControl} color="secondary">
-        <InputLabel>
-          <em>Rodzaj</em>
+        <InputLabel >
+          <em>Sprzedarz alkoholu</em>
         </InputLabel>
         <Select value={valueAlko} onChange={onChangeAlko}>
           <MenuItem value="all">Wszystkie</MenuItem>
-          <MenuItem value={true}>Z alkoholem</MenuItem>
-          <MenuItem value={false}>Bez alkoholu</MenuItem>
+          <MenuItem value={true}>Tak</MenuItem>
+          <MenuItem value={false}>Nie</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl className={classes.formControl} color="secondary">
+        <InputLabel>
+          <em>Miejscowość</em>
+        </InputLabel>
+        <Select value={valueCity} onChange={onChangeCity}>
+          <MenuItem value="all">Wszystkie</MenuItem>
+          <MenuItem value="Sopot">Sopot</MenuItem>
+          <MenuItem value="Gdańsk">Gdańsk</MenuItem>
+          <MenuItem value="Pruszcz-Gdański">Pruszcz Gdański</MenuItem>
+          <MenuItem value="Gdynia">Gdynia</MenuItem>
         </Select>
       </FormControl>
     </div>
