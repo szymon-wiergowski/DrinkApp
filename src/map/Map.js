@@ -21,6 +21,7 @@ export default class Map extends React.Component {
     sortBy: "name",
     sortOrder: "asc",
     search: "",
+    alko: "all",
     shop: [],
     userLocation: { ...initialUserLocation }
   };
@@ -47,12 +48,19 @@ export default class Map extends React.Component {
   }
 
   fetchData() {
-    getShops()
+    Promise.resolve(getShops())
       .then(data => {
-        const filteredShops = data.filter(shop => {
-          const shopName = shop.name.toLowerCase();
-          return shopName.includes(this.state.search);
-        });
+        const filteredShops = data
+          .filter(shop => {
+            if (this.state.alko === "all") {
+              return true;
+            }
+            return shop.alko === this.state.alko;
+          })
+          .filter(shop => {
+            const shopName = shop.name.toLowerCase();
+            return shopName.includes(this.state.search);
+          });
         const sortedShops = filteredShops.sort((a, b) => {
           const dA = a[this.state.sortBy];
           const dB = b[this.state.sortBy];
@@ -77,6 +85,13 @@ export default class Map extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const alkoChanged = prevState.alko !== this.state.alko;
+    if (alkoChanged && !this.state.isLoading) {
+      this.fetchData();
+    }
+  }
+
   handleOnAction = id => {
     const checkedShop = this.state.shops.filter(shop => {
       return shop.id === id;
@@ -88,11 +103,17 @@ export default class Map extends React.Component {
     });
   };
 
-  handleSearchChange = (event) => {
+  handleSearchChange = event => {
     this.setState({
       search: event.target.value
     });
-  }
+  };
+
+  handleAlkoChange = event => {
+    this.setState({
+      alko: event.target.value
+    });
+  };
 
   render() {
     if (this.state.loading) {
@@ -103,9 +124,7 @@ export default class Map extends React.Component {
       return <div>Bład: {this.state.error}</div>;
     }
 
-    const { shop, shops, loading, userLocation } = this.state;
-    console.log("dupa searh", this.state.search)
-
+    const { shop, shops, loading, userLocation, search, alko } = this.state;
 
     return (
       <div className="googleMaps">
@@ -114,8 +133,10 @@ export default class Map extends React.Component {
             <ListOfShops
               shops={shops}
               onCheck={this.handleOnAction}
-              valueSearchField={this.state.search}
+              valueSearchField={search}
               onChangeText={this.handleSearchChange}
+              valueAlko={alko}
+              onChangeAlko={this.handleAlkoChange}
             />
           </div>
         </div>

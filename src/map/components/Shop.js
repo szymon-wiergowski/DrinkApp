@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../App.css";
+
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -67,7 +69,9 @@ export default props => {
                 >
                   {shop.localization}
                 </Typography>
-                {` – Otwarte: ${shop.openHours}`}
+                {` – Otwarte: ${shop.openHours} / ${
+                  shop.alko === true ? " Alkoholowy" : " Bezalkoholowy"
+                }`}
               </React.Fragment>
             }
           />
@@ -81,3 +85,5 @@ export default props => {
     </div>
   );
 };
+
+// {}
