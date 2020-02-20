@@ -12,21 +12,8 @@ import Button from '@material-ui/core/Button';
 import FavoriteDrinksList from './FavoriteDrinksList'
 import FavoriteDrinksListMini from './FavoriteDrinksListMini'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles } from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        "& > * ": {
-            margin: theme.spacing(1),
-            width: 300,
-        }
-    },
-}));
 
 const LoggedUser = (props) => {
 

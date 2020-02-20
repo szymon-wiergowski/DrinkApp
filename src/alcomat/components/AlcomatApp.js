@@ -137,7 +137,7 @@ const AlcomatApp = (props) => {
                         gutterBottom
                         variant="h5"
                         color="secondary"
-                    >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Ruskich`}</Typography> : null}
+                    >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków`}</Typography> : null}
                 </form>
             </Card>
         )
@@ -242,16 +242,16 @@ const AlcomatApp = (props) => {
                     color="secondary"
                     inputProps={{ min: "0", max: "20", step: "1" }}
                 />
+                {promiles != null ? <Typography
+                    gutterBottom
+                    variant="h5"
+                    color="secondary"
+                >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków`}</Typography> : null}
                 <Button
                     onClick={calculatePromiles}
                     variant="contained"
                     color="secondary">Oblicz promile!
                 </Button>
-                {promiles != null ? <Typography
-                    gutterBottom
-                    variant="h5"
-                    color="secondary"
-                >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Ruskich`}</Typography> : null}
             </form>
         )
     }

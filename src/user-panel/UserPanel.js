@@ -1,8 +1,6 @@
 import React from 'react';
-import SwitchButtons from './components/SwitchButtons';
 import LoginForm from "./components/LoginForm"
 import RegisterForm from './components/RegisterForm';
-import { Card } from '@material-ui/core';
 import LoggedUser from './components/LoggedUser';
 
 class UserPanel extends React.Component {
@@ -12,11 +10,11 @@ class UserPanel extends React.Component {
         registerButtonToggle: "",
     }
 
-    handelChangePanel = (card, loginBtn, regBtn) => {
+    handelChangePanel = (card, loginButtonToggle, registerButtonToggle) => {
         this.setState({
             displayCard: card,
-            loginButtonToggle: loginBtn,
-            registerButtonToggle: regBtn,
+            loginButtonToggle: loginButtonToggle,
+            registerButtonToggle: registerButtonToggle,
         })
     }
 
@@ -27,26 +25,36 @@ class UserPanel extends React.Component {
         if (user === null) {
             if (displayCard === false) {
                 return (
-                    <>
-                        <Card style={{ padding: '20px', margin: '100px', minWidth: '500px' }}>
-                            <SwitchButtons regBtn={registerButtonToggle} loginBtn={loginButtonToggle} handelChangePanel={handelChangePanel} />
-                            <LoginForm error={error} login={login} value={value} handleChange={handleChange} />
-                        </Card>
-                    </>
+                    <LoginForm
+                        registerButtonToggle={registerButtonToggle}
+                        loginButtonToggle={loginButtonToggle}
+                        handelChangePanel={handelChangePanel}
+                        error={error}
+                        login={login}
+                        value={value}
+                        handleChange={handleChange} />
                 )
             } else if (displayCard === true) {
                 return (
-                    <>
-                        <Card style={{ padding: '20px', margin: '100px', minWidth: '500px' }}>
-                            <SwitchButtons regBtn={registerButtonToggle} loginBtn={loginButtonToggle} handelChangePanel={handelChangePanel} />
-                            <RegisterForm hendleCheckbox={hendleCheckbox} checkedRules={checkedRules} error={error} signUp={signUp} value={value} handleChange={handleChange} />
-                        </Card>
-                    </>
+                    <RegisterForm
+                        registerButtonToggle={registerButtonToggle}
+                        loginButtonToggle={loginButtonToggle}
+                        handelChangePanel={handelChangePanel}
+                        hendleCheckbox={hendleCheckbox}
+                        checkedRules={checkedRules}
+                        error={error}
+                        signUp={signUp}
+                        value={value}
+                        handleChange={handleChange} />
                 )
             }
         } else {
             return (
-                <LoggedUser hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} logout={logout} />
+                <LoggedUser
+                    hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink}
+                    userData={userData}
+                    favoriteDrinks={favoriteDrinks}
+                    logout={logout} />
             )
         }
     }
