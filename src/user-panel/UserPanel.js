@@ -46,9 +46,7 @@ class UserPanel extends React.Component {
             }
         } else {
             return (
-                <Card style={{ padding: '20px', margin: '100px', minWidth: '500px' }}>
-                    <LoggedUser hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} logout={logout} />
-                </Card>
+                <LoggedUser hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink} userData={userData} favoriteDrinks={favoriteDrinks} logout={logout} />
             )
         }
     }

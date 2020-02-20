@@ -10,16 +10,13 @@ import Popup from '../../drink/Popup-logged';
 import Divider from '@material-ui/core/Divider';
 import { List } from '@material-ui/core';
 
-const FavoriteDrinksList = (props) => {
+const FavoriteDrinksListMini = (props) => {
 
     const { favoriteDrinks, hendleDeleteFavoriteDrink } = props
     if (favoriteDrinks.length !== 0) {
         const favoriteDrinksList = favoriteDrinks.map(drink => (
             <List key={drink.id}>
                 <ListItem >
-                    <ListItemIcon>
-                        <LocalBarOutlinedIcon color="secondary" />
-                    </ListItemIcon>
                     <ListItemText primary={drink.name} secondary={drink.recipe} />
                     <Popup
                         key={drink.id}
@@ -54,4 +51,4 @@ const FavoriteDrinksList = (props) => {
 
 }
 
-export default FavoriteDrinksList;
+export default FavoriteDrinksListMini;
