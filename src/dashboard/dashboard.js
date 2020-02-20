@@ -37,8 +37,7 @@ export default () => {
           <h2 className="dashboard__title--item">DRINKI</h2>
           <h3 className="dashboard__subtitle--item">
             Zastanawiasz się jakie drinki możesz przyrządzić ze składników,
-            które posiadasz?
-            <br /> Skorzystaj z naszej wyszukiwarki
+            które posiadasz? Skorzystaj z naszej wyszukiwarki
           </h3>
         </div>
         <div className="dashboard__item--img">
@@ -62,8 +61,7 @@ export default () => {
           <h2 className="dashboard__title--item">MAPA</h2>
           <h3 className="dashboard__subtitle--item">
             Jeśli podczas przygotowywania wybranego przez siebie drinka
-            zabraknie Ci składników,
-            <br /> skorzystaj z naszej mapy
+            zabraknie Ci składników,skorzystaj z naszej mapy
           </h3>
         </div>
         <div className="dashboard__item--img">

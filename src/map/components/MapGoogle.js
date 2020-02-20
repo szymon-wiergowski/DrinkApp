@@ -16,7 +16,7 @@ export function mapContainer(props) {
         lng: 18.56978
       }}
       center={userLocation}
-      zoom={16}
+      zoom={18}
       mapTypeId={google.maps.MapTypeId.SATELLITE}
     >
       <Marker labelContent={shop.id} position={userLocation} />
