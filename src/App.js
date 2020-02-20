@@ -30,7 +30,7 @@ class App extends React.Component {
     gender: "",
     id: "",
     checkedRules: false,
-    validationOk: false
+    validationOk: false,
   };
 
   componentDidMount() {

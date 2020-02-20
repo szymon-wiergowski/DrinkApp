@@ -23,7 +23,7 @@ export class IngredientsSearchMulitpleSelect extends React.Component {
         disableCloseOnSelect
         filterSelectedOptions
         getOptionLabel={option => option.name}
-        style={{ width: 400 }}
+        style={{ width: 300 }}
         renderInput={params => (
           <TextField
             {...params}

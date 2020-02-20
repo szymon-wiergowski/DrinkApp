@@ -312,6 +312,7 @@
         flex-direction: column-reverse;
         height: auto;
     }
+
     .dashboard__title--item {
         font-size: 2rem;
         margin-bottom: 2rem;
