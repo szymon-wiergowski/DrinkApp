@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 const AlcomatApp = (props) => {
 
-    const { userData, calculatePromiles, handleChange, promiles } = props
+    const { userData, soberingTime, calculatePromiles, handleChange, promiles } = props
     const classes = useStyles();
     const matches = useMediaQuery('(min-width:740px)');
 
@@ -135,9 +135,8 @@ const AlcomatApp = (props) => {
                 </Button>
                     {promiles != null ? <Typography
                         gutterBottom
-                        variant="h5"
-                        color="secondary"
-                    >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków`}</Typography> : null}
+                        variant="h6"
+                    >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków. Przewidywany pozostały czas trzeźwienia to: ${soberingTime} godzin.`}</Typography> : null}
                 </form>
             </Card>
         )
@@ -244,9 +243,8 @@ const AlcomatApp = (props) => {
                 />
                 {promiles != null ? <Typography
                     gutterBottom
-                    variant="h5"
-                    color="secondary"
-                >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków`}</Typography> : null}
+                    variant="h6"
+                >{`Przybliżona zawartość alkoholu to: ${promiles} promili. * nie dotyczy Polaków i Rusków. Przewidywany pozostały czas trzeźwienia to: ${soberingTime} godzin.`}</Typography> : null}
                 <Button
                     onClick={calculatePromiles}
                     variant="contained"

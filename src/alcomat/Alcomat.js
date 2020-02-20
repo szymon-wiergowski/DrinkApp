@@ -10,6 +10,7 @@ class Alcomat extends React.Component {
         vodka: 0,
         hours: 0,
         promiles: null,
+        soberingTime: 0,
     }
 
     handleChange = (e) => {
@@ -39,12 +40,15 @@ class Alcomat extends React.Component {
         const promilesValue = (alcohol / (gender * this.props.userData.weight)) - (this.state.hours * metabolism)
         const promiles = this.round(promilesValue, 2)
         if (promiles > 0) {
+            const soberingTime = Math.ceil(promilesValue / metabolism)
             this.setState({
                 promiles,
+                soberingTime,
             })
         } else {
             this.setState({
-                promiles: 0
+                promiles: 0,
+                soberingTime: 0,
             })
         }
     }
@@ -53,14 +57,14 @@ class Alcomat extends React.Component {
         const handleChange = this.handleChange.bind(this);
         const calculatePromiles = this.calculatePromiles.bind(this);
         const { user, userData } = this.props
-        const { promiles } = this.state
+        const { promiles, soberingTime } = this.state
         if (user === null) {
             return (
                 <AlcomatLogout />
             )
         } else {
             return (
-                <AlcomatApp userData={userData} promiles={promiles} calculatePromiles={calculatePromiles} handleChange={handleChange} />
+                <AlcomatApp userData={userData} soberingTime={soberingTime} promiles={promiles} calculatePromiles={calculatePromiles} handleChange={handleChange} />
             )
         }
     }
