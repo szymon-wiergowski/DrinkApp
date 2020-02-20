@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { Card, Container } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import SwitchButtons from './SwitchButtons';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -54,6 +55,16 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+                    <Link
+                        color="secondary"
+                        component="button"
+                        href="#"
+                        onClick={() => {
+                            alert('Moduł w trakcie budowy.');
+                        }}
+                        variant="body2">
+                        {'Nie pamiętasz hasła?'}
+                    </Link>
                 </form>
             </Card>
         )
@@ -86,6 +97,16 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+                    <Link
+                        color="secondary"
+                        component="button"
+                        href="#"
+                        onClick={() => {
+                            alert('Moduł w trakcie budowy.');
+                        }}
+                        variant="body2">
+                        {'Nie pamiętasz hasła?'}
+                    </Link>
                 </form>
             </Container>
         )
