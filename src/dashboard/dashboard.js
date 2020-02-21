@@ -60,8 +60,7 @@ export default () => {
         <div className="dashboard__item">
           <h2 className="dashboard__title--item">MAPA</h2>
           <h3 className="dashboard__subtitle--item">
-            Jeśli podczas przygotowywania wybranego przez siebie drinka
-            zabraknie Ci składników,skorzystaj z naszej mapy
+            Jeśli podczas przygotowywania wybranego przez siebie drinka zabraknie Ci składników, skorzystaj z naszej mapy
           </h3>
         </div>
         <div className="dashboard__item--img">
