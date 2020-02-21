@@ -372,9 +372,8 @@
         margin-top: 4rem;
     }
     .adddrink__button {
-        position: fixed;
-        bottom: 4%;
-        margin-right: 30%;
+        bottom: 5%;
+        margin-left: 15%;
     }
 }
 
