@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 450
+      width: 400
     }
   }
 }));
@@ -41,8 +41,13 @@ export default function FormDrink() {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-      <form className={classes.root} noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
+    <div className="formdrink">
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete="on"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <TextField
           required
           fullWidth

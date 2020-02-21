@@ -13,7 +13,11 @@ export default () => {
     <div className="frame">
       <div className="dashboard">
         <div className="dashboard__img--display">
-          <img className="dashboard__img" src={dashboardImgSmall} alt="Dashboard" />
+          <img
+            className="dashboard__img"
+            src={dashboardImgSmall}
+            alt="Dashboard"
+          />
         </div>
         <div className="dashboard__card">
           <div className="dashboard__item--main">
@@ -33,8 +37,7 @@ export default () => {
           <h2 className="dashboard__title--item">DRINKI</h2>
           <h3 className="dashboard__subtitle--item">
             Zastanawiasz się jakie drinki możesz przyrządzić ze składników,
-            które posiadasz?
-            <br /> Skorzystaj z naszej wyszukiwarki
+            które posiadasz? Skorzystaj z naszej wyszukiwarki
           </h3>
         </div>
         <div className="dashboard__item--img">
@@ -48,8 +51,8 @@ export default () => {
         <div className="dashboard__item--right">
           <h2 className="dashboard__title--right">ALKOMAT</h2>
           <h3 className="dashboard__subtitle--right">
-            Wypiłeś drinka i nie czy możesz prowadzić? Załóż konto i wypróbuj
-            nasz wirtualny alkomat
+            Wypiłeś drinka i nie wiesz czy możesz prowadzić? Załóż konto i
+            wypróbuj nasz wirtualny alkomat
           </h3>
         </div>
       </div>
@@ -58,8 +61,7 @@ export default () => {
           <h2 className="dashboard__title--item">MAPA</h2>
           <h3 className="dashboard__subtitle--item">
             Jeśli podczas przygotowywania wybranego przez siebie drinka
-            zabraknie Ci składników,
-            <br /> skorzystaj z naszej mapy
+            zabraknie Ci składników,skorzystaj z naszej mapy
           </h3>
         </div>
         <div className="dashboard__item--img">

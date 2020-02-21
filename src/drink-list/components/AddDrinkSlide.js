@@ -21,7 +21,7 @@ export default function AddDrinkSlide(props) {
   return (
     <div>
       <Dialog
-        open={handleToggleForm}
+        open={true}
         TransitionComponent={Transition}
         keepMounted
         aria-labelledby="alert-dialog-slide-title"

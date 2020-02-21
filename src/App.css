@@ -28,7 +28,7 @@
 .dashboard {
     display: flex;
     position: relative;
-    height: 45rem;
+    height: 85vh;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
     flex-direction: column;
@@ -115,6 +115,8 @@
 
 .dashboard__item {
     width: 38%;
+    max-width: 30rem;
+    min-width: 25rem;
 }
 
 .dashboard__item--none {
@@ -147,6 +149,8 @@
 
 .dashboard__item--right {
     width: 38%;
+    max-width: 30rem;
+    min-width: 25rem;
 }
 
 .dashboard__title--right {
@@ -203,38 +207,51 @@
     max-width: 600px;
 }
 
+.formdrink {
+    display: "flex";
+    flex-direction: "column";
+}
+
+.adddrink__button {
+    position: fixed;
+    bottom: 4%;
+    right: 2.5%;
+    width: 12rem;
+    min-width: 12rem;
+    text-align: center;
+    height: auto;
+    z-index: 1;
+}
+
 @media only screen and (max-width: 1420px) {
     .dashboard__charts {
         display: none;
     }
+    .MuiTab-root {
+        min-width: unset;
+    }
 }
 
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 768px) {
     .dashboard {
         height: auto;
         background-image: none;
     }
-
     .dashboard__img--display {
         display: inline;
     }
-
     .dashboard__title {
         font-size: 2.5rem;
         text-align: center;
         margin-left: 0rem;
     }
-
     .dashboard__subtitle {
         font-size: 1.5rem;
     }
-
     .dashboard__card {
         position: absolute;
         top: 25%;
     }
-
     .dashboard__item {
         position: absolute;
         display: flex;
@@ -246,7 +263,6 @@
         margin-left: -8.5rem;
         top: 0;
     }
-
     .dashboard__item--right {
         position: absolute;
         display: flex;
@@ -258,7 +274,6 @@
         margin-left: 8.5rem;
         top: 0;
     }
-
     .dashboard__title--item {
         width: 100%;
         font-size: 2rem;
@@ -266,7 +281,6 @@
         color: gray;
         text-align: left;
     }
-
     .dashboard__title--right {
         width: 100%;
         font-size: 2rem;
@@ -275,30 +289,25 @@
         color: white;
         text-align: right;
     }
-
     .dashboard__subtitle--item {
         font-size: 1.2rem;
         margin-left: 0.7rem;
         text-align: left;
         color: gray;
     }
-
     .dashboard__subtitle--right {
         font-size: 1.2rem;
         margin-right: 0.7rem;
         text-align: right;
         color: white;
     }
-
     .dashboard__subtitle--display {
         font-size: 1.1rem;
     }
-
     .dashboard__items {
         flex-direction: column;
         height: auto;
     }
-
     .dashboard__items--revers {
         flex-direction: column-reverse;
         height: auto;
@@ -308,50 +317,44 @@
         font-size: 2rem;
         margin-bottom: 2rem;
     }
+    .MuiTab-root {
+        min-width: 0 !important;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .dashboard {
         height: auto;
     }
-
     .dashboard__img--display {
         display: inline;
     }
-
     .dashboard__subtitle--display {
         display: none;
     }
-
     .dashboard__subtitle {
         display: none;
     }
-
     .dashboard__title--item {
         font-size: 2.1rem;
         color: black;
     }
-
     .dashboard__title {
         font-size: 3rem;
         color: white;
         text-align: center;
     }
-
     .dashboard__title--right {
         font-size: 2.1rem;
         color: white;
         margin-right: 0rem;
     }
-
     .dashboard__subtitle--item {
         display: none;
     }
-
     .dashboard__subtitle--right {
         display: none;
     }
-
     .dashboard__item {
         position: absolute;
         width: 52%;
@@ -360,7 +363,6 @@
         margin-left: -4rem;
         margin-top: 4rem;
     }
-
     .dashboard__item--right {
         position: absolute;
         width: 41%;
@@ -369,7 +371,6 @@
         margin-right: 0.7rem;
         margin-top: 4rem;
     }
-
     .dashboard__item--main {
         position: absolute;
         display: flex;
@@ -380,72 +381,88 @@
         text-align: center;
         margin-top: 4rem;
     }
+    .adddrink__button {
+        position: fixed;
+        bottom: 4%;
+        margin-right: 30%;
+    }
 }
 
 .googleMaps {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    position: relative;
+    flex-direction: column-reverse;
     height: calc(100vh - 73px);
 }
 
 .googleMaps__mapframe {
+    width: 100vw;
+    height: 66.5% !important;
+    z-index: 3;
     position: relative;
-    width: 80%;
-    height: 95vh;
-    overflow: hidden;
+    padding: 0px;
+    top: 0;
+    border-width: 0px;
+    touch-action: pan-x pan-y;
 }
 
 .googleMaps__map {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     top: 0;
     width: 100% !important;
     height: 100% !important;
+    overflow: visible;
 }
 
 .googleMaps__label {
-    width: 20%;
-    height: 100%;
+    position: relative;
+    width: 100%;
+    height: 33.5%;
+    background-color: white;
+    max-height: none;
+    overflow: scroll;
 }
 
-.shop__header {
-    font-size: 1.5rem;
-    color: gray;
-    margin-left: 1.5rem;
-    text-align: left;
-}
-
-/* .googleMaps__item{
+.googleMaps__searchpanel {
     display: flex;
-    justify-content: center;
     flex-direction: row;
-} */
-.googleMaps__button {
-    padding-left: 8px;
-    padding-right: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-@media only screen and (max-width: 1300px) {
-    .googleMaps {
-        flex-direction: row;
-    }
+.googleMaps__button {
+    text-align: center;
+}
 
-    .googleMaps__mapframe {
-        position: relative;
-        width: 100%;
-        height: 65vh;
-        overflow: visible;
-    }
+.googleMaps__item {
+    width: 200px;
+    height: 150px;
+    border-style: solid;
+    border-width: 0.01rem;
+    border-color: gray;
+    margin: 10px;
+}
 
+.googleMaps__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.googleMaps__shops {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 500px) {
     .googleMaps__label {
-        width: 100%;
-        height: 20%;
-    }
-
-    .googleMaps__items {
-        display: flex;
-        flex-direction: row;
+        height: 30.5%;
     }
 }

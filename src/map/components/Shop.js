@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../App.css";
+
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -67,17 +69,21 @@ export default props => {
                 >
                   {shop.localization}
                 </Typography>
-                {` – Otwarte: ${shop.openHours}`}
+                {` – Otwarte: ${shop.openHours} / ${
+                  shop.alko === true ? " Alkoholowy" : " Bezalkoholowy"
+                }`}
               </React.Fragment>
             }
           />
         </ListItem>
       </div>
       <div className="googleMaps__button">
-        <Button color="primary" onClick={() => handleOnClick(id)}>
+        <Button color="default" onClick={() => handleOnClick(id)}>
           POKAŻ NA MAPIE
         </Button>
       </div>
     </div>
   );
 };
+
+// {}
