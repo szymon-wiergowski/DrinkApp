@@ -43,10 +43,6 @@ export class DrinkList extends React.Component {
       this.fetchDatas();
     }
   }
-  handleToggleForm = () =>
-    this.setState({
-      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
-    });
 
   fetchDatas() {
     Promise.all([getDrinks(), getIngredients()])
@@ -62,9 +58,9 @@ export class DrinkList extends React.Component {
             if (this.state.searchIngredients.length === 0) {
               return true;
             } else {
-              return (
-                this.state.searchIngredients.every(ingredientId => drink.ingredients.includes(parseInt(ingredientId)))
-              )
+              return this.state.searchIngredients.every(ingredientId =>
+                drink.ingredients.includes(parseInt(ingredientId))
+              );
             }
           })
           .filter(drink => {
@@ -124,17 +120,27 @@ export class DrinkList extends React.Component {
 
   handleIngredientsChange(e, value) {
     this.setState({
-      searchIngredients: value.map(el => el.id),
-    })
+      searchIngredients: value.map(el => el.id)
+    });
   }
 
   handleToggle = () =>
     this.setState({
       open: !this.state.open
-    })
+    });
+
+  handleToggleForm = () =>
+    this.setState({
+      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
+    });
+
+    componentWillUnmount(){
+      if(!this.state.isLoading)
+      this.fetchDatas()   
+    }
 
   render() {
-    const { open } = this.state
+    const { open } = this.state;
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
