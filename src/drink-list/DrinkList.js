@@ -22,9 +22,6 @@ export class DrinkList extends React.Component {
       sortOrder: "asc",
       addDrinkSlideIsOpen: false
     };
-    this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.handleAlkoChange = this.handleAlkoChange.bind(this);
-    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +41,7 @@ export class DrinkList extends React.Component {
     }
   }
 
-  fetchDatas() {
+  fetchDatas = () => {
     Promise.all([getDrinks(), getIngredients()])
       .then(data => {
         const filteredDrinks = data[0]
@@ -97,28 +94,27 @@ export class DrinkList extends React.Component {
           isLoading: false
         });
       })
-    .catch(err => {
-      console.log(err)
-      this.setState({
-        hasError: true,
-        error: err.toString()
+      .catch(err => {
+        this.setState({
+          hasError: true,
+          error: err.toString()
+        });
       });
-    });
   }
 
-  handleSearchChange(e) {
+  handleSearchChange = e => {
     this.setState({
       search: e.target.value.toLowerCase()
     });
   }
 
-  handleAlkoChange(e) {
+  handleAlkoChange = e => {
     this.setState({
       alko: e.target.value
     });
   }
 
-  handleIngredientsChange(e, value) {
+  handleIngredientsChange = (e, value) => {
     this.setState({
       searchIngredients: value.map(el => el.id)
     });
@@ -134,13 +130,7 @@ export class DrinkList extends React.Component {
       addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
     });
 
-    componentWillUnmount(){
-      if(!this.state.isLoading)
-      this.fetchDatas()   
-    }
-
   render() {
-    const { open } = this.state;
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
@@ -157,6 +147,7 @@ export class DrinkList extends React.Component {
           <AddDrinkSlide
             handleToggleForm={this.handleToggleForm}
             fetchDatas={this.fetchDatas}
+            handleFetchForm={this.handleFetchForm}
           />
         )}
         <SearchPanel

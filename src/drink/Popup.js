@@ -12,6 +12,7 @@ class Popup extends React.Component {
   handleToggle = () =>
     this.setState({
       open: !this.state.open
+      
     })
   render() {
     const { open } = this.state
@@ -19,7 +20,7 @@ class Popup extends React.Component {
       <Fab color="secondary" aria-label="edit" onClick={this.handleToggle}>
         <EditIcon />
         <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
-          <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/verify.jpeg'} alt={""} className="popup_img" width="200px" height="200px"></img>
+          <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} alt={""} className="popup_img" width="200px" height="200px"></img>
             Nazwa:
                   </DialogTitle>
           <DialogTitle id="customized-dialog-title">
@@ -49,7 +50,7 @@ class Popup extends React.Component {
       </Fab>
       <Button variant="outlined" className="buttonPopup" color="primary" onClick={this.handleToggle}>Więcej</Button>
       <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
-        <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/verify.jpeg'} alt={""} className="popup_img" width="200px" height="200px"></img>
+        <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} alt={""} className="popup_img" width="200px" height="200px"></img>
           Nazwa:
                 </DialogTitle>
         <DialogTitle id="customized-dialog-title">

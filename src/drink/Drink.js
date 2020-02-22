@@ -32,13 +32,13 @@ class Drink extends React.Component {
           }}
         >
           <CardActionArea>
-            <CardMedia image={(this.props.img_url) ? this.props.img_url : './img/verify.jpeg'} />
+            <CardMedia image={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 <img
-                  src={(this.props.img_url) ? this.props.img_url : './img/verify.jpeg'}
+                  src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'}
                   alt={""}
-                  width={(this.props.img_url) ? "150px" : "260px"}
+                  width="150px"
                   height="150px"
                 />
               </Typography>

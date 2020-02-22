@@ -65,14 +65,13 @@ export default class AddDrinkSlide extends React.Component {
     })
       .then(() => {
         this.props.handleToggleForm();
-        // this.props.fetchDatas();
+        this.props.fetchDatas();
       })
   }
 
   render() {
     const { handleToggleForm } = this.props;
     const { name, ingredients, recipe, origin, power } = this.state;
-    console.log(this.state)
     return (
       <div>
         <Dialog
