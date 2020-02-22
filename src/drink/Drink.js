@@ -24,7 +24,7 @@ class Drink extends React.Component {
       <>
         <Card
           style={{
-            width: "300px",
+            width: "250px",
             height: "500px",
             margin: "16px 16px 0 50px",
             padding: "50px",

@@ -28,7 +28,7 @@
 .dashboard {
     display: flex;
     position: relative;
-    height: 85vh;
+    height: 43rem;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
     flex-direction: column;
@@ -75,12 +75,14 @@
 
 .dashboard__subtitle--item {
     font-size: 1.5rem;
+    padding: 1rem;
     text-align: center;
     color: rgb(88, 88, 88);
 }
 
 .dashboard__subtitle--right {
     font-size: 1.5rem;
+    padding: 1rem;
     text-align: center;
     color: rgb(88, 88, 88);
 }
@@ -116,7 +118,6 @@
 .dashboard__item {
     width: 38%;
     max-width: 30rem;
-    min-width: 25rem;
 }
 
 .dashboard__item--none {
@@ -150,7 +151,6 @@
 .dashboard__item--right {
     width: 38%;
     max-width: 30rem;
-    min-width: 25rem;
 }
 
 .dashboard__title--right {
@@ -207,11 +207,6 @@
     max-width: 600px;
 }
 
-.formdrink {
-    display: "flex";
-    flex-direction: "column";
-}
-
 .adddrink__button {
     position: fixed;
     bottom: 4%;
@@ -259,7 +254,7 @@
         flex-direction: column;
         text-align: left;
         height: 60%;
-        width: 15rem;
+        width: 19rem;
         margin-left: -8.5rem;
         top: 0;
     }
@@ -270,7 +265,7 @@
         flex-direction: column;
         text-align: right;
         height: 60%;
-        width: 15rem;
+        width: 19rem;
         margin-left: 8.5rem;
         top: 0;
     }
@@ -311,11 +306,6 @@
     .dashboard__items--revers {
         flex-direction: column-reverse;
         height: auto;
-    }
-
-    .dashboard__title--item {
-        font-size: 2rem;
-        margin-bottom: 2rem;
     }
     .MuiTab-root {
         min-width: 0 !important;
@@ -382,9 +372,8 @@
         margin-top: 4rem;
     }
     .adddrink__button {
-        position: fixed;
-        bottom: 4%;
-        margin-right: 30%;
+        bottom: 5%;
+        margin-left: 15%;
     }
 }
 
