@@ -72,7 +72,7 @@ export default class AddDrinkSlide extends React.Component {
   render() {
     const { handleToggleForm } = this.props;
     const { name, ingredients, recipe, origin, power } = this.state;
-    
+    console.log(this.state)
     return (
       <div>
         <Dialog
@@ -110,7 +110,7 @@ export default class AddDrinkSlide extends React.Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleButtonClick} color="secondary">
+            <Button onClick={this.handleButtonClick} color="secondary" disabled={(name && ingredients && recipe && origin && power) ? false : true}>
               ZAPISZ
           </Button>
           </DialogActions>
