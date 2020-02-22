@@ -66,9 +66,9 @@ class Drink extends React.Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Fab variant="extended" className="fab">
+            {/* <Fab variant="extended" className="fab">
               <FavoriteIcon />
-            </Fab>
+            </Fab> */}
             <Popup
               key={this.props.id}
               name={this.props.name}

@@ -17,7 +17,7 @@ class Popup extends React.Component {
   render() {
     const { open } = this.state
     return <Fragment>
-      <Fab color="secondary" aria-label="edit" onClick={this.handleToggle}>
+      {/* <Fab color="secondary" aria-label="edit" onClick={this.handleToggle}>
         <EditIcon />
         <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
           <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} alt={""} className="popup_img" width="200px" height="200px"></img>
@@ -47,7 +47,7 @@ class Popup extends React.Component {
                     </Button>
           </DialogActions>
         </Dialog>
-      </Fab>
+      </Fab> */}
       <Button variant="outlined" className="buttonPopup" color="primary" onClick={this.handleToggle}>Więcej</Button>
       <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
         <DialogTitle id="customized-dialog-title" style={{ color: "#f50057" }}><img src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} alt={""} className="popup_img" width="200px" height="200px"></img>
@@ -79,14 +79,14 @@ class Popup extends React.Component {
         <DialogContentText style={{ margin: "20px" }}>
           {this.props.power}
         </DialogContentText>
-        <DialogActions>
+        {/* <DialogActions>
           <Button color="primary">
             Skopiuj
                   </Button>
           <Button color="primary">
             Dodaj do ulubionych
                   </Button>
-        </DialogActions>
+        </DialogActions> */}
       </Dialog>
     </Fragment>
   }
