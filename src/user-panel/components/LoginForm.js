@@ -57,15 +57,13 @@ const LoginForm = (props) => {
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
                 </form>
 
-                <form className={classes.root}>
+                <form onSubmit={handleResetPassword} className={classes.root}>
                     <Link
                         color="secondary"
                         component="button"
-                        onClick={() => {
-                            handleResetPassword();
-                        }}
+                        type="submit"
                         variant="body2">
-                        {'Przypomnij hasło'}
+                        {'Resetuj hasło'}
                     </Link>
                 </form>
             </Card>

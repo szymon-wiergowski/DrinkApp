@@ -89,9 +89,10 @@ class App extends React.Component {
       });
   }
 
-  handleResetPassword = () => {
+  handleResetPassword = (e) => {
+    e.preventDefault();
     if (this.state.email === '') {
-      alert(`Wpisz email na który ma być wysłane hasło.`)
+      alert(`Wpisz email..`)
     } else {
       fire.auth().sendPasswordResetEmail(this.state.email);
       alert(`Na adres ${this.state.email} został wysłany link do resetowania hasła.`)
@@ -221,7 +222,15 @@ class App extends React.Component {
   }
 
   hendleDeleteFavoriteDrink(id) {
+    //   fetch(`https://drinkapp-7833e.firebaseio.com/users.json + "/" + id`, {
+    //     method: 'DELETE'
+    //   }).then(() => {
+    //      console.log('removed');
+    //   }).catch(err => {
+    //     console.error(err)
+    //   });
     alert(`id: ${id}`);
+
   }
 
   render() {
