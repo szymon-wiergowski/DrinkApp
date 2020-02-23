@@ -75,12 +75,7 @@ class Popup extends React.Component {
           {this.props.power}
         </DialogContentText>
         <DialogActions>
-          <Button color="primary">
-            Skopiuj
-                  </Button>
-          <Button color="primary">
-            Dodaj do ulubionych
-                  </Button>
+
         </DialogActions>
       </Dialog>
     </Fragment>

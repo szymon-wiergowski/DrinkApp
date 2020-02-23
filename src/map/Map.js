@@ -8,7 +8,7 @@ import MapGoogle from "./components/MapGoogle";
 import ListOfShops from "./components/ListOfShops";
 import { getShops } from "../DataFetch/DataFetch";
 
-const initialuserLocation = {
+const initialUserLocation = {
   lat: 54.40333,
   lng: 18.570192
 };
@@ -20,9 +20,10 @@ export default class Map extends React.Component {
     error: "",
     sortBy: "name",
     sortOrder: "asc",
-    search: "",
+    alko: "all",
+    localization: "all",
     shop: [],
-    userLocation: { ...initialuserLocation }
+    userLocation: { ...initialUserLocation }
   };
 
   componentDidMount() {
@@ -47,13 +48,21 @@ export default class Map extends React.Component {
   }
 
   fetchData() {
-    getShops()
+    Promise.resolve(getShops())
       .then(data => {
-        const filteredShops = data.filter(shop => {
-          const shopName = shop.name.toLowerCase();
-          return shopName.includes(this.state.search);
+        const filteredShopsByAlko = data.filter(shop => {
+          if (this.state.alko === "all") {
+            return true;
+          }
+          return shop.alko === this.state.alko;
         });
-        const sortedShops = filteredShops.sort((a, b) => {
+        const filteredShopsByCity = filteredShopsByAlko.filter(shop => {
+          if (this.state.localization === "all") {
+            return true;
+          }
+          return shop.localization === this.state.localization;
+        });
+        const sortedShops = filteredShopsByCity.sort((a, b) => {
           const dA = a[this.state.sortBy];
           const dB = b[this.state.sortBy];
           if (typeof dA === "string") {
@@ -77,6 +86,15 @@ export default class Map extends React.Component {
       });
   }
 
+  componentDidUpdate(prevState) {
+    const alkoChanged = prevState.alko !== this.state.alko;
+    const localizationChanged =
+      prevState.localization !== this.state.localization;
+    if ((alkoChanged || localizationChanged) && !this.state.isLoading) {
+      this.fetchData();
+    }
+  }
+
   handleOnAction = id => {
     const checkedShop = this.state.shops.filter(shop => {
       return shop.id === id;
@@ -85,6 +103,18 @@ export default class Map extends React.Component {
     this.setState({
       shop: coords,
       userLocation: { lat: coords.lat, lng: coords.lon }
+    });
+  };
+
+  handleAlkoChange = event => {
+    this.setState({
+      alko: event.target.value
+    });
+  };
+
+  handleCityChange = event => {
+    this.setState({
+      localization: event.target.value
     });
   };
 
@@ -97,12 +127,28 @@ export default class Map extends React.Component {
       return <div>Bład: {this.state.error}</div>;
     }
 
-    const { shop, shops, loading, userLocation } = this.state;
+    const {
+      shop,
+      shops,
+      loading,
+      userLocation,
+      alko,
+      localization
+    } = this.state;
 
     return (
       <div className="googleMaps">
         <div className="googleMaps__label">
-          <ListOfShops shops={shops} onCheck={this.handleOnAction} />
+          <div className="googleMaps__shops">
+            <ListOfShops
+              shops={shops}
+              onCheck={this.handleOnAction}
+              valueAlko={alko}
+              onChangeAlko={this.handleAlkoChange}
+              valueCity={localization}
+              onChangeCity={this.handleCityChange}
+            />
+          </div>
         </div>
         <div className="googleMaps__mapframe">
           <div className="googleMaps__map">

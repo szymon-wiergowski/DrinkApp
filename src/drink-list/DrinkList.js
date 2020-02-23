@@ -22,9 +22,6 @@ export class DrinkList extends React.Component {
       sortOrder: "asc",
       addDrinkSlideIsOpen: false
     };
-    this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.handleAlkoChange = this.handleAlkoChange.bind(this);
-    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
   }
 
   componentDidMount() {
@@ -43,12 +40,8 @@ export class DrinkList extends React.Component {
       this.fetchDatas();
     }
   }
-  handleToggleForm = () =>
-    this.setState({
-      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
-    });
 
-  fetchDatas() {
+  fetchDatas = () => {
     Promise.all([getDrinks(), getIngredients()])
       .then(data => {
         const filteredDrinks = data[0]
@@ -62,9 +55,9 @@ export class DrinkList extends React.Component {
             if (this.state.searchIngredients.length === 0) {
               return true;
             } else {
-              return (
-                this.state.searchIngredients.every(ingredientId => drink.ingredients.includes(parseInt(ingredientId)))
-              )
+              return this.state.searchIngredients.every(ingredientId =>
+                drink.ingredients.includes(parseInt(ingredientId))
+              );
             }
           })
           .filter(drink => {
@@ -101,39 +94,43 @@ export class DrinkList extends React.Component {
           isLoading: false
         });
       })
-      .catch(error => {
+      .catch(err => {
         this.setState({
           hasError: true,
-          error: error.toString()
+          error: err.toString()
         });
       });
   }
 
-  handleSearchChange(e) {
+  handleSearchChange = e => {
     this.setState({
       search: e.target.value.toLowerCase()
     });
   }
 
-  handleAlkoChange(e) {
+  handleAlkoChange = e => {
     this.setState({
       alko: e.target.value
     });
   }
 
-  handleIngredientsChange(e, value) {
+  handleIngredientsChange = (e, value) => {
     this.setState({
-      searchIngredients: value.map(el => el.id),
-    })
+      searchIngredients: value.map(el => el.id)
+    });
   }
 
   handleToggle = () =>
     this.setState({
       open: !this.state.open
-    })
+    });
+
+  handleToggleForm = () =>
+    this.setState({
+      addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
+    });
 
   render() {
-    const { open } = this.state
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
@@ -147,7 +144,11 @@ export class DrinkList extends React.Component {
       <div>
         <AddDrinkButton handleToggleForm={this.handleToggleForm} />
         {this.state.addDrinkSlideIsOpen && (
-          <AddDrinkSlide handleToggleForm={this.handleToggleForm} />
+          <AddDrinkSlide
+            handleToggleForm={this.handleToggleForm}
+            fetchDatas={this.fetchDatas}
+            handleFetchForm={this.handleFetchForm}
+          />
         )}
         <SearchPanel
           valueSearchField={this.state.search}
@@ -158,21 +159,21 @@ export class DrinkList extends React.Component {
           valueAlko={this.state.alko}
           onChangeAlko={this.handleAlkoChange}
         />
-      {(!this.state.isLoading & this.state.drinks.length < 1)
-      ? <h1 style={{textAlign: 'center', color: 'red'}}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
-      : this.state.drinks.map(drink => (
-        <Drink
-          key={drink.id}
-          name={drink.name}
-          recipe={drink.recipe}
-          ingredients={drink.ingredients}
-          power={drink.power}
-          ingredients_name={drink.ingredients_name}
-          img_url={drink.img_url}
-          origin={drink.origin}
-        />
-      ))
-      }
+        {(!this.state.isLoading & this.state.drinks.length < 1)
+          ? <h1 style={{ textAlign: 'center', color: 'red' }}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
+          : this.state.drinks.map(drink => (
+            <Drink
+              key={drink.id}
+              name={drink.name}
+              recipe={drink.recipe}
+              ingredients={drink.ingredients}
+              power={drink.power}
+              ingredients_name={drink.ingredients_name}
+              img_url={drink.img_url}
+              origin={drink.origin}
+            />
+          ))
+        }
       </div>
     );
   }

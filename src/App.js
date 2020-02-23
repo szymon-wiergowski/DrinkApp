@@ -89,6 +89,15 @@ class App extends React.Component {
       });
   }
 
+  handleResetPassword = () => {
+    if (this.state.email === '') {
+      alert(`Wpisz email na który ma być wysłane hasło.`)
+    } else {
+      fire.auth().sendPasswordResetEmail(this.state.email);
+      alert(`Na adres ${this.state.email} został wysłany link do resetowania hasła.`)
+    }
+  }
+
   registerValidate = () => {
     const re = /[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2}/;
     if (!re.test(this.state.firstname)) {
@@ -216,6 +225,7 @@ class App extends React.Component {
   }
 
   render() {
+    const handleResetPassword = this.handleResetPassword.bind(this)
     const handleChange = this.handelChange.bind(this);
     const login = this.login.bind(this);
     const logout = this.logout.bind(this);
@@ -267,6 +277,7 @@ class App extends React.Component {
                 path="/userpanel"
                 render={() => (
                   <UserPanel
+                    handleResetPassword={handleResetPassword}
                     hendleCheckbox={hendleCheckbox}
                     checkedRules={checkedRules}
                     hendleDeleteFavoriteDrink={hendleDeleteFavoriteDrink}

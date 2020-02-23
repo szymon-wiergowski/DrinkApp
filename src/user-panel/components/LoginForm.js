@@ -24,7 +24,7 @@ const LoginForm = (props) => {
 
     const classes = useStyles();
     const matches = useMediaQuery('(min-width:740px)');
-    const { registerButtonToggle, loginButtonToggle, handelChangePanel } = props
+    const { registerButtonToggle, loginButtonToggle, handelChangePanel, handleResetPassword } = props
 
     if (matches === true) {
         return (
@@ -55,15 +55,17 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+                </form>
+
+                <form className={classes.root}>
                     <Link
                         color="secondary"
                         component="button"
-                        href="#"
                         onClick={() => {
-                            alert('Moduł w trakcie budowy.');
+                            handleResetPassword();
                         }}
                         variant="body2">
-                        {'Nie pamiętasz hasła?'}
+                        {'Przypomnij hasło'}
                     </Link>
                 </form>
             </Card>
@@ -97,15 +99,17 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+
+                </form>
+                <form className={classes.root}>
                     <Link
                         color="secondary"
                         component="button"
-                        href="#"
                         onClick={() => {
-                            alert('Moduł w trakcie budowy.');
+                            handleResetPassword()
                         }}
                         variant="body2">
-                        {'Nie pamiętasz hasła?'}
+                        {'Przypomnij hasło'}
                     </Link>
                 </form>
             </Container>
