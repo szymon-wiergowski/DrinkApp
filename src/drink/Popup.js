@@ -3,8 +3,7 @@ import {Dialog, Button} from '@material-ui/core';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
+
 class Popup extends React.Component{
     state={
         open:false,

@@ -139,7 +139,6 @@ export class DrinkList extends React.Component {
     }
 
   render() {
-    const { open } = this.state;
 
     if (this.state.isLoading) {
       return <CircularProgress color="secondary" />;
