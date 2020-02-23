@@ -22,9 +22,6 @@ export class DrinkList extends React.Component {
       sortOrder: "asc",
       addDrinkSlideIsOpen: false
     };
-    this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.handleAlkoChange = this.handleAlkoChange.bind(this);
-    this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +41,7 @@ export class DrinkList extends React.Component {
     }
   }
 
-  fetchDatas() {
+  fetchDatas = () => {
     Promise.all([getDrinks(), getIngredients()])
       .then(data => {
         const filteredDrinks = data[0]
@@ -97,27 +94,27 @@ export class DrinkList extends React.Component {
           isLoading: false
         });
       })
-      .catch(error => {
+      .catch(err => {
         this.setState({
           hasError: true,
-          error: error.toString()
+          error: err.toString()
         });
       });
   }
 
-  handleSearchChange(e) {
+  handleSearchChange = e => {
     this.setState({
       search: e.target.value.toLowerCase()
     });
   }
 
-  handleAlkoChange(e) {
+  handleAlkoChange = e => {
     this.setState({
       alko: e.target.value
     });
   }
 
-  handleIngredientsChange(e, value) {
+  handleIngredientsChange = (e, value) => {
     this.setState({
       searchIngredients: value.map(el => el.id)
     });
@@ -133,11 +130,6 @@ export class DrinkList extends React.Component {
       addDrinkSlideIsOpen: !this.state.addDrinkSlideIsOpen
     });
 
-    componentWillUnmount(){
-      if(!this.state.isLoading)
-      this.fetchDatas()   
-    }
-
   render() {
 
     if (this.state.isLoading) {
@@ -152,7 +144,11 @@ export class DrinkList extends React.Component {
       <div>
         <AddDrinkButton handleToggleForm={this.handleToggleForm} />
         {this.state.addDrinkSlideIsOpen && (
-          <AddDrinkSlide handleToggleForm={this.handleToggleForm} />
+          <AddDrinkSlide
+            handleToggleForm={this.handleToggleForm}
+            fetchDatas={this.fetchDatas}
+            handleFetchForm={this.handleFetchForm}
+          />
         )}
         <SearchPanel
           valueSearchField={this.state.search}
@@ -163,15 +159,9 @@ export class DrinkList extends React.Component {
           valueAlko={this.state.alko}
           onChangeAlko={this.handleAlkoChange}
         />
-        {!this.state.isLoading & (this.state.drinks.length < 1) ? (
-          <h1 style={{ textAlign: "center", color: "red" }}>
-            Brak wyników
-            <br />
-            Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do
-            naszej bazy :)
-          </h1>
-        ) : (
-          this.state.drinks.map(drink => (
+        {(!this.state.isLoading & this.state.drinks.length < 1)
+          ? <h1 style={{ textAlign: 'center', color: 'red' }}>Brak wyników<br />Jeżeli nie znalazłeś drinka którego szukasz, możesz dodać go do naszej bazy :)</h1>
+          : this.state.drinks.map(drink => (
             <Drink
               key={drink.id}
               name={drink.name}
@@ -183,7 +173,7 @@ export class DrinkList extends React.Component {
               origin={drink.origin}
             />
           ))
-        )}
+        }
       </div>
     );
   }

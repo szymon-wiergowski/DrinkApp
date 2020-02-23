@@ -60,4 +60,4 @@ function getUsers() {
     });
 }
 
-export { getDrinks, getIngredients, getShops, getUsers };
+export { getDrinks, getIngredients, getShops, getUsers, BASE_URL };

@@ -32,11 +32,11 @@ class Drink extends React.Component {
           }}
         >
           <CardActionArea>
-            <CardMedia image={this.props.img_url} />
+            <CardMedia image={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 <img
-                  src={this.props.img_url}
+                  src={(this.props.img_url) ? this.props.img_url : './img/newDrink.jpg'}
                   alt={""}
                   width="150px"
                   height="150px"
@@ -66,9 +66,9 @@ class Drink extends React.Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Fab variant="extended" className="fab">
+            {/* <Fab variant="extended" className="fab">
               <FavoriteIcon />
-            </Fab>
+            </Fab> */}
             <Popup
               key={this.props.id}
               name={this.props.name}

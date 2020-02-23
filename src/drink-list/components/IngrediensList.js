@@ -21,7 +21,9 @@ export default class IngrediensList extends React.Component {
       error: "",
       sortBy: "name"
     };
+    this.setIngredients = this.setIngredients.bind(this);
   }
+
   componentDidMount() {
     this.fetchIngredients();
   }
@@ -64,6 +66,10 @@ export default class IngrediensList extends React.Component {
     );
   }
 
+  setIngredients(e, value) {
+    this.props.onChangeIngredients(e, value);
+  }
+
   render() {
     if (this.state.hasError) {
       return <div>Error: {this.state.error}</div>;
@@ -78,6 +84,7 @@ export default class IngrediensList extends React.Component {
     return (
       <Autocomplete
         multiple
+        onChange={(e, value) => this.setIngredients(e, value)}
         id="checkboxes-tags-demo"
         options={ingredientsElements}
         disableCloseOnSelect

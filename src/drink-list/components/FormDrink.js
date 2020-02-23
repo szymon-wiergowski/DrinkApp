@@ -10,15 +10,15 @@ import IngrediensList from "./IngrediensList";
 
 const strength = [
   {
-    value: "Mocny",
+    value: ">15%",
     label: "Mocny (pow. 15%)"
   },
   {
-    value: "Słaby",
+    value: "0,5%-15%",
     label: "Słaby (od 0,5% do 15%)"
   },
   {
-    value: "Bezalkoholowy",
+    value: "<0,5%",
     label: "Bezalkoholowy"
   }
 ];
@@ -32,24 +32,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FormDrink() {
+export default function FormDrink({name, onChangeData, ingredients, onChangeIngredients, recipe, origin, power, onChangeAlko}) {
   const classes = useStyles();
-  const [strengthen, setPowercy] = React.useState("");
-
-  const handleChange = event => {
-    setPowercy(event.target.value);
-  };
 
   return (
-    <div className="formdrink">
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="on"
-        style={{ display: "flex", flexDirection: "column" }}
-      >
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <form className={classes.root} noValidate autoComplete="off" style={{ display: 'flex', flexDirection: 'column' }}>
         <TextField
           required
+          name='name'
+          value={name}
+          onChange={onChangeData}
           fullWidth
           id="outlined-required"
           label="Nazwa"
@@ -63,15 +56,32 @@ export default function FormDrink() {
             )
           }}
         />
-        <IngrediensList />
+        <IngrediensList
+          ingredients={ingredients}
+          onChangeIngredients={onChangeIngredients}
+        />
         <TextField
           required
+          name='recipe'
+          value={recipe}
+          onChange={onChangeData}
           fullWidth
           id="outlined-multiline-static"
-          label="Opis"
+          label="Przepis"
           multiline
           rows="5"
           placeholder="Sposób przygotowania drinka"
+          variant="outlined"
+          color="secondary"
+        />
+        <TextField
+          required
+          name='origin'
+          value={origin}
+          onChange={onChangeData}
+          fullWidth
+          id="outlined-required"
+          label="Pochodzenie"
           variant="outlined"
           color="secondary"
         />
@@ -81,8 +91,8 @@ export default function FormDrink() {
           id="outlined-select-power"
           select
           label="Moc"
-          value={strengthen}
-          onChange={handleChange}
+          value={power}
+          onChange={onChangeAlko}
           helperText="Wybierz moc drinka"
           variant="outlined"
           color="secondary"
