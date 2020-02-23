@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { Card, Container } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import SwitchButtons from './SwitchButtons';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,7 +24,7 @@ const LoginForm = (props) => {
 
     const classes = useStyles();
     const matches = useMediaQuery('(min-width:740px)');
-    const { registerButtonToggle, loginButtonToggle, handelChangePanel } = props
+    const { registerButtonToggle, loginButtonToggle, handelChangePanel, handleResetPassword } = props
 
     if (matches === true) {
         return (
@@ -54,6 +55,18 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+                </form>
+
+                <form className={classes.root}>
+                    <Link
+                        color="secondary"
+                        component="button"
+                        onClick={() => {
+                            handleResetPassword();
+                        }}
+                        variant="body2">
+                        {'Przypomnij hasło'}
+                    </Link>
                 </form>
             </Card>
         )
@@ -86,6 +99,18 @@ const LoginForm = (props) => {
                     />
                     <span style={{ color: 'red' }}>{props.error === '' ? null : props.error}</span>
                     <Button type="submit" variant="contained" color="secondary">Zaloguj się!</Button>
+
+                </form>
+                <form className={classes.root}>
+                    <Link
+                        color="secondary"
+                        component="button"
+                        onClick={() => {
+                            handleResetPassword()
+                        }}
+                        variant="body2">
+                        {'Przypomnij hasło'}
+                    </Link>
                 </form>
             </Container>
         )

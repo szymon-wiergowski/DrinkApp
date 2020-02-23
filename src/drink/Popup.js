@@ -10,10 +10,10 @@ class Popup extends React.Component {
     open: false,
   }
 
-   this.setState({
-     open: !this.state.open
-      
-   })
+  //  this.setState({
+  //    open: !this.state.open
+
+  //  })
   render() {
     const { open } = this.state
     return <Fragment>

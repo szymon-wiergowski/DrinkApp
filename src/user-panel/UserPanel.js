@@ -21,11 +21,12 @@ class UserPanel extends React.Component {
     render() {
         const handelChangePanel = this.handelChangePanel.bind(this)
         const { displayCard, loginButtonToggle, registerButtonToggle } = this.state
-        const { user, checkedRules, hendleDeleteFavoriteDrink, userData, favoriteDrinks, login, logout, signUp, value, handleChange, hendleCheckbox, error } = this.props
+        const { user, handleResetPassword, checkedRules, hendleDeleteFavoriteDrink, userData, favoriteDrinks, login, logout, signUp, value, handleChange, hendleCheckbox, error } = this.props
         if (user === null) {
             if (displayCard === false) {
                 return (
                     <LoginForm
+                        handleResetPassword={handleResetPassword}
                         registerButtonToggle={registerButtonToggle}
                         loginButtonToggle={loginButtonToggle}
                         handelChangePanel={handelChangePanel}
