@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `On Your Network`
-Open [https://szymon-wergowski.github.io.](https://szymon-wergowski.github.io.) to view it in the browser.
+Open [https://szymon-wergowski.github.io.DrinkApp](https://szymon-wergowski.github.io.DrinkApp) to view it in the browser.
 
 ### `npm start`
 
