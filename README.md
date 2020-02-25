@@ -4,9 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `On Your Network`
-Open [https://szymon-wiergowski.github.io/drink-app](https://szymon-wiergowski.github.io/drink-app) to view it in the browser.
-
 ### `npm start`
 
 Runs the app in the development mode.<br />
