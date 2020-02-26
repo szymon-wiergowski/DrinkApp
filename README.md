@@ -4,9 +4,3 @@ The 4-person team project was created in Infoshare Academy. Application helps pr
 
 
 Demo: http://app.justfive.jfdz12.is-academy.pl/
-
-## Available Scripts
-
-### `npm start`
-
-
