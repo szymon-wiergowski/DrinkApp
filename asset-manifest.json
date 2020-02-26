@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/drink-app/static/css/main.c991d6f0.chunk.css",
-    "main.js": "/drink-app/static/js/main.a2d6c721.chunk.js",
-    "main.js.map": "/drink-app/static/js/main.a2d6c721.chunk.js.map",
-    "runtime-main.js": "/drink-app/static/js/runtime-main.4e36133f.js",
-    "runtime-main.js.map": "/drink-app/static/js/runtime-main.4e36133f.js.map",
-    "static/js/2.602c5d7b.chunk.js": "/drink-app/static/js/2.602c5d7b.chunk.js",
-    "static/js/2.602c5d7b.chunk.js.map": "/drink-app/static/js/2.602c5d7b.chunk.js.map",
-    "index.html": "/drink-app/index.html",
-    "precache-manifest.9ab48e2bda76aef61ba62f4dfcd0c473.js": "/drink-app/precache-manifest.9ab48e2bda76aef61ba62f4dfcd0c473.js",
-    "service-worker.js": "/drink-app/service-worker.js",
-    "static/css/main.c991d6f0.chunk.css.map": "/drink-app/static/css/main.c991d6f0.chunk.css.map",
-    "static/js/2.602c5d7b.chunk.js.LICENSE": "/drink-app/static/js/2.602c5d7b.chunk.js.LICENSE",
-    "static/media/alkomat_safety.png": "/drink-app/static/media/alkomat_safety.434fa622.png",
-    "static/media/drink.png": "/drink-app/static/media/drink.a6ccc8f1.png",
-    "static/media/App.css": "/drink-app/static/media/image_dashboard.5bad8da8.png",
-    "static/media/image_dashboard_small.png": "/drink-app/static/media/image_dashboard_small.08070e84.png",
-    "static/media/map_shop.png": "/drink-app/static/media/map_shop.2aea4b73.png"
+    "main.css": "/drinkapp/static/css/main.b3368cf4.chunk.css",
+    "main.js": "/drinkapp/static/js/main.2b178a12.chunk.js",
+    "main.js.map": "/drinkapp/static/js/main.2b178a12.chunk.js.map",
+    "runtime-main.js": "/drinkapp/static/js/runtime-main.b685d4ef.js",
+    "runtime-main.js.map": "/drinkapp/static/js/runtime-main.b685d4ef.js.map",
+    "static/js/2.ecf5f80f.chunk.js": "/drinkapp/static/js/2.ecf5f80f.chunk.js",
+    "static/js/2.ecf5f80f.chunk.js.map": "/drinkapp/static/js/2.ecf5f80f.chunk.js.map",
+    "index.html": "/drinkapp/index.html",
+    "precache-manifest.508287295201cf7c4221b9e0adbe69d4.js": "/drinkapp/precache-manifest.508287295201cf7c4221b9e0adbe69d4.js",
+    "service-worker.js": "/drinkapp/service-worker.js",
+    "static/css/main.b3368cf4.chunk.css.map": "/drinkapp/static/css/main.b3368cf4.chunk.css.map",
+    "static/js/2.ecf5f80f.chunk.js.LICENSE": "/drinkapp/static/js/2.ecf5f80f.chunk.js.LICENSE",
+    "static/media/alkomat_safety.png": "/drinkapp/static/media/alkomat_safety.434fa622.png",
+    "static/media/drink.png": "/drinkapp/static/media/drink.a6ccc8f1.png",
+    "static/media/App.css": "/drinkapp/static/media/image_dashboard.5bad8da8.png",
+    "static/media/image_dashboard_small.png": "/drinkapp/static/media/image_dashboard_small.08070e84.png",
+    "static/media/map_shop.png": "/drinkapp/static/media/map_shop.2aea4b73.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4e36133f.js",
-    "static/js/2.602c5d7b.chunk.js",
-    "static/css/main.c991d6f0.chunk.css",
-    "static/js/main.a2d6c721.chunk.js"
+    "static/js/runtime-main.b685d4ef.js",
+    "static/js/2.ecf5f80f.chunk.js",
+    "static/css/main.b3368cf4.chunk.css",
+    "static/js/main.2b178a12.chunk.js"
   ]
 }
